@@ -1,0 +1,7 @@
+include(external/eigen)
+if(LIBURDF_BUILD_TESTS)
+    include(external/googletest)
+endif()
+if(LIBURDF_BUILD_PYTHON3)
+    include(external/pybind11)
+endif()

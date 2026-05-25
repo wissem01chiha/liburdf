@@ -1,0 +1,9 @@
+build/
+bazel-out/
+bazel-liburdf/
+bazel-bin/
+bazel-testlogs/
+CMakeFiles/
+CMakeCache.txt
+MODULE.bazel.lock
+.vs

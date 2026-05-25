@@ -1,0 +1,7 @@
+third_party/loguru/loguru.cpp linguist-vendored
+third_party/loguru/loguru.hpp linguist-vendored
+third_party/cxxopts/cxxopts.hpp linguist-vendored
+third_party/tinyxml2/tinyxml2.hpp linguist-vendored
+third_party/tinyxml2/tinyxml2.cpp linguist-vendored
+third_party/pybind11/** linguist-vendored
+third_party/bazel/pybind_defs.bzl linguist-vendored

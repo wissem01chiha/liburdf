@@ -1,0 +1,20 @@
+# This file marks a workspace root for the Bazel build system.
+# See `https://bazel.build/`.
+
+module(
+    name = "liburdf",
+    bazel_compatibility = [">=9.0.1"],
+)
+
+# Add starlark rules.
+bazel_dep(name = "rules_cc", version = "0.2.17")
+bazel_dep(name = "rules_python", version = "1.9.0")
+
+# Add C++ dependencies that are part of our public API.
+bazel_dep(name = "eigen", version =  "5.0.1.bcr.1", repo_name = "eigen")
+bazel_dep(name = "googletest", version = "1.17.0.bcr.2", repo_name = "gtest")
+bazel_dep(name = "assimp", version = "6.0.3", repo_name = "assimp")
+bazel_dep(name = "bazel_skylib", version = "1.8.0")
+bazel_dep(name = "platforms", version = "1.0.0")
+bazel_dep(name = "bazel_features", version = "1.43.0")
+#bazel_dep(name = "pybind11_bazel", version = "3.0.1", repo_name = "pybind11")

@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${default}",
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/build/_deps/eigen-src",
+                "${workspaceFolder}/include/urdf",
+                "${workspaceFolder}/third_party",
+                "C:/Users/chiha.000/_bazel_chiha/cache/repos/v1/contents/d4dd3a0e225a3ec0bd4d6e541495547a0d10063297f5d5464bcce142a7c24ccc/25843316-b66d-43dc-8a6b-e1c0bc9db0b6",
+                "${workspaceFolder}/build/_deps/googletest-src/googletest/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "10.0.22621.0"
+        }
+    ],
+    "version": 4
+}

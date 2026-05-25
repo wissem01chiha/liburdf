@@ -1,0 +1,5 @@
+add_subdirectory(core)
+add_subdirectory(utility)
+add_subdirectory(internal)
+add_subdirectory(common)
+add_subdirectory(detail)

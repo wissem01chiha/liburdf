@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -e
+
+name="tinyxml2"
+repository="https://github.com/leethomason/tinyxml2"
+subtree="$name"
+version=""
+tag="11.0.0"
+files=(
+    "tinyxml2.h"
+    "tinyxml2.cpp"
+    "LICENSE.txt"
+    "readme.md"
+)

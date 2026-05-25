@@ -1,0 +1,23 @@
+#ifndef INCLUDE_URDF_CORE_JOINT_MIMIC_H
+#define INCLUDE_URDF_CORE_JOINT_MIMIC_H
+
+// Copyright 2024-2026 Wissem CHIHA
+
+#include "common/property_base.h"
+
+class JointMimic final : public PropertyBase
+{
+ public:
+  JointMimic();
+  bool isA(const char* name) const override;
+  std::string toString() const override;
+  void clear() override;
+  void setOffset(double o);
+  void setMultiplier(double m);
+  void setName(std::string& n_);
+
+ private:
+  double offset, multiplier;
+  std::string name;
+};
+#endif  // INCLUDE_URDF_CORE_JOINT_MIMIC_H_

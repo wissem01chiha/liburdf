@@ -1,0 +1,25 @@
+target_sources(urdf PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/box.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/camera.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/collision.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/color.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/cylinder.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/data_type.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/image.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/inertia.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/joint.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/joint_calibration.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/joint_dynamics.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/joint_limits.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/joint_mimic.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/joint_safety.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/link.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/material.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/mesh.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/model.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/pose.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/sphere.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/transmission.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/visual.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/world.cc
+)

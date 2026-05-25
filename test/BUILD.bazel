@@ -1,0 +1,33 @@
+# SPDX-FileCopyrightText: 2024-2026 Wissem Chiha
+# SPDX-License-Identifier: MIT
+
+load("//bazel:urdf_tests.bzl", "urdf_tests")
+
+filegroup(
+    name = "assets",
+    srcs = glob(["assets/**"]),
+    visibility = ["//visibility:public"],
+)
+
+urdf_tests([
+    "camera_test.cc",
+    "geometry_parser_test.cc",
+    "inertia_parser_test.cc",
+    "internal_graph_test.cc",
+    "version_test.cc",
+    "pose_test.cc",
+    "color_test.cc",
+    "joint_test.cc",
+    "mesh_test.cc",
+    "link_test.cc",
+    "pose_parser_test.cc",
+    "property_parser_test.cc",
+    "visual_parser_test.cc",
+    "collision_parser_test.cc",
+    "link_parser_test.cc",
+    "joint_parser_test.cc",
+    "string_utils_test.cc",
+    "model_test.cc",
+    "model_parser_test.cc",
+    "material_parser_test.cc",
+])

@@ -1,0 +1,20 @@
+find_package(Eigen3 QUIET)
+if(Eigen3_FOUND)
+    message(STATUS "Eigen3 found: ${EIGEN3_INCLUDE_DIR}")
+    list(APPEND urdf_include_dirs ${EIGEN3_INCLUDE_DIR})
+    list(APPEND urdf_link_libraries Eigen3::Eigen)
+else()
+    message(STATUS "Eigen3 not found. Downloading and building from source...")
+    include(FetchContent)
+    FetchContent_Declare(
+        eigen
+        URL https://gitlab.com/libeigen/eigen/-/archive/5.0.1/eigen-5.0.1.tar.gz
+    )
+    FetchContent_GetProperties(Eigen)
+    set(BUILD_TESTING OFF CACHE BOOL "Disable Eigen tests")
+    set(EIGEN_BUILD_TESTING OFF CACHE BOOL "Disable Eigen tests")
+    FetchContent_MakeAvailable(Eigen)
+    list(APPEND urdf_include_dirs ${eigen_SOURCE_DIR}/eigen-5.0.1)
+    list(APPEND urdf_link_libraries Eigen3::Eigen)
+    message(STATUS "Eigen3 has been fetched and is available at ${eigen_SOURCE_DIR}/eigen-5.0.1")
+endif()

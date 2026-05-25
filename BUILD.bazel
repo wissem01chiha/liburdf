@@ -1,0 +1,96 @@
+# SPDX-FileCopyrightText: 2024-2026 Wissem Chiha
+# SPDX-License-Identifier: MIT
+
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
+load("//bazel:pybind_defs.bzl", "pybind_extension")
+
+cc_library(
+    name = "cxxopts",
+    hdrs = glob(["third_party/cxxopts/*.hpp"]),
+    includes = ["third_party/cxxopts"],
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "tinyxml2",
+    srcs = glob(["third_party/tinyxml2/*.cpp"]),
+    hdrs = glob(["third_party/tinyxml2/*.h"]),
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "loguru",
+    srcs = glob(["third_party/loguru/*.cpp"]),
+    hdrs = glob(["third_party/loguru/*.hpp"]),
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "liburdf",
+    srcs = glob([
+        "src/urdf/core/*.cc",
+        "src/urdf/utility/*.cc",
+        "src/urdf/internal/*.cc",
+        "src/urdf/common/*.cc",
+        "src/urdf/detail/*.cc",
+    ]),
+    hdrs = glob([
+        "include/**/*.h",
+    ]),
+    includes = [
+        "include/urdf",
+        "include",
+        "third_party"],  
+    
+    deps = [
+        "@eigen//:eigen",       
+        ":loguru",     
+        ":tinyxml2", 
+    ],
+    visibility = ["//visibility:public"],
+)
+
+cc_binary(
+    name = "urdf_parse",
+    srcs = ["scripts/src/urdf_parse.cc"],
+    deps = [
+        ":liburdf",
+        ":cxxopts"
+    ],
+)
+
+cc_binary(
+    name = "urdf_to_graphiz",
+    srcs = ["scripts/src/urdf_to_graphiz.cc"],
+    deps = [
+        ":liburdf",
+        ":cxxopts"
+    ],
+)
+
+cc_library(
+    name = "pybind11",
+    hdrs = glob(["third_party/pybind11/include/pybind11/**/*.h"]),
+    includes = ["third_party/pybind11/include"],
+    visibility = ["//visibility:public"],
+)
+
+pybind_extension(
+    name = "pyurdf_parser",
+    srcs = ["python/src/pyurdf_parser.cc"],
+    deps = [
+        ":liburdf",
+        ":pybind11"
+    ]
+)
+
+pybind_extension(
+    name = "pyurdf",
+    srcs = ["python/src/pyurdf.cc"],
+    deps = [
+        ":liburdf",
+        ":pybind11"
+    ]
+)
+

@@ -1,0 +1,24 @@
+target_sources(urdf PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/box_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/camera_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.txt
+    ${CMAKE_CURRENT_SOURCE_DIR}/collision_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/color_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/cylinder_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/data_type_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/geometry_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/inertia_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/joint_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/link_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/material_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/mesh_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/model_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/pose_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/sphere_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/transmission_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/urdf_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/version.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/version_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/visual_parser.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/data_type_parser.cc
+)
