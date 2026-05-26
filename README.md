@@ -4,6 +4,7 @@ liburdf
 
 [![CMake](https://github.com/wissem01chiha/liburdf/actions/workflows/cmake.yml/badge.svg)](https://github.com/wissem01chiha/liburdf/actions/workflows/cmake.yml)
 [![Bazel](https://github.com/wissem01chiha/liburdf/actions/workflows/bazel.yml/badge.svg)](https://github.com/wissem01chiha/liburdf/actions/workflows/bazel.yml)
+[![CodeFactor](https://www.codefactor.io/repository/github/wissem01chiha/liburdf/badge)](https://www.codefactor.io/repository/github/wissem01chiha/liburdf)
 ![GitHub License](https://img.shields.io/github/license/wissem01chiha/liburdf)
 
 - [1.0 Why?](#10-why)
