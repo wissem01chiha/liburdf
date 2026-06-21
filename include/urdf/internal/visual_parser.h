@@ -15,8 +15,7 @@
 #include "internal/material_parser.h"
 #include "internal/pose_parser.h"
 
-class VisualParser final : public ParserBase<Visual>
-{
+class VisualParser final : public ParserBase<Visual> {
  public:
   VisualParser();
   std::string toString() const override;

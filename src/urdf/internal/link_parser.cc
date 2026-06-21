@@ -1,39 +1,34 @@
 #include "internal/link_parser.h"
+
 #include <loguru/loguru.hpp>
 
-LinkParser::LinkParser(){
-  p_ = std::make_shared<Link>();
-}
+LinkParser::LinkParser() { p_ = std::make_shared<Link>(); }
 
-int LinkParser::parse(const tinyxml2::XMLElement *xml)
-{
-  if (xml == nullptr)
-  {
+int LinkParser::parse(const tinyxml2::XMLElement* xml) {
+  if (xml == nullptr) {
     LOG_F(ERROR, "LinkParser::parse() received null pointer");
     return -1;
   }
   const char* link_name = ParserBase::getNameOf(xml);
   p_->setName(std::string(link_name));
   const tinyxml2::XMLElement* inertia_xml = xml->FirstChildElement("inertial");
-  if(inertia_xml){
-
+  if (inertia_xml) {
     InertiaParser ip;
     ip.parse(inertia_xml);
     const auto id = ip.get();
     p_->setInertia(id);
   }
 
-  const tinyxml2::XMLElement* collision_xml = xml->FirstChildElement("collision");
-  if(collision_xml)
-  {
+  const tinyxml2::XMLElement* collision_xml =
+      xml->FirstChildElement("collision");
+  if (collision_xml) {
     CollisionParser coop;
     coop.parse(collision_xml);
     const auto co_ptr = coop.get();
     p_->setCollision(co_ptr);
   }
   const tinyxml2::XMLElement* viusal_xml = xml->FirstChildElement("visual");
-  if(viusal_xml)
-  {
+  if (viusal_xml) {
     VisualParser vp;
     vp.parse(viusal_xml);
     const auto vi_ptr = vp.get();
@@ -42,23 +37,13 @@ int LinkParser::parse(const tinyxml2::XMLElement *xml)
   return 0;
 }
 
-bool LinkParser::isA(const char *name) const 
-{
-  return p_->isA(name);
-}
+bool LinkParser::isA(const char* name) const { return p_->isA(name); }
 
-bool LinkParser::empty() const
-{
-  return p_->empty();
-}
+bool LinkParser::empty() const { return p_->empty(); }
 
-void LinkParser::clear()
-{
-  p_->clear();
-}
+void LinkParser::clear() { p_->clear(); }
 
-std::string LinkParser::toString() const
-{
+std::string LinkParser::toString() const {
   std::ostringstream os;
   os << "Parsed Link = [";
   os << p_->toString();
@@ -66,12 +51,6 @@ std::string LinkParser::toString() const
   return os.str();
 }
 
-const char *LinkParser::getTypename() const 
-{
-  return p_->getTypename();
-}
+const char* LinkParser::getTypename() const { return p_->getTypename(); }
 
-std::shared_ptr<Link> LinkParser::get()
-{
-  return p_;
-}
+std::shared_ptr<Link> LinkParser::get() { return p_; }

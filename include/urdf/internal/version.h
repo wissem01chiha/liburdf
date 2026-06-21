@@ -14,8 +14,7 @@
  * \todo Update to accept <major>, <minor>, or <major> <minor> (spaced) in a
  * future release.
  */
-class Version final : public PropertyBase
-{
+class Version final : public PropertyBase {
  public:
   Version();
   Version(const char* attr);

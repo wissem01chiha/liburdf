@@ -20,27 +20,26 @@
  *  </transmission>
  * @endcode
  */
-class Transmission final : public ObjectBase
-{
-public: 
-    enum class Type
-    {
+class Transmission final : public ObjectBase {
+ public:
+  enum class Type {
 
-    };
-    Transmission();
-    ~Transmission() override;
-    void clear() override;
-    std::string toString() const override;
-    bool isA(const char* name) const override;
-    const char* getTypename() const override;
-    bool empty() const override;
-    std::string getJointName();
-    std::string getActuatorName();
-    std::string getName();
-private:
-    std::string name;
-    std::string joint_name;
-    std::string actuator_name;
+  };
+  Transmission();
+  ~Transmission() override;
+  void clear() override;
+  std::string toString() const override;
+  bool isA(const char* name) const override;
+  const char* getTypename() const override;
+  bool empty() const override;
+  std::string getJointName();
+  std::string getActuatorName();
+  std::string getName();
+
+ private:
+  std::string name;
+  std::string joint_name;
+  std::string actuator_name;
 };
 
-#endif // INCLUDE_URDF_CORE_TRANSMISSION_H_
+#endif  // INCLUDE_URDF_CORE_TRANSMISSION_H_

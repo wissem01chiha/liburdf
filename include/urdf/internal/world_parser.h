@@ -7,8 +7,7 @@
 #include "core/world.h"
 
 template <typename... PropertyBase>
-class WorldParser final : public ParserBase<World<PropertyBase...>>
-{
+class WorldParser final : public ParserBase<World<PropertyBase...>> {
  public:
   WorldParser();
   std::string toString() const override;

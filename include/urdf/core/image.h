@@ -13,8 +13,7 @@
  * @todo  create a  port for opencv cv::Mat image convert or load
  */
 template <typename T = double, std::size_t Channels = 4>
-class Image final
-{
+class Image final {
  public:
   /// @brief Alias for the type used to represent individual pixel values
   using value_type = T;

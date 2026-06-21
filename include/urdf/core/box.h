@@ -8,8 +8,7 @@
 #include "common/geometry_base.h"
 #include "utility/math_utils.h"
 
-class Box final : public GeometryBase
-{
+class Box final : public GeometryBase {
  public:
   Box();
   explicit Box(double* xyz);

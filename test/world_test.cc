@@ -1,3 +1,3 @@
-#include <gtest/gtest.h>
 #include "core/world.h"
 
+#include <gtest/gtest.h>

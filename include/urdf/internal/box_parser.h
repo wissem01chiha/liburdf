@@ -11,8 +11,7 @@
  * @brief Parser for Box geometry, inherits from ParserBase<Box>
  * and provides the functionality to parse the box geometry from XML.
  */
-class BoxParser : public ParserBase<Box>
-{
+class BoxParser : public ParserBase<Box> {
  public:
   BoxParser();
   int parse(const tinyxml2::XMLElement* xml) override;

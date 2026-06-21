@@ -31,8 +31,7 @@
  *      <geometry type="cylinder" radius="1" length="0.5" />
  * @endcode
  */
-class GeometryParser final : public ParserBase<GeometryBase>
-{
+class GeometryParser final : public ParserBase<GeometryBase> {
  public:
   GeometryParser();
   int parse(const tinyxml2::XMLElement* xml) override;

@@ -9,8 +9,7 @@
 #include "common/property_base.h"
 #include "core/pose.h"
 
-class Collision final : public PropertyBase
-{
+class Collision final : public PropertyBase {
  public:
   Collision();
   bool isA(const char* name) const override;

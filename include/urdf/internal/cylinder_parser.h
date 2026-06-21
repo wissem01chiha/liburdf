@@ -11,8 +11,7 @@
  * @brief Parser for Cylinder geometry, inherits from ParserBase<Cylinder>
  * and provides the functionality to parse the cylinder geometry from XML.
  */
-class CylinderParser final : public ParserBase<Cylinder>
-{
+class CylinderParser final : public ParserBase<Cylinder> {
  public:
   CylinderParser();
   int parse(const tinyxml2::XMLElement* xml) override;

@@ -5,8 +5,7 @@
 
 #include "common/property_base.h"
 
-class JointMimic final : public PropertyBase
-{
+class JointMimic final : public PropertyBase {
  public:
   JointMimic();
   bool isA(const char* name) const override;

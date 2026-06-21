@@ -9,8 +9,7 @@
 #include "core/color.h"
 #include "utility/math_utils.h"
 
-class Mesh final : public GeometryBase
-{
+class Mesh final : public GeometryBase {
  public:
   Mesh();
   ~Mesh();

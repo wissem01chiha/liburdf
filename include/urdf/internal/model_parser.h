@@ -10,8 +10,7 @@
 #include "internal/joint_parser.h"
 #include "internal/link_parser.h"
 
-class ModelParser final : public ParserBase<Model>
-{
+class ModelParser final : public ParserBase<Model> {
  public:
   ModelParser();
   int parse(const tinyxml2::XMLElement* xml) override;

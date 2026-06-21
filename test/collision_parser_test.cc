@@ -1,8 +1,8 @@
-#include <gtest/gtest.h>
 #include "internal/collision_parser.h"
 
-TEST(CollisionParserTest, ParseTest) {
+#include <gtest/gtest.h>
 
+TEST(CollisionParserTest, ParseTest) {
   const char* xmlContent = R"(
     <collision>
         <origin xyz="1 2 8" rpy = "1 0 0"/>

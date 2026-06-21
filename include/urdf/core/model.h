@@ -17,8 +17,7 @@
  * is not fully implemented yet, only parents and children links
  * are checked, with the graph structure of the model.
  */
-class Model final : public ObjectBase
-{
+class Model final : public ObjectBase {
  public:
   Model();
   Model(const Model& rhs);

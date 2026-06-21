@@ -1,13 +1,12 @@
 #include "internal/pose_parser.h"
-#include "utility/string_utils.h"
+
 #include <loguru/loguru.hpp>
 
-PoseParser::PoseParser() {
-  this->p_ = std::make_shared<Pose>();
-}
+#include "utility/string_utils.h"
+
+PoseParser::PoseParser() { this->p_ = std::make_shared<Pose>(); }
 
 std::string PoseParser::toString() const {
-
   std::ostringstream os;
   os << "Parsed Pose = [";
   os << p_->toString();
@@ -15,25 +14,16 @@ std::string PoseParser::toString() const {
   return os.str();
 }
 
-bool PoseParser::empty() const {
-  return false;
-}
+bool PoseParser::empty() const { return false; }
 
-void PoseParser::clear() {
-  p_->clear();
-}
+void PoseParser::clear() { p_->clear(); }
 
-const char* PoseParser::getTypename() const {
-  return "pose";
-}
+const char* PoseParser::getTypename() const { return "pose"; }
 
-bool PoseParser::isA(const char* name) const {
-  return p_->isA(name);
-}
+bool PoseParser::isA(const char* name) const { return p_->isA(name); }
 
-int  PoseParser::parse(const tinyxml2::XMLElement* xml) {
-  if (xml == nullptr)
-  {
+int PoseParser::parse(const tinyxml2::XMLElement* xml) {
+  if (xml == nullptr) {
     LOG_F(ERROR, "PoseParser::parse() received null pointer");
     return -1;
   }
@@ -55,6 +45,4 @@ int  PoseParser::parse(const tinyxml2::XMLElement* xml) {
   return 0;
 }
 
-std::shared_ptr<Pose> PoseParser::get() {
-  return p_;
-}
+std::shared_ptr<Pose> PoseParser::get() { return p_; }

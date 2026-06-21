@@ -41,8 +41,7 @@
  * @note given an xml elment with multiple joint it parses only the first elment
  * an iteration using this parser is needed!
  */
-class JointParser final : public ParserBase<Joint>
-{
+class JointParser final : public ParserBase<Joint> {
  public:
   JointParser();
   int parse(const tinyxml2::XMLElement* xml) override;

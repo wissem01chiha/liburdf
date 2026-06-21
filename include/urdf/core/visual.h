@@ -10,8 +10,7 @@
 #include "core/material.h"
 #include "core/pose.h"
 
-class Visual final : public PropertyBase
-{
+class Visual final : public PropertyBase {
  public:
   Visual();
   void clear() override;

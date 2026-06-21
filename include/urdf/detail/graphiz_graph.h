@@ -8,16 +8,16 @@
 
 /**
  * @class GraphizGraph
- * @brief A helper class for Writing robot model in graphiz format 
+ * @brief A helper class for Writing robot model in graphiz format
  * from the internal graph reresentation.
  */
-class GraphizGraph final
-{
-public:
-    GraphizGraph();
-    GraphizGraph(const InternalGraph& ig);
-private:
-    InternalGraph ig_;
+class GraphizGraph final {
+ public:
+  GraphizGraph();
+  GraphizGraph(const InternalGraph& ig);
+
+ private:
+  InternalGraph ig_;
 };
 
-#endif // INCLUDE_URDF_DETAIL_GRAPHIZ_GRAPH_H_
+#endif  // INCLUDE_URDF_DETAIL_GRAPHIZ_GRAPH_H_

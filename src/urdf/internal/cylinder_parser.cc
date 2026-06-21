@@ -1,15 +1,13 @@
 #include "internal/cylinder_parser.h"
-#include "utility/string_utils.h"
+
 #include <loguru/loguru.hpp>
 
-CylinderParser::CylinderParser() {
-  p_ = std::make_shared<Cylinder>();
-}
+#include "utility/string_utils.h"
+
+CylinderParser::CylinderParser() { p_ = std::make_shared<Cylinder>(); }
 
 int CylinderParser::parse(const tinyxml2::XMLElement* xml) {
-  
-  if(xml == nullptr)
-  {
+  if (xml == nullptr) {
     LOG_F(ERROR, "CylinderParser::parse() received null pointer");
     return -1;
   }
@@ -27,13 +25,9 @@ int CylinderParser::parse(const tinyxml2::XMLElement* xml) {
   return 0;
 }
 
-bool CylinderParser::isA(const char* name) const {
-  return p_->isA(name);
-}
+bool CylinderParser::isA(const char* name) const { return p_->isA(name); }
 
-const char* CylinderParser::getTypename() const {
-  return p_->getTypename();
-}
+const char* CylinderParser::getTypename() const { return p_->getTypename(); }
 
 std::string CylinderParser::toString() const {
   std::ostringstream os;
@@ -43,14 +37,8 @@ std::string CylinderParser::toString() const {
   return os.str();
 }
 
-bool CylinderParser::empty() const {
-  return p_ == nullptr;
-}
+bool CylinderParser::empty() const { return p_ == nullptr; }
 
-void CylinderParser::clear() {
-  p_->clear();
-}
+void CylinderParser::clear() { p_->clear(); }
 
-std::shared_ptr<Cylinder> CylinderParser::get() {
-  return p_;
-}
+std::shared_ptr<Cylinder> CylinderParser::get() { return p_; }

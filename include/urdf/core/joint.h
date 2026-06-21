@@ -16,11 +16,9 @@
 #include "core/pose.h"
 #include "utility/math_utils.h"
 
-class Joint final : public ObjectBase
-{
+class Joint final : public ObjectBase {
  public:
-  enum class Type
-  {
+  enum class Type {
     UNKNOWN,
     REVOLUTE,
     CONTINUOUS,

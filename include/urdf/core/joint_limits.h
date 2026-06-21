@@ -5,8 +5,7 @@
 
 #include "common/property_base.h"
 
-class JointLimits final : public PropertyBase
-{
+class JointLimits final : public PropertyBase {
  public:
   JointLimits();
   bool isA(const char* name) const override;

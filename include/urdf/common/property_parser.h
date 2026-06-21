@@ -33,8 +33,7 @@
  * @todo Fix the bug related to mixed attribute property parsing.
  */
 template <typename T>
-class PropertyParser : public ParserBase<std::unordered_map<std::string, T>>
-{
+class PropertyParser : public ParserBase<std::unordered_map<std::string, T>> {
  public:
   PropertyParser();
   ~PropertyParser();

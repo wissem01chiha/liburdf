@@ -4,34 +4,36 @@
 
 #pragma once
 
-#include "detail/common.h"
-
 #include <cassert>
+
+#include "detail/common.h"
 
 PYBIND11_NAMESPACE_BEGIN(PYBIND11_NAMESPACE)
 
 class gil_scoped_acquire_simple {
-    PyGILState_STATE state;
+  PyGILState_STATE state;
 
-public:
-    gil_scoped_acquire_simple() : state{PyGILState_Ensure()} {}
-    gil_scoped_acquire_simple(const gil_scoped_acquire_simple &) = delete;
-    gil_scoped_acquire_simple &operator=(const gil_scoped_acquire_simple &) = delete;
-    ~gil_scoped_acquire_simple() { PyGILState_Release(state); }
+ public:
+  gil_scoped_acquire_simple() : state{PyGILState_Ensure()} {}
+  gil_scoped_acquire_simple(const gil_scoped_acquire_simple &) = delete;
+  gil_scoped_acquire_simple &operator=(const gil_scoped_acquire_simple &) =
+      delete;
+  ~gil_scoped_acquire_simple() { PyGILState_Release(state); }
 };
 
 class gil_scoped_release_simple {
-    PyThreadState *state;
+  PyThreadState *state;
 
-public:
-    // PRECONDITION: The GIL must be held when this constructor is called.
-    gil_scoped_release_simple() {
-        assert(PyGILState_Check());
-        state = PyEval_SaveThread();
-    }
-    gil_scoped_release_simple(const gil_scoped_release_simple &) = delete;
-    gil_scoped_release_simple &operator=(const gil_scoped_release_simple &) = delete;
-    ~gil_scoped_release_simple() { PyEval_RestoreThread(state); }
+ public:
+  // PRECONDITION: The GIL must be held when this constructor is called.
+  gil_scoped_release_simple() {
+    assert(PyGILState_Check());
+    state = PyEval_SaveThread();
+  }
+  gil_scoped_release_simple(const gil_scoped_release_simple &) = delete;
+  gil_scoped_release_simple &operator=(const gil_scoped_release_simple &) =
+      delete;
+  ~gil_scoped_release_simple() { PyEval_RestoreThread(state); }
 };
 
 PYBIND11_NAMESPACE_END(PYBIND11_NAMESPACE)

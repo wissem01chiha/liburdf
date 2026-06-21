@@ -9,8 +9,7 @@
 /**
  * @brief Represents a pose, consisting of position and rotation.
  */
-class Pose final : public PropertyBase
-{
+class Pose final : public PropertyBase {
  public:
   Pose();
   Pose(const Pose& rhs);

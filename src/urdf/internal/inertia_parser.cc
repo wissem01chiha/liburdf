@@ -1,11 +1,10 @@
 #include "internal/inertia_parser.h"
+
 #include <loguru/loguru.hpp>
 
-InertiaParser::InertiaParser() {
-  this->p_ = std::make_shared<Inertia>();
-}
+InertiaParser::InertiaParser() { this->p_ = std::make_shared<Inertia>(); }
 
-std::string InertiaParser::toString() const  {
+std::string InertiaParser::toString() const {
   std::ostringstream os;
   os << "Parsed Inertia = [";
   os << p_->toString();
@@ -13,26 +12,18 @@ std::string InertiaParser::toString() const  {
   return os.str();
 }
 
-bool InertiaParser::empty() const {
-  return false;
-}
+bool InertiaParser::empty() const { return false; }
 
-void InertiaParser::clear() {
-  p_->clear();
-}
+void InertiaParser::clear() { p_->clear(); }
 
-const char* InertiaParser::getTypename() const {
-  return p_->getTypename();
-}
+const char* InertiaParser::getTypename() const { return p_->getTypename(); }
 
 bool InertiaParser::isA(const char* name) const {
   return std::string(name) == "inertia_parser";
 }
 
 int InertiaParser::parse(const tinyxml2::XMLElement* xml) {
-  
-  if (xml == nullptr)
-  {
+  if (xml == nullptr) {
     LOG_F(ERROR, "InertiaParser::parse() received null pointer");
     return -1;
   }
@@ -63,6 +54,4 @@ int InertiaParser::parse(const tinyxml2::XMLElement* xml) {
   return 0;
 }
 
-std::shared_ptr<Inertia> InertiaParser::get() {
-  return p_;
-}
+std::shared_ptr<Inertia> InertiaParser::get() { return p_; }

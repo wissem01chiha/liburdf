@@ -5,8 +5,7 @@
 
 #include <string>
 
-class ObjectBase
-{
+class ObjectBase {
  public:
   virtual std::string toString() const = 0;
   virtual const char* getTypename() const = 0;

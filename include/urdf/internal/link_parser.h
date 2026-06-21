@@ -5,7 +5,6 @@
 
 #include <tinyxml2/tinyxml2.h>
 
-
 #include "common/parser_base.h"
 #include "core/link.h"
 #include "internal/collision_parser.h"
@@ -50,8 +49,7 @@
  * @todo find a way to get the parsed obejct in a sperate method or overolding
  * it
  */
-class LinkParser final : public ParserBase<Link>
-{
+class LinkParser final : public ParserBase<Link> {
  public:
   LinkParser();
   int parse(const tinyxml2::XMLElement* xml) override;

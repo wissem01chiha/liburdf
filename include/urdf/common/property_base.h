@@ -5,15 +5,14 @@
 
 #include <string>
 
-class PropertyBase
-{
+class PropertyBase {
  public:
   virtual bool validate() const { return true; };
   virtual std::string toString() const = 0;
 
  protected:
-  PropertyBase() {};
-  virtual ~PropertyBase() {};
+  PropertyBase(){};
+  virtual ~PropertyBase(){};
   virtual bool isA(const char* name) const = 0;
   virtual PropertyBase* getPointer() { return this; };
   virtual void clear() = 0;

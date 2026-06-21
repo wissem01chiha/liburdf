@@ -6,10 +6,9 @@
 #include "core/model.h"
 
 /**
- * @brief base class for building multibody graph model 
+ * @brief base class for building multibody graph model
  */
-class InternalGraph
-{
+class InternalGraph {
  public:
   InternalGraph();
   InternalGraph(Model m);

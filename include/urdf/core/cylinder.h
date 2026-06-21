@@ -5,8 +5,7 @@
 
 #include "common/geometry_base.h"
 
-class Cylinder final : public GeometryBase
-{
+class Cylinder final : public GeometryBase {
  public:
   Cylinder();
   Cylinder(double r, double l);

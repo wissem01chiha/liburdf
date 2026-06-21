@@ -11,8 +11,7 @@
 /**
  * @brief Parses a material XMl elment
  */
-class MaterialParser final : public ParserBase<Material>
-{
+class MaterialParser final : public ParserBase<Material> {
  public:
   MaterialParser();
   std::string toString() const override;

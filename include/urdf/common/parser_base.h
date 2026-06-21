@@ -4,23 +4,19 @@
 // Copyright 2024-2026 Wissem CHIHA
 
 #include <tinyxml2/tinyxml2.h>
+
 #include <memory>
 
 #include "common/object_base.h"
 
 template <class T>
-class ParserBase : public ObjectBase
-{
+class ParserBase : public ObjectBase {
  public:
-  const char* getNameOf(const tinyxml2::XMLElement* xml)
-  {
+  const char* getNameOf(const tinyxml2::XMLElement* xml) {
     const char* name = xml->Attribute("name");
-    if (!name)
-    {
+    if (!name) {
       return "";
-    }
-    else
-    {
+    } else {
       return name;
     }
   }

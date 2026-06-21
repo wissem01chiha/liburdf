@@ -22,8 +22,7 @@
  * </inertial>
  * @endcode
  */
-class InertiaParser final : public ParserBase<Inertia>
-{
+class InertiaParser final : public ParserBase<Inertia> {
  public:
   InertiaParser();
   std::string toString() const override;

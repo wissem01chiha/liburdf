@@ -11,8 +11,7 @@
  * @brief Parser for Mesh geometry, inherits from ParserBase<Mesh>
  * and provides the functionality to parse the mesh geometry from XML.
  */
-class MeshParser final : public ParserBase<Mesh>
-{
+class MeshParser final : public ParserBase<Mesh> {
  public:
   MeshParser();
   int parse(const tinyxml2::XMLElement* xml) override;

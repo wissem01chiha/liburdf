@@ -9,8 +9,7 @@
 /**
  * @brief base class for all geometry entities
  */
-class GeometryBase : public ObjectBase
-{
+class GeometryBase : public ObjectBase {
  public:
   virtual ~GeometryBase() = default;
   virtual void setOrigin(double x, double y, double z) = 0;
@@ -21,6 +20,6 @@ class GeometryBase : public ObjectBase
   virtual Vec3 getScale() { return Vec3(0, 0, 0); };
 
  protected:
-  GeometryBase() {};
+  GeometryBase(){};
 };
 #endif  // INCLUDE_URDF_COMMON_GEOMETRY_BASE_H_

@@ -5,9 +5,9 @@
 
 #include "common/property_base.h"
 
-/** 
+/**
  * @class DataType
- * @brief data-types defintion, for sensor this is the main data types for 
+ * @brief data-types defintion, for sensor this is the main data types for
  * all entites defintion and quanties for physical and numeric
  * @code{.xml}
  * <data-types>
@@ -22,17 +22,16 @@
  * </data-types>
  * @endcode
  */
-class DataType final : public PropertyBase 
-{
-public:
-    DataType();
-    std::string toString() const override;
-    bool isA(const char* name) const override;
-    void clear() override;
+class DataType final : public PropertyBase {
+ public:
+  DataType();
+  std::string toString() const override;
+  bool isA(const char* name) const override;
+  void clear() override;
 
-private:
-    std::string name;
-    std::string type;
+ private:
+  std::string name;
+  std::string type;
 };
 
-#endif // INCLUDE_URDF_CORE_DATA_TYPE_H_
+#endif  // INCLUDE_URDF_CORE_DATA_TYPE_H_

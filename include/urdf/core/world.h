@@ -6,16 +6,15 @@
 #include <vector>
 
 #include "common/object_base.h"
+#include "core/entity.h"
 #include "core/model.h"
 #include "core/pose.h"
-#include "core/entity.h"
 
 /**
  * @brief Base class for models enviroment defintions
  */
 template <typename... PropertyBase>
-class World : public ObjectBase
-{
+class World : public ObjectBase {
  public:
   World();
   void clear();

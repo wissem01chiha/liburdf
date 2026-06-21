@@ -11,8 +11,7 @@
 #include "core/pose.h"
 #include "core/visual.h"
 
-class Link final : public ObjectBase
-{
+class Link final : public ObjectBase {
  public:
   Link();
   bool isA(const char* name) const override;

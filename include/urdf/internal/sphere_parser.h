@@ -6,8 +6,7 @@
 #include "common/parser_base.h"
 #include "core/sphere.h"
 
-class SphereParser final : public ParserBase<Sphere>
-{
+class SphereParser final : public ParserBase<Sphere> {
  public:
   SphereParser();
   int parse(const tinyxml2::XMLElement* xml) override;

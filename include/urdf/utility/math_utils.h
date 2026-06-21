@@ -15,5 +15,4 @@ using Vec3 = Eigen::Matrix<double, 3, 1>;
  */
 using Rot3 = Eigen::Quaternion<double>;
 
-
 #endif  // INCLUDE_URDF_UTILITY_MATH_UTILS_H_

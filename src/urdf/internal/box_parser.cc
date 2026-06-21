@@ -1,18 +1,16 @@
 #include "internal/box_parser.h"
-#include "utility/string_utils.h"
+
 #include <loguru/loguru.hpp>
 
-BoxParser::BoxParser() {
-  p_ = std::make_shared<Box>();
-}
+#include "utility/string_utils.h"
+
+BoxParser::BoxParser() { p_ = std::make_shared<Box>(); }
 
 int BoxParser::parse(const tinyxml2::XMLElement* xml) {
-    
-   if (xml==nullptr)
-    {
-      LOG_F(ERROR, "BoxParser::parse() received null pointer");
-      return -1;
-    }
+  if (xml == nullptr) {
+    LOG_F(ERROR, "BoxParser::parse() received null pointer");
+    return -1;
+  }
 
   const char* size_str = xml->Attribute("size");
   if (size_str) {
@@ -23,16 +21,11 @@ int BoxParser::parse(const tinyxml2::XMLElement* xml) {
   return 0;
 }
 
-bool BoxParser::isA(const char* name) const {
-  return p_->isA(name);
-}
+bool BoxParser::isA(const char* name) const { return p_->isA(name); }
 
-const char* BoxParser::getTypename() const {
-  return p_->getTypename();
-}
+const char* BoxParser::getTypename() const { return p_->getTypename(); }
 
-std::string BoxParser::toString() const  {
-
+std::string BoxParser::toString() const {
   std::ostringstream os;
   os << "Parsed Box = [";
   os << p_->toString();
@@ -40,16 +33,10 @@ std::string BoxParser::toString() const  {
   return os.str();
 }
 
-bool BoxParser::empty() const {
-  return p_ == nullptr;
-}
+bool BoxParser::empty() const { return p_ == nullptr; }
 
-void BoxParser::clear() {
-  p_->clear();
-}
+void BoxParser::clear() { p_->clear(); }
 
-std::shared_ptr<Box> BoxParser::get() {
-  return p_;
-}
+std::shared_ptr<Box> BoxParser::get() { return p_; }
 
 BoxParser::~BoxParser() = default;

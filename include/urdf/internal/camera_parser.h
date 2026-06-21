@@ -23,8 +23,7 @@
  * </sensor>
  * @endcode
  */
-class CameraParser final : public ParserBase<Camera>
-{
+class CameraParser final : public ParserBase<Camera> {
  public:
   CameraParser();
   int parse(const tinyxml2::XMLElement* xml) override;

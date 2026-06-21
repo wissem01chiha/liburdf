@@ -7,8 +7,7 @@
 
 #include "common/property_base.h"
 
-class JointCalibration final : public PropertyBase
-{
+class JointCalibration final : public PropertyBase {
  public:
   JointCalibration();
   bool isA(const char* name) const override;

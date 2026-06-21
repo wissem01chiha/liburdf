@@ -1,24 +1,25 @@
 /**********************************************************************************
- * Copyright (c) 2024-2026 Wissem Chiha <chihawissem08@gmail.com>                 *
- * SPDX-License-Identifier: MIT                                                   *
+ * Copyright (c) 2024-2026 Wissem Chiha <chihawissem08@gmail.com> *
+ * SPDX-License-Identifier: MIT *
  *                                                                                *
- * Permission is hereby granted, free of charge, to any person obtaining a copy   *
- * of this software and associated documentation files (the "Software"), to deal  *
- * in the Software without restriction, including without limitation the rights   *
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell      *
- * copies of the Software, and to permit persons to whom the Software is          *
- * furnished to do so, subject to the following conditions:                       *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ ** of this software and associated documentation files (the "Software"), to
+ *deal  * in the Software without restriction, including without limitation the
+ *rights   * to use, copy, modify, merge, publish, distribute, sublicense,
+ *and/or sell      * copies of the Software, and to permit persons to whom the
+ *Software is          * furnished to do so, subject to the following
+ *conditions:                       *
  *                                                                                *
- *  The above copyright notice and this permission notice shall be included in all*
- *  copies or substantial portions of the Software.                               *
+ *  The above copyright notice and this permission notice shall be included in
+ *all* copies or substantial portions of the Software. *
  *                                                                                *
- *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR    *
- *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,      *
- *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE   *
- *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER        *
- *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, *
- *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE *
- *  SOFTWARE.                                                                     *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR *
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, *
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ ** AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER *
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ *FROM, * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+ *IN THE * SOFTWARE. *
  **********************************************************************************/
 #ifndef URDF_H
 #define URDF_H
@@ -48,8 +49,8 @@
 #include "urdf/core/model.h"
 #include "urdf/core/pose.h"
 #include "urdf/core/sphere.h"
-#include "urdf/core/visual.h"
 #include "urdf/core/transmission.h"
+#include "urdf/core/visual.h"
 #include "urdf/detail/internal_graph.h"
 #include "urdf/internal/camera_parser.h"
 #include "urdf/internal/color_parser.h"
@@ -60,9 +61,9 @@
 #include "urdf/internal/material_parser.h"
 #include "urdf/internal/model_parser.h"
 #include "urdf/internal/pose_parser.h"
+#include "urdf/internal/urdf_parser.h"
 #include "urdf/internal/version.h"
 #include "urdf/utility/math_utils.h"
-#include "urdf/internal/urdf_parser.h"
 #include "urdf/utility/string_utils.h"
 
-#endif // URDF_H
+#endif  // URDF_H

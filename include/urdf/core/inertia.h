@@ -3,7 +3,6 @@
 
 // Copyright 2024-2026 Wissem CHIHA
 
-
 #include <memory>
 #include <string>
 
@@ -17,8 +16,7 @@
  * the inertia matrix, which represent the rotational inertia about the object's
  * axes.
  */
-class Inertia final  : public PropertyBase, public GeometryBase
-{
+class Inertia final : public PropertyBase, public GeometryBase {
  public:
   Inertia();
   Inertia(double mass, double ixx, double ixy, double ixz, double iyy,

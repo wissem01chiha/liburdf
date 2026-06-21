@@ -1,8 +1,8 @@
-#include <gtest/gtest.h>
 #include "internal/geometry_parser.h"
 
-TEST(GeometryParserTest, ParseTest) {
+#include <gtest/gtest.h>
 
+TEST(GeometryParserTest, ParseTest) {
   const char* xmlContent = R"(
     <geometry>        
       <mesh filename ="./test/assets/valid_path.txt" color = "1.2 2 1 1"/> 
@@ -26,11 +26,10 @@ TEST(GeometryParserTest, ParseTest) {
 }
 
 TEST(GeometryParserTest, ParseTestfromFile) {
-
   tinyxml2::XMLDocument doc;
   tinyxml2::XMLError eResult = doc.LoadFile("./test/assets/simple_test.urdf");
   if (eResult != tinyxml2::XML_SUCCESS) {
-      std::cerr << "Error loading XML file: " << doc.ErrorStr() << std::endl;
+    std::cerr << "Error loading XML file: " << doc.ErrorStr() << std::endl;
   }
   const tinyxml2::XMLElement* m = doc.FirstChildElement("model");
   const tinyxml2::XMLElement* link = m->FirstChildElement("link");

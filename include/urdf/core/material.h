@@ -3,14 +3,12 @@
 
 // Copyright 2024-2026 Wissem CHIHA
 
-
 #include <memory>
 
 #include "common/property_base.h"
 #include "core/color.h"
 
-class Material final : public PropertyBase
-{
+class Material final : public PropertyBase {
  public:
   Material();
   void clear() override;

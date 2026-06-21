@@ -1,4 +1,5 @@
 #include "internal/geometry_parser.h"
+
 #include <loguru/loguru.hpp>
 
 GeometryParser::GeometryParser() {}
@@ -13,7 +14,8 @@ int GeometryParser::parse(const tinyxml2::XMLElement* xml) {
   if (geometry_node) {
     const tinyxml2::XMLElement* geometry_element = geometry_node->ToElement();
     if (!geometry_element) {
-      LOG_F(ERROR, "GeometryParser::parse() failed to convert XML node to element");
+      LOG_F(ERROR,
+            "GeometryParser::parse() failed to convert XML node to element");
       return -1;
     }
 
@@ -62,17 +64,11 @@ const char* GeometryParser::getTypename() const {
   return p_ ? p_->getTypename() : "unknown";
 }
 
-bool GeometryParser::empty() const {
-  return p_->empty();
-}
+bool GeometryParser::empty() const { return p_->empty(); }
 
-void GeometryParser::clear() {
-  p_->clear();
-}
+void GeometryParser::clear() { p_->clear(); }
 
-bool GeometryParser::isA(const char* name) const {
-  return p_->isA(name);
-}
+bool GeometryParser::isA(const char* name) const { return p_->isA(name); }
 
 std::string GeometryParser::toString() const {
   std::ostringstream os;
@@ -86,8 +82,6 @@ std::string GeometryParser::toString() const {
   return os.str();
 }
 
-std::shared_ptr<GeometryBase> GeometryParser::get() {
-  return p_;
-}
+std::shared_ptr<GeometryBase> GeometryParser::get() { return p_; }
 
 GeometryParser::~GeometryParser() {}

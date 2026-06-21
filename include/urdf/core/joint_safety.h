@@ -5,8 +5,7 @@
 
 #include "common/property_base.h"
 
-class JointSafety final : public PropertyBase
-{
+class JointSafety final : public PropertyBase {
  public:
   JointSafety();
   bool isA(const char* name) const override;

@@ -8,8 +8,7 @@
 #include "internal/geometry_parser.h"
 #include "internal/pose_parser.h"
 
-class CollisionParser final : public ParserBase<Collision>
-{
+class CollisionParser final : public ParserBase<Collision> {
  public:
   CollisionParser();
   std::string toString() const override;

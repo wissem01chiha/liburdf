@@ -22,8 +22,7 @@
  * measurements.
  */
 template <class T>
-class SensorBase : public ObjectBase
-{
+class SensorBase : public ObjectBase {
  public:
   virtual void setRange(T& r) = 0;
   virtual void getRange(T& r) = 0;
@@ -35,8 +34,8 @@ class SensorBase : public ObjectBase
  protected:
   SensorBase() = default;
   ~SensorBase() = default;
-  virtual void update() {};
-  virtual void reset() {};
+  virtual void update(){};
+  virtual void reset(){};
   virtual void get(T& o) const = 0;
 };
 #endif  // INCLUDE_URDF_COMMON_SENSOR_BASE_H_

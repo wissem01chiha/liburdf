@@ -28,5 +28,4 @@ void str2double(const char* in, double& num_);
 void split(const std::string& str, std::vector<std::string>& split_result,
            const std::string& delimiter);
 
-
-#endif // INCLUDE_URDF_UTILITY_STRING_UTILS_H_
+#endif  // INCLUDE_URDF_UTILITY_STRING_UTILS_H_

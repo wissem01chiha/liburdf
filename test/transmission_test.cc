@@ -1,2 +1,3 @@
-#include <gtest/gtest.h>
 #include "core/transmission.h"
+
+#include <gtest/gtest.h>

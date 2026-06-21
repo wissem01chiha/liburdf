@@ -13,8 +13,7 @@
  *       as it provides its own parsing mechanism,
  *       but we maintain a consistent layout to adhere to the base parser class.
  */
-class VersionParser final
-{
+class VersionParser final {
  public:
   VersionParser();
   int parse(const tinyxml2::XMLDocument doc);

@@ -1,8 +1,8 @@
-#include <gtest/gtest.h>
 #include "internal/visual_parser.h"
 
-TEST(VisualParserTest, ParseTest) {
+#include <gtest/gtest.h>
 
+TEST(VisualParserTest, ParseTest) {
   const char* xmlContent = R"(
     <visual>
         <origin xyz="7 5.2 0" rpy="0 2.5 1" />

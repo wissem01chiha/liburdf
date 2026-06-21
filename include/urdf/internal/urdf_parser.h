@@ -11,8 +11,7 @@
  * @note This interface will be exposed to other languages or
  * external scripts.
  */
-class URDFParser final : public ParserBase<Model>
-{
+class URDFParser final : public ParserBase<Model> {
  public:
   URDFParser();
   int parse(const std::string& filename);

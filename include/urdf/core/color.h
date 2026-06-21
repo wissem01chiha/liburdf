@@ -5,20 +5,9 @@
 
 #include "common/property_base.h"
 
-class Color final : public PropertyBase
-{
+class Color final : public PropertyBase {
  public:
-  enum class Type
-  {
-    Red,
-    Green,
-    Blue,
-    Black,
-    White,
-    Yellow,
-    Cyan,
-    Magenta
-  };
+  enum class Type { Red, Green, Blue, Black, White, Yellow, Cyan, Magenta };
   Color();
   Color& operator=(const Color& rhs);
   Color(const double& r_, const double& g_, const double& b_, const double& a_);

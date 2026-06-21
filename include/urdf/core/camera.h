@@ -11,11 +11,9 @@
  * @brief Base class for camera sensor definition
  * @param type : camera type
  */
-class Camera final : public SensorBase<Image<double, 4>>
-{
+class Camera final : public SensorBase<Image<double, 4>> {
  public:
-  enum class Type
-  {
+  enum class Type {
     L8,
     R8G8B8,
     B8G8R8,

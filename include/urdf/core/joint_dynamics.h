@@ -7,8 +7,7 @@
 
 #include "common/property_base.h"
 
-class JointDynamics final : public PropertyBase
-{
+class JointDynamics final : public PropertyBase {
  public:
   JointDynamics();
   bool isA(const char* name) const override;

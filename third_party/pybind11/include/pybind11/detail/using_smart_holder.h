@@ -4,10 +4,10 @@
 
 #pragma once
 
+#include <type_traits>
+
 #include "common.h"
 #include "struct_smart_holder.h"
-
-#include <type_traits>
 
 PYBIND11_NAMESPACE_BEGIN(PYBIND11_NAMESPACE)
 

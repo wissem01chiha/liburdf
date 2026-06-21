@@ -5,8 +5,7 @@
 
 #include "common/geometry_base.h"
 
-class Sphere final : public GeometryBase
-{
+class Sphere final : public GeometryBase {
  public:
   Sphere();
   Sphere(double r);

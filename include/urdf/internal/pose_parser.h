@@ -15,8 +15,7 @@
  * \code{.xml} <origin xyz="0 1 0" rpy="0 0 0" reference="bla bla.."/> \endcode
  *       where `reference` can be a link, joint, ground, etc.
  */
-class PoseParser final : public ParserBase<Pose>
-{
+class PoseParser final : public ParserBase<Pose> {
  public:
   PoseParser();
   std::string toString() const override;

@@ -12,8 +12,7 @@
  * \example <color rgba="1.0 0.01 0.0 1.0"/>
  * \note There is no other acceptable format for color definition!
  */
-class ColorParser final : public ParserBase<Color>
-{
+class ColorParser final : public ParserBase<Color> {
  public:
   ColorParser();
   std::string toString() const override;

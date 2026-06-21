@@ -13,8 +13,7 @@
  * @brief Base class for all subObjects in a world
  */
 template <typename... PropertyBase>
-class Entity : public ObjectBase
-{
+class Entity : public ObjectBase {
  public:
   void clear() override;
 
@@ -23,4 +22,4 @@ class Entity : public ObjectBase
   Pose origin;
 };
 
-#endif // INCLUDE_URDF_CORE_ENTITY_H_
+#endif  // INCLUDE_URDF_CORE_ENTITY_H_
