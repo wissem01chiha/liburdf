@@ -5,7 +5,7 @@
 
 namespace py = pybind11;
 
-void init_model(py::module &m) {
+void init_model(py::module& m) {
   py::class_<Model, std::shared_ptr<Model>>(m, "Model")
       .def(py::init<>())
       .def("clear", &Model::clear)
@@ -21,9 +21,10 @@ void init_model(py::module &m) {
                &Model::setLink))
       .def("setJoint", static_cast<void (Model::*)(std::shared_ptr<Joint>)>(
                            &Model::setJoint))
-      .def("setJoint", static_cast<void (Model::*)(
-                           std::shared_ptr<Joint>, const std::string &,
-                           const std::string &)>(&Model::setJoint))
+      .def("setJoint",
+           static_cast<void (Model::*)(std::shared_ptr<Joint>,
+                                       const std::string&, const std::string&)>(
+               &Model::setJoint))
       .def("getJoints", &Model::getJoints)
       .def("getLinks", &Model::getLinks)
       .def("setJoint",
@@ -31,19 +32,19 @@ void init_model(py::module &m) {
                &Model::setJoint));
 }
 
-void init_pyurdf_parser(py::module &m) {
+void init_pyurdf_parser(py::module& m) {
   py::class_<URDFParser, std::shared_ptr<URDFParser>>(m, "URDFParser")
       .def(py::init<>())
       .def("get", &URDFParser::get, py::return_value_policy::take_ownership)
       .def("parse",
-           static_cast<int (URDFParser::*)(const std::string &)>(
+           static_cast<int (URDFParser::*)(const std::string&)>(
                &URDFParser::parse),
            "Parse URDF from filename")
       .def("parse",
-           static_cast<int (URDFParser::*)(const char *)>(&URDFParser::parse),
+           static_cast<int (URDFParser::*)(const char*)>(&URDFParser::parse),
            "Parse URDF from C-string filename")
       .def("parse",
-           static_cast<int (URDFParser::*)(const tinyxml2::XMLElement *)>(
+           static_cast<int (URDFParser::*)(const tinyxml2::XMLElement*)>(
                &URDFParser::parse),
            "Parse URDF from XML element")
 

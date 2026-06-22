@@ -10,7 +10,7 @@ Link::Link() {
   this->collision = std::make_shared<Collision>();
 }
 
-bool Link::isA(const char *name) const { return std::string(name) == "Link"; }
+bool Link::isA(const char* name) const { return std::string(name) == "Link"; }
 
 void Link::clear() {
   this->name.clear();
@@ -39,9 +39,9 @@ std::string Link::toString() const {
 
 bool Link::empty() const { return false; }
 
-const char *Link::getTypename() const { return "link"; }
+const char* Link::getTypename() const { return "link"; }
 
-void Link::setName(const std::string &name) {
+void Link::setName(const std::string& name) {
   if (!name.empty()) {
     this->name = name;
   }
@@ -95,7 +95,7 @@ std::shared_ptr<Collision> Link::getCollision() const { return collision; }
 
 Link::~Link() {}
 
-void Link::getOrigin(double *pos) const { visual->getOrigin(pos); }
+void Link::getOrigin(double* pos) const { visual->getOrigin(pos); }
 
 void Link::setVisualOrigin(std::shared_ptr<Pose> o) { visual->setOrigin(o); }
 
