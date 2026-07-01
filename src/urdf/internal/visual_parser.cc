@@ -18,20 +18,20 @@ bool VisualParser::empty() const { return this->p_->empty(); }
 
 void VisualParser::clear() { p_->clear(); }
 
-const char *VisualParser::getTypename() const {
+const char* VisualParser::getTypename() const {
   return this->p_->getTypename();
 }
 
 VisualParser::~VisualParser() {}
 
-bool VisualParser::isA(const char *name) const { return p_->isA(name); }
+bool VisualParser::isA(const char* name) const { return p_->isA(name); }
 
-int VisualParser::parse(const tinyxml2::XMLElement *xml) {
+int VisualParser::parse(const tinyxml2::XMLElement* xml) {
   if (xml == nullptr) {
     LOG_F(ERROR, "VisualParser::parse() received null pointer");
     return -1;
   }
-  const tinyxml2::XMLElement *o_xml = xml->FirstChildElement("origin");
+  const tinyxml2::XMLElement* o_xml = xml->FirstChildElement("origin");
   if (o_xml) {
     PoseParser pp;
     int result = pp.parse(o_xml);
@@ -41,7 +41,7 @@ int VisualParser::parse(const tinyxml2::XMLElement *xml) {
     const auto pp_ptr = pp.get();
     p_->setOrigin(pp_ptr);
   }
-  const tinyxml2::XMLElement *geometry_xml = xml->FirstChildElement("geometry");
+  const tinyxml2::XMLElement* geometry_xml = xml->FirstChildElement("geometry");
 
   if (geometry_xml) {
     GeometryParser gp;
@@ -52,7 +52,7 @@ int VisualParser::parse(const tinyxml2::XMLElement *xml) {
     const auto gp_ptr = gp.get();
     p_->setGeometry(gp_ptr);
   }
-  const tinyxml2::XMLElement *material_xml = xml->FirstChildElement("material");
+  const tinyxml2::XMLElement* material_xml = xml->FirstChildElement("material");
   if (material_xml) {
     MaterialParser mp;
     int result = mp.parse(material_xml);

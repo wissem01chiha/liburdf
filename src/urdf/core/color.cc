@@ -10,7 +10,7 @@ Color::Color() {
   a = static_cast<double>(1.0);
 }
 
-Color &Color::operator=(const Color &rhs) {
+Color& Color::operator=(const Color& rhs) {
   if (this != &rhs) {
     PropertyBase::operator=(rhs);
     r = rhs.r;
@@ -21,8 +21,8 @@ Color &Color::operator=(const Color &rhs) {
   return *this;
 }
 
-Color::Color(const double &r_, const double &g_, const double &b_,
-             const double &a_) {
+Color::Color(const double& r_, const double& g_, const double& b_,
+             const double& a_) {
   if (r_ < static_cast<double>(0.0) || r_ > static_cast<double>(1.0) ||
       g_ < static_cast<double>(0.0) || g_ > static_cast<double>(1.0) ||
       b_ < static_cast<double>(0.0) || b_ > static_cast<double>(1.0) ||
@@ -61,7 +61,7 @@ double Color::getB() const { return b; }
 
 double Color::getA() const { return a; }
 
-void Color::set(double &r_, double &g_, double &b_, double &a_) {
+void Color::set(double& r_, double& g_, double& b_, double& a_) {
   r = r_;
   g = g_;
   b = b_;
@@ -127,7 +127,7 @@ Color::Color(const Type type_) {
   }
 }
 
-Color::Color(const std::string &vector_str) {
+Color::Color(const std::string& vector_str) {
   this->clear();
   std::vector<std::string> pieces;
   std::vector<double> rgba;
@@ -147,4 +147,4 @@ Color::Color(const std::string &vector_str) {
   this->a = rgba[3];
 }
 
-bool Color::isA(const char *name) const { return std::string(name) == "color"; }
+bool Color::isA(const char* name) const { return std::string(name) == "color"; }

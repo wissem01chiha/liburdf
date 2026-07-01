@@ -10,7 +10,7 @@ TEST(LinkParserTest, ParserTest) {
   }
 
   LinkParser parser;
-  const tinyxml2::XMLElement *xml = doc.FirstChildElement("model");
+  const tinyxml2::XMLElement* xml = doc.FirstChildElement("model");
   parser.parse(xml->FirstChildElement("link"));
   std::cout << parser.toString();
   const auto linkdata = parser.get();
