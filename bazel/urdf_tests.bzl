@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2024-2026 Wissem Chiha
 # SPDX-License-Identifier: MIT
 
-"""Starlark macros for URDF test configuration."""
+"""Starlark macros for urdf test configuration."""
 
 load("@rules_cc//cc:cc_test.bzl", "cc_test")
 
