@@ -55,6 +55,7 @@ list(APPEND urdf_test_include_dirs "${PROJECT_SOURCE_DIR}/third_party")
 add_subdirectory(src/urdf)
 
 if (LIBURDF_BUILD_TESTS)
+    enable_testing()
     add_subdirectory(test)  
 endif()
 if(LIBURDF_BUILD_PYTHON3)

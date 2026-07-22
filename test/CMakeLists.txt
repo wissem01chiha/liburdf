@@ -36,8 +36,6 @@ set(urdf_test_assets
     assets/valid_path.txt
 )
 
-enable_testing()
-
 list(APPEND urdf_test_libraries urdf)
 
 foreach(urdf_test_source_file IN LISTS urdf_test_sources)
