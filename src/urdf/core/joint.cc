@@ -12,7 +12,7 @@ Joint::Joint() {
   axis.setZero();
 }
 
-Joint::Joint(const Joint& rhs) {
+Joint::Joint(const Joint &rhs) {
   this->type = rhs.type;
   this->axis = rhs.axis;
   this->name = rhs.name;
@@ -36,7 +36,7 @@ Joint::Joint(const Joint& rhs) {
   }
 }
 
-Joint::Joint(Joint&& rhs) noexcept {}
+Joint::Joint(Joint &&rhs) noexcept {}
 
 void Joint::clear() {
   this->axis.setZero();
@@ -47,7 +47,7 @@ void Joint::clear() {
   this->type = Type::UNKNOWN;
 }
 
-bool Joint::isA(const char* name) const { return std::string(name) == "joint"; }
+bool Joint::isA(const char *name) const { return std::string(name) == "joint"; }
 
 std::string Joint::toString() const {
   std::ostringstream os;
@@ -86,7 +86,7 @@ std::string Joint::toString() const {
 
 bool Joint::empty() const { return false; }
 
-const char* Joint::getTypename() const { return "joint"; }
+const char *Joint::getTypename() const { return "joint"; }
 
 void Joint::setDynamics(const std::shared_ptr<JointDynamics> d) {
   if (d) {
@@ -118,15 +118,15 @@ void Joint::setMimic(const std::shared_ptr<JointMimic> m) {
   }
 }
 
-void Joint::setName(const std::string& name_) {
+void Joint::setName(const std::string &name_) {
   if (!name_.empty()) {
     this->name = name_;
   }
 }
 
-void Joint::setType(const Type& t_) { type = t_; }
+void Joint::setType(const Type &t_) { type = t_; }
 
-void Joint::setType(const char* c_) {
+void Joint::setType(const char *c_) {
   if (std::strcmp(c_, "revolute") == 0) {
     this->type = Type::REVOLUTE;
   } else if (std::strcmp(c_, "fixed") == 0) {
@@ -171,12 +171,12 @@ void Joint::pushBackTransform(const std::shared_ptr<Pose> tr) {
     this->transform.push_back(tr);
   }
 }
-bool Joint::isChild(const char* name) const {
+bool Joint::isChild(const char *name) const {
   auto it =
       std::find(this->child.begin(), this->child.end(), std::string(name));
   return it != this->child.end();
 }
-bool Joint::isParent(const char* name) const {
+bool Joint::isParent(const char *name) const {
   auto it =
       std::find(this->parent.begin(), this->parent.end(), std::string(name));
   return it != this->parent.end();

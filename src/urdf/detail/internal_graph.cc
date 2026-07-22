@@ -23,11 +23,11 @@ std::vector<std::shared_ptr<Link>> InternalGraph::getChildLinks(
 #ifdef USE_OPENMP
 
 #else
-  for (const auto& joint : m_->getJoints()) {
+  for (const auto &joint : m_->getJoints()) {
     if (joint->isParent(link->getName().c_str())) {
       std::vector<std::string> joint_child_links_names = joint->getChild();
-      for (const auto& link_name : joint_child_links_names) {
-        for (const auto& model_link : m_->getLinks()) {
+      for (const auto &link_name : joint_child_links_names) {
+        for (const auto &model_link : m_->getLinks()) {
           if (model_link->getName() == link_name) {
             clks.push_back(model_link);
           }
@@ -45,11 +45,11 @@ std::vector<std::shared_ptr<Link>> InternalGraph::getParentLinks(
 #ifdef USE_OPENMP
 
 #else
-  for (const auto& joint : m_->getJoints()) {
+  for (const auto &joint : m_->getJoints()) {
     if (joint->isChild(link->getName().c_str())) {
       std::vector<std::string> joint_child_links_names = joint->getChild();
-      for (const auto& link_name : joint_child_links_names) {
-        for (const auto& model_link : m_->getLinks()) {
+      for (const auto &link_name : joint_child_links_names) {
+        for (const auto &model_link : m_->getLinks()) {
           if (model_link->getName() == link_name) {
             plks.push_back(model_link);
           }
@@ -88,7 +88,7 @@ std::vector<std::string> InternalGraph::getParentLinkNames(
     plkn.push_back(plkiter->getName());
   }
 #else
-  for (const auto& plkiter : plk) {
+  for (const auto &plkiter : plk) {
     plkn.push_back(plkiter->getName());
   }
 #endif
@@ -100,11 +100,11 @@ std::string InternalGraph::toString(std::shared_ptr<Link> link) {
   graph += "node [shape=box];\n";
   std::vector<std::string> lkns = this->getChildLinkNames(link);
 
-  for (const auto& lkn : lkns) {
+  for (const auto &lkn : lkns) {
     graph += lkn;
   }
   graph += "node [shape=ellipse, color=blue, fontcolor=blue];\n";
-  for (const auto& lkn : lkns) {
+  for (const auto &lkn : lkns) {
     graph += lkn;
   }
   graph += "}\n";

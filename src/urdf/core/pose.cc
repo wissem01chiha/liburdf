@@ -5,12 +5,12 @@ Pose::Pose() {
   rotation = Rot3::Identity();
 }
 
-Pose::Pose(const Pose& rhs) {
+Pose::Pose(const Pose &rhs) {
   this->position = rhs.position;
   this->rotation = rhs.rotation;
 }
 
-Pose& Pose::operator=(const Pose& rhs) {
+Pose &Pose::operator=(const Pose &rhs) {
   if (this != &rhs) {
     PropertyBase::operator=(rhs);
     position = rhs.position;
@@ -19,7 +19,7 @@ Pose& Pose::operator=(const Pose& rhs) {
   return *this;
 }
 
-bool Pose::isA(const char* name) const { return std::string(name) == "pose"; }
+bool Pose::isA(const char *name) const { return std::string(name) == "pose"; }
 
 std::string Pose::toString() const {
   std::ostringstream os;

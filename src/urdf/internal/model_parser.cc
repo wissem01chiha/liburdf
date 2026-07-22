@@ -4,13 +4,13 @@
 
 ModelParser::ModelParser() { p_ = std::make_shared<Model>(); }
 
-int ModelParser::parse(const tinyxml2::XMLElement* xml) {
+int ModelParser::parse(const tinyxml2::XMLElement *xml) {
   if (xml == nullptr) {
     LOG_F(ERROR, "ModelParser::parse() received null pointer");
     return -1;
   }
   LOG_F(INFO, "Parsing Model links ...");
-  const tinyxml2::XMLElement* link_xml = xml->FirstChildElement("link");
+  const tinyxml2::XMLElement *link_xml = xml->FirstChildElement("link");
   while (link_xml) {
     LinkParser parser;
     parser.parse(link_xml);
@@ -19,7 +19,7 @@ int ModelParser::parse(const tinyxml2::XMLElement* xml) {
     link_xml = link_xml->NextSiblingElement("link");
   }
   LOG_F(INFO, "Parsing Model joints ...");
-  const tinyxml2::XMLElement* joint_xml = xml->FirstChildElement("joint");
+  const tinyxml2::XMLElement *joint_xml = xml->FirstChildElement("joint");
   int i = 0;
   while (joint_xml) {
     JointParser parser;
@@ -42,10 +42,10 @@ std::string ModelParser::toString() const {
   return os.str();
 }
 
-bool ModelParser::isA(const char* name) const { return p_->isA(name); }
+bool ModelParser::isA(const char *name) const { return p_->isA(name); }
 
 bool ModelParser::empty() const { return p_->empty(); }
 
 void ModelParser::clear() { p_->clear(); }
 
-const char* ModelParser::getTypename() const { return p_->getTypename(); };
+const char *ModelParser::getTypename() const { return p_->getTypename(); };

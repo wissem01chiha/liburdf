@@ -1,4 +1,6 @@
 title: liburdf
-description: URDF File I/O Library
-show_downloads: true
-theme: jekyll-theme-cayman
+description: urdf file I/O library
+theme: just-the-docs
+plugins:
+  - jekyll-default-layout
+favicon: "/favicon.ico"

@@ -7,3 +7,6 @@ CMakeFiles/
 CMakeCache.txt
 MODULE.bazel.lock
 .vs
+
+.jekyll-cache/
+Gemfile.lock

@@ -9,7 +9,7 @@
 
 URDFParser::URDFParser() { this->model_ = std::make_shared<Model>(); }
 
-int URDFParser::parse(const tinyxml2::XMLElement* xml) {
+int URDFParser::parse(const tinyxml2::XMLElement *xml) {
   if (xml == nullptr) {
     LOG_F(ERROR, "URDFParser::parse() received null pointer");
     return -1;
@@ -22,7 +22,7 @@ int URDFParser::parse(const tinyxml2::XMLElement* xml) {
   this->model_ = mp.get();
 }
 
-int URDFParser::parse(const char* filename) {
+int URDFParser::parse(const char *filename) {
   if (filename == nullptr) {
     LOG_F(ERROR, "URDFParser::parse() received null pointer");
     return -1;
@@ -33,7 +33,7 @@ int URDFParser::parse(const char* filename) {
     LOG_F(ERROR, "Error loading XML file: %s", doc.ErrorStr());
     return -1;
   } else {
-    const tinyxml2::XMLElement* xml = doc.FirstChildElement("robot");
+    const tinyxml2::XMLElement *xml = doc.FirstChildElement("robot");
     if (!xml) {
       LOG_F(ERROR, "Error: This is not a valid URDF file format");
       return -1;
@@ -45,7 +45,7 @@ int URDFParser::parse(const char* filename) {
   return 0;
 }
 
-int URDFParser::parse(const std::string& filename) {
+int URDFParser::parse(const std::string &filename) {
   return this->parse(filename.c_str());
 }
 
@@ -57,13 +57,13 @@ std::string URDFParser::toString() const {
   return os.str();
 }
 
-bool URDFParser::isA(const char* name) const { return this->model_->isA(name); }
+bool URDFParser::isA(const char *name) const { return this->model_->isA(name); }
 
 bool URDFParser::empty() const { return this->model_->empty(); }
 
 void URDFParser::clear() { this->model_->clear(); }
 
-const char* URDFParser::getTypename() const {
+const char *URDFParser::getTypename() const {
   return this->model_->getTypename();
 }
 
