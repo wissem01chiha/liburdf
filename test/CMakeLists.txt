@@ -45,7 +45,7 @@ foreach(urdf_test_source_file IN LISTS urdf_test_sources)
     target_link_libraries(${urdf_test_executable} PRIVATE ${urdf_test_libraries})
     target_compile_options(${urdf_test_executable} PRIVATE ${urdf_test_cflags})
     add_dependencies(${urdf_test_executable} urdf)
-    gtest_discover_tests(${urdf_test_executable})
+    gtest_discover_tests(${urdf_test_executable} WORKING_DIRECTORY "${CMAKE_BINARY_DIR}")
 endforeach()
 
 foreach(asset ${urdf_test_assets})
