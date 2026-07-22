@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024-2026 Wissem Chiha
+# SPDX-License-Identifier: MIT
+
 find_package(Eigen3 QUIET)
 if(Eigen3_FOUND)
     message(STATUS "Eigen3 found: ${EIGEN3_INCLUDE_DIR}")

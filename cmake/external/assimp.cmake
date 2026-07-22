@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024-2026 Wissem Chiha
+# SPDX-License-Identifier: MIT
+
 find_package(assimp QUIET)
 if(ASSIMP_FOUND)
     message(STATUS "assimp found: ${ASSIMP_INCLUDE_DIR}")

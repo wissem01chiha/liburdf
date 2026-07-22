@@ -3,7 +3,9 @@
 #[=======================================================================[.rst:
 Findliburdf
 -----------
+
 Find the liburdf library
+
 .. code-block:: cmake
 
   find_package(liburdf [<version>] [...])
@@ -19,24 +21,15 @@ Result Variables
 ^^^^^^^^^^^^^^^^
 This module defines the following variables:
 
-  ``URDF_INCLUDE_DIR``
+  ``LIBURDF_INCLUDE_DIR``
     The directory containing the liburdf headers.
 
-  ``URDF_LIBRARY``
-    The liburdf library to link against.
-
-  ``URDF_LIBRARIES``
+  ``LIBURDF_LIBRARIES``
     The liburdf libraries to link against.
 
-  ``URDF_LIBRARY_DEBUG``
-    The liburdf library to link against in debug builds.
-
-  ``URDF_LIBRARY_RELEASE``
+  ``LIBURDF_LIBRARY_VERSION``
     The liburdf library to link against in release builds.
 
-  ``URDF_FOUND``
+  ``LIBURDF_FOUND``
     True if the liburdf library was found.
-
-  ``URDF_VERSION``
-    The version of the liburdf library found.
 #]=======================================================================]

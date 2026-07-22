@@ -7,20 +7,6 @@ liburdf
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/wissem01chiha/liburdf/main.svg)](https://results.pre-commit.ci/latest/github/wissem01chiha/liburdf/main)
 ![GitHub License](https://img.shields.io/github/license/wissem01chiha/liburdf)
 
-## Installation
+**liburdf** is a modern, cross‑platform C++17 library for reading and writing [urdf](https://industrial-training-master.readthedocs.io/en/melodic/_source/session3/Intro-to-URDF.html) model files, designed to be lightweight, dependency‑free, with multiple language bindings
 
-A compelete build guide for **liburdf** library can be found [here](https://wissem01chiha.github.io/liburdf/index.html)
-
-## Documenation 
-
-All API documentation and examples can be found [here](https://wissem01chiha.github.io/liburdf/index.html)
-
-## Contributing
-
-The project is under active development, see [contributing](https://wissem01chiha.github.io/liburdf/contributing.html) .If you are interested in collaborating, please feel free to fork the project and open a [pull request](https://github.com/wissem01chiha/liburdf/pulls) or contact the maintainer via [email](chihawissem08@gmail.com)
-
-## License 
-
-All material is provided under MIT License unless otherwise specified.
-
-See the [LICENSE](LICENSE) file for more details
+Visit the [project](https://wissem01chiha.github.io/liburdf/) page for distribution tarballs and additional information.

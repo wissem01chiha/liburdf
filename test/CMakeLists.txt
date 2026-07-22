@@ -36,5 +36,24 @@ set(urdf_test_assets
     assets/valid_path.txt
 )
 
-set(urdf_test_sources ${urdf_test_sources} PARENT_SCOPE)
-set(urdf_test_assets ${urdf_test_assets} PARENT_SCOPE)
+enable_testing()
+
+list(APPEND urdf_test_libraries urdf)
+
+foreach(urdf_test_source_file IN LISTS urdf_test_sources)
+    get_filename_component(urdf_test_executable ${urdf_test_source_file} NAME_WE)
+    add_executable(${urdf_test_executable} ${urdf_test_source_file})
+    target_include_directories(${urdf_test_executable} PRIVATE ${urdf_test_include_dirs})
+    target_link_libraries(${urdf_test_executable} PRIVATE ${urdf_test_libraries})
+    target_compile_options(${urdf_test_executable} PRIVATE ${urdf_test_cflags})
+    add_dependencies(${urdf_test_executable} urdf)
+    gtest_discover_tests(${urdf_test_executable})
+endforeach()
+
+foreach(asset ${urdf_test_assets})
+    configure_file(
+        ${CMAKE_CURRENT_SOURCE_DIR}/${asset}
+        ${CMAKE_CURRENT_BINARY_DIR}/${asset}
+        COPYONLY
+    )
+endforeach()

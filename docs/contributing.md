@@ -9,7 +9,7 @@ Due to time constraints, I am unable to maintain this project constantly. Howeve
 Please feel free to open an [issue](https://github.com/wissem01chiha/liburdf/issues). I will try to address any concerns as best I can.
 Please refer to the following guidelines for areas where help is needed:
 
-#### General Guidelines
+## General Guidelines
 
 - Use the minimal header includes as possible.
 - Follow file naming conventions `.h` for headers and `.cc` for implementations
@@ -51,7 +51,7 @@ Here are some key tasks where contributions are needed:
   - Center of inertia
   - Total volume of the model
   - Density, and more
-  - Precomputed Forward Kinematics 
+  - Precomputed Forward Kinematics
   - Bounding Volume Hierarchy (BVH) for fast collision detection
   
 ---
@@ -70,16 +70,9 @@ If you have any questions or need clarification, feel free to [email me](mailto:
 
 Thank you for contributing!
 
-
-
-
-
-
-
-
-
 Ressources
 =====
+
 - [stl_reader-documentation](https://sreiter.github.io/stl_reader/stl__reader_8h.html)
 - [pybind11-documentation](https://pybind11.readthedocs.io/en/stable/)
 - [urdfdom-debian-package](https://docs.ros.org/en/diamondback/api/urdf/html/index.html)
@@ -87,19 +80,23 @@ Ressources
   
 ## Related Projects
 
-- [urdf-vis](https://github.com/openrr/urdf-viz) 
+- [urdf-vis](https://github.com/openrr/urdf-viz)
 - [urdf-importer](https://github.com/Unity-Technologies/URDF-Importer)
 - [related-ressources](https://stevengong.co/notes/URDF)
 
 How to install Ninja  
 
 - **On Windows** (via Chocolatey):  
+
   ```bash
   choco install ninja
   ```
+
 - **On linux**
+
   ```bash
   sudo apt-get install ninja-build
+
  ```
 
 How to install VCPKG
@@ -117,7 +114,7 @@ git clone https://github.com/Microsoft/vcpkg.git
 How to install Google Test on ubuntu
 ----
 
-for gtest installation : https://gist.github.com/Cartexius/4c437c084d6e388288201aadf9c8cdd5?permalink_comment_id=2822039#gistcomment-2822039
+for gtest installation : <https://gist.github.com/Cartexius/4c437c084d6e388288201aadf9c8cdd5?permalink_comment_id=2822039#gistcomment-2822039>
 
 ```cmd
 sudo apt-get install libgtest-dev
@@ -130,7 +127,9 @@ sudo cp lib/libgtest* /usr/lib/
 cd ..
 sudo rm -rf build
 ```
+
 Then do:
+
 ```cmd
 sudo mkdir /usr/local/lib/googletest
 sudo ln -s /usr/lib/libgtest.a /usr/local/lib/googletest/libgtest.a
@@ -166,5 +165,4 @@ pip install -U gcovr
 
 It's included in the LLVM toolchain, but also installable by apt, brew, winget etc.
 
-https://github.com/llvm/llvm-project/releases/tag/llvmorg-16.0.0
-
+<https://github.com/llvm/llvm-project/releases/tag/llvmorg-16.0.0>

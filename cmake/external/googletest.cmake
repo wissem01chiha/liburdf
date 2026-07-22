@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024-2026 Wissem Chiha
+# SPDX-License-Identifier: MIT
+
 find_package(GTest QUIET)
 if(GTest_FOUND)
     message(STATUS "GTest found: ${GTest_DIR}")

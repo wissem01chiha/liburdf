@@ -1,4 +1,4 @@
-add_library(tinyxml2 tinyxml2.cpp)
+add_library(tinyxml2 STATIC tinyxml2.cpp)
 
 list(APPEND urdf_link_libraries tinyxml2)
 set(urdf_link_libraries ${urdf_link_libraries} PARENT_SCOPE)

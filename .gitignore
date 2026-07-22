@@ -10,3 +10,4 @@ MODULE.bazel.lock
 
 .jekyll-cache/
 Gemfile.lock
+_site/

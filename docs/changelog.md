@@ -6,6 +6,11 @@ nav_order: 4
 Changelog
 =========
 
+#### CHANGES (22-07-2026)
+  - Cleanup cmake scripts for modular plugin design 
+  - Cleanup documenttaion in /docs folder 
+  - Configure documenation with github-pages and just-the-docs jekyll theme
+
 #### CHANGES (05-04-2026)
 - Cleanup CMake Scripts 
 - Add CMakeSettings.json file 

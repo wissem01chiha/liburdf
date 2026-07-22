@@ -1,4 +1,4 @@
-add_library(loguru loguru.cpp)
+add_library(loguru  STATIC loguru.cpp)
 
 list(APPEND urdf_link_libraries loguru)
 set(urdf_link_libraries ${urdf_link_libraries} PARENT_SCOPE)

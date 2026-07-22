@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024-2026 Wissem Chiha
+# SPDX-License-Identifier: MIT
+
 find_package(pybind11 QUIET)
 if(pybind11_FOUND)
     message(STATUS "Pybind Found : ${pybind11_INCLUDE_DIRS}")
