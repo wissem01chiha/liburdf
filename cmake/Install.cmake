@@ -40,6 +40,14 @@ install(FILES
     DESTINATION lib/pkgconfig
 )
 
+# Install project scripts, could we do better ? 
+if(LIBURDF_BUILD_SCRIPTS)
+    install(TARGETS urdf_parse urdf_to_graphiz
+        RUNTIME DESTINATION bin
+    )
+endif()
+
+set(CPACK_GENERATOR "ZIP")                       
 set(CPACK_PACKAGE_VENDOR "Wissem Chiha")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "URDF file I/O library")
 set(CMAKE_PROJECT_HOMEPAGE_URL "https://github.com/wissem01chiha/liburdf")
