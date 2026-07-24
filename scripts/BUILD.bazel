@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2024-2026 Wissem Chiha
+# SPDX-License-Identifier: MIT
+
+load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
+
+cc_binary(
+    name = "urdf_parse",
+    srcs = ["src/urdf_parse.cc"],
+    deps = [
+        "//:urdf",
+        "//:cxxopts"
+    ],
+)
+
+cc_binary(
+    name = "urdf_to_graphiz",
+    srcs = ["src/urdf_to_graphiz.cc"],
+    deps = [
+        "//:urdf",
+        "//:cxxopts"
+    ],
+)
