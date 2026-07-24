@@ -7,6 +7,9 @@ if(MSVC)
     target_compile_definitions(loguru PRIVATE _CRT_SECURE_NO_WARNINGS)
 endif()
 
+install(FILES loguru.hpp
+        DESTINATION include/loguru
+)
 install(TARGETS loguru
         EXPORT loguruTargets
         ARCHIVE DESTINATION lib
@@ -17,3 +20,9 @@ install(EXPORT loguruTargets
         FILE loguruTargets.cmake
         NAMESPACE loguru::
         DESTINATION share/loguru)
+
+# Install third_party licenses, 
+# by default in share/license
+install(FILES LICENSE.txt
+        DESTINATION share/license/loguru
+)

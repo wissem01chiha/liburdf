@@ -1,14 +1,14 @@
 # SPDX-FileCopyrightText: 2024-2026 Wissem Chiha
 # SPDX-License-Identifier: MIT
 #[=======================================================================[.rst:
-Findliburdf
+Findurdf
 -----------
 
 Find the liburdf library
 
 .. code-block:: cmake
 
-  find_package(liburdf [<version>] [...])
+  find_package(urdf [<version>] [...])
 
 Imported Targets
 ^^^^^^^^^^^^^^^^
@@ -21,15 +21,15 @@ Result Variables
 ^^^^^^^^^^^^^^^^
 This module defines the following variables:
 
-  ``LIBURDF_INCLUDE_DIR``
+  ``URDF_INCLUDE_DIR``
     The directory containing the liburdf headers.
 
-  ``LIBURDF_LIBRARIES``
+  ``URDF_LIBRARY``
     The liburdf libraries to link against.
 
-  ``LIBURDF_LIBRARY_VERSION``
+  ``URDF_VERSION``
     The liburdf library to link against in release builds.
 
-  ``LIBURDF_FOUND``
+  ``URDF_FOUND``
     True if the liburdf library was found.
 #]=======================================================================]
