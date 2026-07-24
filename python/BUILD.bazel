@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: 2024-2026 Wissem Chiha
+# SPDX-License-Identifier: MIT
+
+load("//bazel:pybind_defs.bzl", "pybind_extension")
+
+pybind_extension(
+    name = "pyurdf_parser",
+    srcs = ["src/pyurdf_parser.cc"],
+    deps = [
+        "//:urdf",
+        "//:pybind11"
+    ]
+)
+
+pybind_extension(
+    name = "pyurdf",
+    srcs = ["src/pyurdf.cc"],
+    deps = [
+        "//:urdf",
+        "//:pybind11"
+    ]
+)
