@@ -16,3 +16,4 @@ foreach(urdf_script_source_file IN LISTS urdf_script_sources)
     target_link_libraries(${urdf_script_excutable} PRIVATE urdf)
     add_dependencies(${urdf_script_excutable} urdf)
 endforeach() 
+

@@ -11,3 +11,10 @@ endif()
 add_subdirectory(third_party/loguru)
 add_subdirectory(third_party/tinyxml2)
 add_subdirectory(third_party/cxxopts)
+
+list(APPEND urdf_include_dirs 
+    "${PROJECT_SOURCE_DIR}/third_party"
+)
+list(APPEND urdf_test_include_dirs 
+    "${PROJECT_SOURCE_DIR}/third_party"
+)
