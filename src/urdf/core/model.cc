@@ -7,7 +7,7 @@
 
 Model::Model() { name = std::string(""); }
 
-Model::Model(const Model &rhs) {
+Model::Model(const Model& rhs) {
   name = rhs.name;
   joints = rhs.joints;
   links = rhs.links;
@@ -19,7 +19,7 @@ void Model::clear() {
   links.clear();
 }
 
-void Model::setName(const std::string &name) {
+void Model::setName(const std::string& name) {
   if (!name.empty()) {
     this->name = name;
   };
@@ -27,7 +27,7 @@ void Model::setName(const std::string &name) {
 
 std::string Model::getName() const { return name; }
 
-bool Model::isA(const char *name) const { return std::string(name) == "model"; }
+bool Model::isA(const char* name) const { return std::string(name) == "model"; }
 
 std::string Model::toString() const {
   std::ostringstream os;
@@ -48,7 +48,7 @@ std::string Model::toString() const {
   return os.str();
 }
 
-const char *Model::getTypename() const { return "model"; }
+const char* Model::getTypename() const { return "model"; }
 
 bool Model::empty() const { return links.empty() && joints.empty(); }
 
@@ -76,8 +76,8 @@ void Model::setJoint(std::shared_ptr<Joint> joint) {
   }
 }
 
-void Model::setJoint(std::shared_ptr<Joint> joint, const std::string &parent,
-                     const std::string &child) {
+void Model::setJoint(std::shared_ptr<Joint> joint, const std::string& parent,
+                     const std::string& child) {
   if (joint) {
     joint->pushBackParent(parent);
     joint->pushBackParent(child);
@@ -106,10 +106,12 @@ std::vector<std::shared_ptr<Material>> Model::getMaterials() const {
     }
 
 #pragma omp critical
-    { mts.insert(mts.end(), local_mts.begin(), local_mts.end()); }
+    {
+      mts.insert(mts.end(), local_mts.begin(), local_mts.end());
+    }
   }
 #else
-  for (const auto &lk : this->links) {
+  for (const auto& lk : this->links) {
     mts.push_back(lk->getMaterial());
   }
 #endif
@@ -122,7 +124,7 @@ std::vector<std::string> Model::getMaterialsName() const {
 #ifdef USE_OPENMP
 
 #else
-  for (const auto &mt : mts) {
+  for (const auto& mt : mts) {
     mts_str.push_back(mt->getName());
   }
 #endif

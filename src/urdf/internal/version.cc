@@ -7,7 +7,7 @@
 
 Version::Version() {}
 
-Version::Version(const char *attr) {
+Version::Version(const char* attr) {
   if (attr == nullptr) {
     major_ = 1;
     minor_ = 0;
@@ -30,14 +30,14 @@ Version::Version(const char *attr) {
   split_vector.shrink_to_fit();
 }
 
-Version::Version(const Version &rhs) {
+Version::Version(const Version& rhs) {
   this->minor_ = rhs.minor_;
   this->major_ = rhs.major_;
 }
 
 Version::~Version() { this->clear(); }
 
-Version &Version::operator=(const Version &rhs) {
+Version& Version::operator=(const Version& rhs) {
   if (this != &rhs) {
     PropertyBase::operator=(rhs);
     major_ = rhs.major_;
@@ -46,7 +46,7 @@ Version &Version::operator=(const Version &rhs) {
   return *this;
 }
 
-bool Version::isA(const char *name) const {
+bool Version::isA(const char* name) const {
   return std::string(name) == "version";
 }
 
