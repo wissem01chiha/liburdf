@@ -12,7 +12,7 @@ Inertia::Inertia(double mass, double ixx, double ixy, double ixz, double iyy,
                  double iyz, double izz)
     : mass(mass), ixx(ixx), ixy(ixy), ixz(ixz), iyy(iyy), iyz(iyz), izz(izz) {}
 
-bool Inertia::isA(const char *name) const {
+bool Inertia::isA(const char* name) const {
   return std::string(name) == "inertia";
 }
 
@@ -52,7 +52,7 @@ std::string Inertia::toString() const {
   return os.str();
 }
 
-const char *Inertia::getTypename() const { return "inertia"; }
+const char* Inertia::getTypename() const { return "inertia"; }
 
 bool Inertia::empty() const { return false; }
 
@@ -60,7 +60,7 @@ void Inertia::setOrigin(double x, double y, double z) {
   origin->setPosition(x, y, z);
 }
 
-void Inertia::getOrigin(double *xyz) const {
+void Inertia::getOrigin(double* xyz) const {
   Vec3 v = origin->getPosition();
   xyz[0] = v[0];
   xyz[1] = v[1];
