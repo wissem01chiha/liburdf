@@ -9,14 +9,15 @@
 /**
  * @brief Serializer for Box geometry
  */
-class BoxSerializer : public SerializerBase<Box,tinyxml2::XMLElement>{
+class BoxSerializer : public SerializerBase<Box, tinyxml2::XMLElement> {
  public:
   BoxSerializer();
   int serialize(const Box* box) override;
   std::shared_ptr<tinyxml2::XMLElement> get() override;
   ~BoxSerializer() override;
-private:
-    std::shared_ptr<tinyxml2::XMLElement> p_;
+
+ private:
+  std::shared_ptr<tinyxml2::XMLElement> p_;
 };
 
-#endif // INCLUDE_URDF_INTERNAL_BOX_SERIALIZER_H_
+#endif  // INCLUDE_URDF_INTERNAL_BOX_SERIALIZER_H_
