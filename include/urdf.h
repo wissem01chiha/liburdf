@@ -21,8 +21,8 @@
  *FROM, * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *IN THE * SOFTWARE. *
  **********************************************************************************/
-#ifndef URDF_H
-#define URDF_H
+#ifndef INCLUDE_URDF_URDF_H
+#define INCLUDE_URDF_URDF_H
 
 #include "urdf/common/geometry_base.h"
 #include "urdf/common/object_base.h"
@@ -52,18 +52,36 @@
 #include "urdf/core/transmission.h"
 #include "urdf/core/visual.h"
 #include "urdf/detail/internal_graph.h"
+#include "urdf/internal/box_serializer.h"
 #include "urdf/internal/camera_parser.h"
+#include "urdf/internal/camera_serializer.h"
+#include "urdf/internal/collision_serializer.h"
 #include "urdf/internal/color_parser.h"
+#include "urdf/internal/color_serializer.h"
+#include "urdf/internal/cylinder_serializer.h"
+#include "urdf/internal/data_type_serializer.h"
 #include "urdf/internal/geometry_parser.h"
+#include "urdf/internal/geometry_serializer.h"
 #include "urdf/internal/inertia_parser.h"
+#include "urdf/internal/inertia_serializer.h"
 #include "urdf/internal/joint_parser.h"
+#include "urdf/internal/joint_serializer.h"
 #include "urdf/internal/link_parser.h"
+#include "urdf/internal/link_serializer.h"
 #include "urdf/internal/material_parser.h"
+#include "urdf/internal/material_serializer.h"
+#include "urdf/internal/mesh_serializer.h"
 #include "urdf/internal/model_parser.h"
+#include "urdf/internal/model_serializer.h"
 #include "urdf/internal/pose_parser.h"
+#include "urdf/internal/pose_serializer.h"
+#include "urdf/internal/sphere_serializer.h"
 #include "urdf/internal/urdf_parser.h"
+#include "urdf/internal/urdf_serializer.h"
 #include "urdf/internal/version.h"
+#include "urdf/internal/version_serializer.h"
+#include "urdf/internal/world_serializer.h"
 #include "urdf/utility/math_utils.h"
 #include "urdf/utility/string_utils.h"
 
-#endif  // URDF_H
+#endif  // INCLUDE_URDF_URDF_H
