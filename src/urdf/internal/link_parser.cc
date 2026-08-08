@@ -14,7 +14,8 @@ int LinkParser::parse(const tinyxml2::XMLElement* xml) {
   const tinyxml2::XMLElement* inertia_xml = xml->FirstChildElement("inertial");
   if (inertia_xml) {
     InertiaParser ip;
-    ip.parse(inertia_xml);
+    int ips = ip.parse(inertia_xml);
+    if(ips) return ips;
     const auto id = ip.get();
     p_->setInertia(id);
   }
@@ -23,14 +24,16 @@ int LinkParser::parse(const tinyxml2::XMLElement* xml) {
       xml->FirstChildElement("collision");
   if (collision_xml) {
     CollisionParser coop;
-    coop.parse(collision_xml);
+    int cps = coop.parse(collision_xml);
+    if(cps) return cps;
     const auto co_ptr = coop.get();
     p_->setCollision(co_ptr);
   }
   const tinyxml2::XMLElement* viusal_xml = xml->FirstChildElement("visual");
   if (viusal_xml) {
     VisualParser vp;
-    vp.parse(viusal_xml);
+    int vps = vp.parse(viusal_xml);
+    if(vps) return vps;
     const auto vi_ptr = vp.get();
     p_->setVisual(vi_ptr);
   }

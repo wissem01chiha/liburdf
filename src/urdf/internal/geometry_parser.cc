@@ -23,7 +23,8 @@ int GeometryParser::parse(const tinyxml2::XMLElement* xml) {
 
     if (std::strcmp(geometry_name, "box") == 0) {
       BoxParser parser;
-      parser.parse(geometry_element);
+      int b = parser.parse(geometry_element);
+      if(b) return b;
       auto box_ptr = parser.get();
       if (box_ptr) {
         p_ = std::static_pointer_cast<GeometryBase>(box_ptr);
@@ -32,7 +33,8 @@ int GeometryParser::parse(const tinyxml2::XMLElement* xml) {
 
     if (std::strcmp(geometry_name, "sphere") == 0) {
       SphereParser parser;
-      parser.parse(geometry_element);
+      int s = parser.parse(geometry_element);
+      if(s) return s;
       auto sphere_ptr = parser.get();
       if (sphere_ptr) {
         p_ = std::static_pointer_cast<GeometryBase>(sphere_ptr);
@@ -41,7 +43,8 @@ int GeometryParser::parse(const tinyxml2::XMLElement* xml) {
 
     if (std::strcmp(geometry_name, "cylinder") == 0) {
       CylinderParser parser;
-      parser.parse(geometry_element);
+      int k = parser.parse(geometry_element);
+      if(k) return k;
       auto cylinder_ptr = parser.get();
       if (cylinder_ptr) {
         p_ = std::static_pointer_cast<GeometryBase>(cylinder_ptr);
@@ -50,7 +53,8 @@ int GeometryParser::parse(const tinyxml2::XMLElement* xml) {
 
     if (std::strcmp(geometry_name, "mesh") == 0) {
       MeshParser parser;
-      parser.parse(geometry_element);
+      int m = parser.parse(geometry_element);
+      if(m) return m;
       auto mesh_ptr = parser.get();
       if (mesh_ptr) {
         p_ = std::static_pointer_cast<GeometryBase>(mesh_ptr);
