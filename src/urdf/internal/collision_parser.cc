@@ -28,7 +28,8 @@ int CollisionParser::parse(const tinyxml2::XMLElement *xml) {
   const tinyxml2::XMLElement *o_xml = xml->FirstChildElement("origin");
   if (o_xml) {
     PoseParser pp;
-    pp.parse(o_xml);
+    int n = pp.parse(o_xml);
+    if (n) return n;
     const auto pp_ptr = pp.get();
     p_->setOrigin(pp_ptr);
   }
@@ -36,7 +37,8 @@ int CollisionParser::parse(const tinyxml2::XMLElement *xml) {
 
   if (geometry_xml) {
     GeometryParser gp;
-    gp.parse(geometry_xml);
+    int k = gp.parse(geometry_xml);
+    if(k) return k;
     const auto gp_ptr = gp.get();
     p_->setGeometry(gp_ptr);
   }
