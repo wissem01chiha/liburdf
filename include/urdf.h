@@ -1,28 +1,28 @@
 /**********************************************************************************
- * Copyright (c) 2024-2026 Wissem Chiha <chihawissem08@gmail.com> *
- * SPDX-License-Identifier: MIT *
+ * Copyright (c) 2024-2026 Wissem Chiha <chihawissem08@gmail.com>   *
+ * SPDX-License-Identifier: MIT   *
  *                                                                                *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
- ** of this software and associated documentation files (the "Software"), to
- *deal  * in the Software without restriction, including without limitation the
- *rights   * to use, copy, modify, merge, publish, distribute, sublicense,
- *and/or sell      * copies of the Software, and to permit persons to whom the
- *Software is          * furnished to do so, subject to the following
- *conditions:                       *
+ *  * of this software and associated documentation files (the "Software"), to
+ * deal  * in the Software without restriction, including without limitation the
+ * rights   * to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell      * copies of the Software, and to permit persons to whom the
+ * Software is          * furnished to do so, subject to the following
+ * conditions:                       *
  *                                                                                *
  *  The above copyright notice and this permission notice shall be included in
- *all* copies or substantial portions of the Software. *
+ * all* copies or substantial portions of the Software.       *
  *                                                                                *
- *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR *
- *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, *
- *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- ** AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER *
- *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- *FROM, * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
- *IN THE * SOFTWARE. *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *    * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE   * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER        * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+ * OTHERWISE, ARISING FROM, * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+ * USE OR OTHER DEALINGS IN THE * SOFTWARE.                                 *
  **********************************************************************************/
-#ifndef URDF_H
-#define URDF_H
+#ifndef INCLUDE_URDF_URDF_H
+#define INCLUDE_URDF_URDF_H
 
 #include "urdf/common/geometry_base.h"
 #include "urdf/common/object_base.h"
@@ -52,18 +52,36 @@
 #include "urdf/core/transmission.h"
 #include "urdf/core/visual.h"
 #include "urdf/detail/internal_graph.h"
+#include "urdf/internal/box_serializer.h"
 #include "urdf/internal/camera_parser.h"
+#include "urdf/internal/camera_serializer.h"
+#include "urdf/internal/collision_serializer.h"
 #include "urdf/internal/color_parser.h"
+#include "urdf/internal/color_serializer.h"
+#include "urdf/internal/cylinder_serializer.h"
+#include "urdf/internal/data_type_serializer.h"
 #include "urdf/internal/geometry_parser.h"
+#include "urdf/internal/geometry_serializer.h"
 #include "urdf/internal/inertia_parser.h"
+#include "urdf/internal/inertia_serializer.h"
 #include "urdf/internal/joint_parser.h"
+#include "urdf/internal/joint_serializer.h"
 #include "urdf/internal/link_parser.h"
+#include "urdf/internal/link_serializer.h"
 #include "urdf/internal/material_parser.h"
+#include "urdf/internal/material_serializer.h"
+#include "urdf/internal/mesh_serializer.h"
 #include "urdf/internal/model_parser.h"
+#include "urdf/internal/model_serializer.h"
 #include "urdf/internal/pose_parser.h"
+#include "urdf/internal/pose_serializer.h"
+#include "urdf/internal/sphere_serializer.h"
 #include "urdf/internal/urdf_parser.h"
+#include "urdf/internal/urdf_serializer.h"
 #include "urdf/internal/version.h"
+#include "urdf/internal/version_serializer.h"
+#include "urdf/internal/world_serializer.h"
 #include "urdf/utility/math_utils.h"
 #include "urdf/utility/string_utils.h"
 
-#endif  // URDF_H
+#endif  // INCLUDE_URDF_URDF_H

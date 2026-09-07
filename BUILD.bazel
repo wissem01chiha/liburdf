@@ -2,13 +2,11 @@
 # SPDX-License-Identifier: MIT
 
 load("@rules_cc//cc:cc_library.bzl", "cc_library")
-load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
-load("//bazel:pybind_defs.bzl", "pybind_extension")
 
 cc_library(
     name = "cxxopts",
-    hdrs = glob(["third_party/cxxopts/*.hpp"]),
-    includes = ["third_party/cxxopts"],
+    hdrs = glob(["third_party/cxxopts/include/*.hpp"]),
+    includes = ["third_party/cxxopts/include"],
     visibility = ["//visibility:public"],
 )
 
@@ -27,7 +25,7 @@ cc_library(
 )
 
 cc_library(
-    name = "liburdf",
+    name = "urdf",
     srcs = glob([
         "src/urdf/core/*.cc",
         "src/urdf/utility/*.cc",
@@ -51,23 +49,6 @@ cc_library(
     visibility = ["//visibility:public"],
 )
 
-cc_binary(
-    name = "urdf_parse",
-    srcs = ["scripts/src/urdf_parse.cc"],
-    deps = [
-        ":liburdf",
-        ":cxxopts"
-    ],
-)
-
-cc_binary(
-    name = "urdf_to_graphiz",
-    srcs = ["scripts/src/urdf_to_graphiz.cc"],
-    deps = [
-        ":liburdf",
-        ":cxxopts"
-    ],
-)
 
 cc_library(
     name = "pybind11",
@@ -76,21 +57,4 @@ cc_library(
     visibility = ["//visibility:public"],
 )
 
-pybind_extension(
-    name = "pyurdf_parser",
-    srcs = ["python/src/pyurdf_parser.cc"],
-    deps = [
-        ":liburdf",
-        ":pybind11"
-    ]
-)
-
-pybind_extension(
-    name = "pyurdf",
-    srcs = ["python/src/pyurdf.cc"],
-    deps = [
-        ":liburdf",
-        ":pybind11"
-    ]
-)
 

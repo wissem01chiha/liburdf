@@ -30,20 +30,23 @@ int InertiaParser::parse(const tinyxml2::XMLElement* xml) {
 
   const tinyxml2::XMLElement* origin_xml = xml->FirstChildElement("origin");
   PoseParser pp;
-  pp.parse(origin_xml);
+  int ps = pp.parse(origin_xml);
+  if (ps) return ps;
   const auto pose = pp.get();
   Vec3 v = pose->getPosition();
   p_->setOrigin(v[0], v[1], v[2]);
 
   const tinyxml2::XMLElement* mass_xml = xml->FirstChildElement("mass");
   PropertyParser<double> massParser;
-  massParser.parse(mass_xml);
+  int mps = massParser.parse(mass_xml);
+  if (mps) return mps;
   auto parsedData = massParser.get();
   p_->setMass((*parsedData)["value"]);
 
   const tinyxml2::XMLElement* inertia_xml = xml->FirstChildElement("inertia");
   PropertyParser<double> tensorParser;
-  tensorParser.parse(inertia_xml);
+  int tp = tensorParser.parse(inertia_xml);
+  if (tp) return tp;
   auto tensorParsedData = tensorParser.get();
   p_->setIxx((*tensorParsedData)["ixx"]);
   p_->setIxy((*tensorParsedData)["ixy"]);

@@ -10,7 +10,7 @@
  * @usage:
  *          urdf_parse --file "./path/to/model/file" [--log]
  */
-#include <cxxopts/cxxopts.hpp>
+#include <cxxopts/include/cxxopts.hpp>
 #include <iostream>
 #include <loguru/loguru.hpp>
 

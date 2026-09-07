@@ -9,7 +9,7 @@
  * @usage:
  *          urdf_to_graphiz --file "./path/to/model/file" [--log]
  */
-#include <cxxopts/cxxopts.hpp>
+#include <cxxopts/include/cxxopts.hpp>
 #include <loguru/loguru.hpp>
 
 #include "urdf.h"

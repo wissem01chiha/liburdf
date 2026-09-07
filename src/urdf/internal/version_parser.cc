@@ -27,10 +27,13 @@ int VersionParser::parse(tinyxml2::XMLDocument doc) {
     p_ = std::make_shared<Version>(version);
     if (!version.equal(static_cast<double>(1), static_cast<double>(0))) {
       LOG_F(ERROR, "Parser Engine : only XML version 1.0 supported");
-    } else {
-      LOG_F(ERROR, "No XML declaration found!");
+      return -1;
     }
+  } else {
+    LOG_F(ERROR, "No XML declaration found!");
+    return -1;
   }
+  return 0;
 }
 
 const char* VersionParser::getTypename() const { return "version"; }

@@ -33,13 +33,15 @@ int MaterialParser::parse(const tinyxml2::XMLElement* xml) {
 
   const tinyxml2::XMLElement* density_xml = xml->FirstChildElement("density");
   PropertyParser<double> dp;
-  dp.parse(density_xml);
+  int dps = dp.parse(density_xml);
+  if (dps) return dps;
   const auto d = dp.get();
   p_->setDensity((*d)["value"]);
 
   const tinyxml2::XMLElement* color_xml = xml->FirstChildElement("color");
   ColorParser cp;
-  cp.parse(color_xml);
+  int cps = cp.parse(color_xml);
+  if (cps) return cps;
   const auto cd = cp.get();
   double r, g, b, a;
   r = cd->getR();
@@ -50,7 +52,8 @@ int MaterialParser::parse(const tinyxml2::XMLElement* xml) {
 
   const tinyxml2::XMLElement* txt_xml = xml->FirstChildElement("texture");
   PropertyParser<std::string> sp;
-  sp.parse(txt_xml);
+  int sps = sp.parse(txt_xml);
+  if (sps) return sps;
   const auto dsp = sp.get();
   p_->setFilename((*dsp)["filename"]);
   return 0;

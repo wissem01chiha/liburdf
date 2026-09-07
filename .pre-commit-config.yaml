@@ -5,4 +5,3 @@ repos:
       - id: clang-format
         args: [--style=file]   
         exclude: ^third_party/.*|^build/.*|^docs/.*|^tests/.*
-

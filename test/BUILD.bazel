@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2024-2026 Wissem Chiha
 # SPDX-License-Identifier: MIT
 
-load("//bazel:urdf_tests.bzl", "urdf_tests")
+load("@rules_cc//cc:cc_test.bzl", "cc_test")
 
 filegroup(
     name = "assets",
@@ -9,25 +9,203 @@ filegroup(
     visibility = ["//visibility:public"],
 )
 
-urdf_tests([
-    "camera_test.cc",
-    "geometry_parser_test.cc",
-    "inertia_parser_test.cc",
-    "internal_graph_test.cc",
-    "version_test.cc",
-    "pose_test.cc",
-    "color_test.cc",
-    "joint_test.cc",
-    "mesh_test.cc",
-    "link_test.cc",
-    "pose_parser_test.cc",
-    "property_parser_test.cc",
-    "visual_parser_test.cc",
-    "collision_parser_test.cc",
-    "link_parser_test.cc",
-    "joint_parser_test.cc",
-    "string_utils_test.cc",
-    "model_test.cc",
-    "model_parser_test.cc",
-    "material_parser_test.cc",
-])
+cc_test(
+    name = "camera_test",
+    srcs = ["camera_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "geometry_parser_test",
+    srcs = ["geometry_parser_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "inertia_parser_test",
+    srcs = ["inertia_parser_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "internal_graph_test",
+    srcs = ["internal_graph_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "version_test",
+    srcs = ["version_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "pose_test",
+    srcs = ["pose_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "color_test",
+    srcs = ["color_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "joint_test",
+    srcs = ["joint_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "mesh_test",
+    srcs = ["mesh_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "link_test",
+    srcs = ["link_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "pose_parser_test",
+    srcs = ["pose_parser_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "property_parser_test",
+    srcs = ["property_parser_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "visual_parser_test",
+    srcs = ["visual_parser_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "collision_parser_test",
+    srcs = ["collision_parser_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "link_parser_test",
+    srcs = ["link_parser_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "joint_parser_test",
+    srcs = ["joint_parser_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "string_utils_test",
+    srcs = ["string_utils_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "model_test",
+    srcs = ["model_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "model_parser_test",
+    srcs = ["model_parser_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
+    name = "material_parser_test",
+    srcs = ["material_parser_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
