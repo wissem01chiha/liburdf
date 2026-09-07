@@ -1,8 +1,3 @@
----
-title: Contribution Guide
-nav_order: 5
----
-
 # Contribution Guide
 
 Due to time constraints, I am unable to maintain this project constantly. However, the work is in progress, and any contributions are greatly appreciated.  

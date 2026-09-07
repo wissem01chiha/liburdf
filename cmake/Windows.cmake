@@ -3,5 +3,7 @@
 
 if(WIN32)
     cmake_policy(SET CMP0135 NEW)
-    list(APPEND urdf_cflags "/DNOMINMAX")
+    if(MSVC)
+        list(APPEND urdf_cflags "/DNOMINMAX")
+    endif()
 endif()
