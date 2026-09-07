@@ -53,7 +53,7 @@ int JointParser::parse(const tinyxml2::XMLElement* xml) {
   while (origin_xml) {
     PoseParser op;
     int pos = op.parse(origin_xml);
-    if(pos) return pos;
+    if (pos) return pos;
     const auto o = op.get();
     p_->pushBackTransform(o);
 
@@ -77,7 +77,7 @@ int JointParser::parse(const tinyxml2::XMLElement* xml) {
   if (calibration_xml) {
     PropertyParser<double> calibration_parser;
     int cs = calibration_parser.parse(calibration_xml);
-    if(cs) return cs;
+    if (cs) return cs;
     const auto data = calibration_parser.get();
     std::shared_ptr<JointCalibration> jc = std::make_shared<JointCalibration>();
     jc->setFalling((*data)["falling"]);
@@ -90,7 +90,7 @@ int JointParser::parse(const tinyxml2::XMLElement* xml) {
   if (limit_xml) {
     PropertyParser<double> limit_parser;
     int lps = limit_parser.parse(limit_xml);
-    if(lps) return lps;
+    if (lps) return lps;
     const auto data = limit_parser.get();
     std::shared_ptr<JointLimits> jl = std::make_shared<JointLimits>();
     jl->setEffort((*data)["effort"]);
@@ -102,7 +102,7 @@ int JointParser::parse(const tinyxml2::XMLElement* xml) {
   if (dynamics_xml) {
     PropertyParser<double> dynamics_parser;
     int dps = dynamics_parser.parse(dynamics_xml);
-    if(dps) return dps;
+    if (dps) return dps;
     const auto data = dynamics_parser.get();
     std::shared_ptr<JointDynamics> jd = std::make_shared<JointDynamics>();
     jd->setDamping((*data)["damping"]);
@@ -114,7 +114,7 @@ int JointParser::parse(const tinyxml2::XMLElement* xml) {
   if (mimic_xml) {
     PropertyParser<double> mimic_parser;
     int mps = mimic_parser.parse(mimic_xml);
-    if(mps) return mps;
+    if (mps) return mps;
     const auto data = mimic_parser.get();
     std::shared_ptr<JointMimic> jm = std::make_shared<JointMimic>();
     jm->setMultiplier((*data)["multiplier"]);
@@ -122,7 +122,7 @@ int JointParser::parse(const tinyxml2::XMLElement* xml) {
 
     PropertyParser<std::string> str_mimic_parser;
     int smp = str_mimic_parser.parse(mimic_xml);
-    if(smp) return smp;
+    if (smp) return smp;
     const auto data_str = str_mimic_parser.get();
     jm->setName((*data_str)["joint"]);
     p_->setMimic(jm);
@@ -133,7 +133,7 @@ int JointParser::parse(const tinyxml2::XMLElement* xml) {
   if (safety_xml) {
     PropertyParser<double> safety_parser;
     int sps = safety_parser.parse(safety_xml);
-    if(sps) return sps;
+    if (sps) return sps;
     const auto data = safety_parser.get();
     std::shared_ptr<JointSafety> js = std::make_shared<JointSafety>();
     js->setSoftUpperLimit((*data)["soft_upper_limit"]);

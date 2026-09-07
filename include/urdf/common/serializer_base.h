@@ -12,8 +12,8 @@ class SerializerBase {
   virtual std::shared_ptr<P> get() { return Pptr; }
 
  protected:
-  SerializerBase(){};
-  virtual ~SerializerBase(){};
+  SerializerBase() {};
+  virtual ~SerializerBase() {};
   std::shared_ptr<P> Pptr;
 };
 

@@ -23,7 +23,7 @@ int CameraParser::parse(const tinyxml2::XMLElement* xml) {
   if (origin_xml) {
     PoseParser op;
     int s = op.parse(origin_xml);
-    if(s) return s;
+    if (s) return s;
     const auto o = op.get();
     p_->setOrigin(o);
   }
@@ -34,7 +34,7 @@ int CameraParser::parse(const tinyxml2::XMLElement* xml) {
     if (image_xml) {
       PropertyParser<double> pp;
       int t = pp.parse(image_xml);
-      if(t) return t;
+      if (t) return t;
       const auto data = pp.get();
       p_->setHfov((*data)["hfov"]);
       p_->setFar((*data)["far"]);

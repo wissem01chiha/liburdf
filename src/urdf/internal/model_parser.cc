@@ -14,7 +14,7 @@ int ModelParser::parse(const tinyxml2::XMLElement *xml) {
   while (link_xml) {
     LinkParser parser;
     int pps = parser.parse(link_xml);
-    if(pps) return pps;
+    if (pps) return pps;
     auto link = parser.get();
     p_->setLink(link);
     link_xml = link_xml->NextSiblingElement("link");
@@ -25,7 +25,7 @@ int ModelParser::parse(const tinyxml2::XMLElement *xml) {
   while (joint_xml) {
     JointParser parser;
     int jps = parser.parse(joint_xml);
-    if(jps) return jps;
+    if (jps) return jps;
     const auto joint = parser.get();
     p_->setJoint(joint);
     joint_xml = joint_xml->NextSiblingElement("joint");

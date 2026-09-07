@@ -34,14 +34,14 @@ int MaterialParser::parse(const tinyxml2::XMLElement* xml) {
   const tinyxml2::XMLElement* density_xml = xml->FirstChildElement("density");
   PropertyParser<double> dp;
   int dps = dp.parse(density_xml);
-  if(dps) return dps;
+  if (dps) return dps;
   const auto d = dp.get();
   p_->setDensity((*d)["value"]);
 
   const tinyxml2::XMLElement* color_xml = xml->FirstChildElement("color");
   ColorParser cp;
-  int cps =cp.parse(color_xml);
-  if(cps) return cps;
+  int cps = cp.parse(color_xml);
+  if (cps) return cps;
   const auto cd = cp.get();
   double r, g, b, a;
   r = cd->getR();

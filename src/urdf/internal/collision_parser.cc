@@ -38,7 +38,7 @@ int CollisionParser::parse(const tinyxml2::XMLElement *xml) {
   if (geometry_xml) {
     GeometryParser gp;
     int k = gp.parse(geometry_xml);
-    if(k) return k;
+    if (k) return k;
     const auto gp_ptr = gp.get();
     p_->setGeometry(gp_ptr);
   }
