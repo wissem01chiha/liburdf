@@ -4,10 +4,11 @@ liburdf
 [![CMake](https://github.com/wissem01chiha/liburdf/actions/workflows/cmake.yml/badge.svg)](https://github.com/wissem01chiha/liburdf/actions/workflows/cmake.yml)
 [![Bazel](https://github.com/wissem01chiha/liburdf/actions/workflows/bazel.yml/badge.svg)](https://github.com/wissem01chiha/liburdf/actions/workflows/bazel.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/wissem01chiha/liburdf/badge)](https://www.codefactor.io/repository/github/wissem01chiha/liburdf)
+[![codecov](https://codecov.io/github/wissem01chiha/liburdf/branch/develop/graph/badge.svg?token=1Z4HUX83DE)](https://codecov.io/github/wissem01chiha/liburdf)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/wissem01chiha/liburdf/main.svg)](https://results.pre-commit.ci/latest/github/wissem01chiha/liburdf/main)
 ![GitHub License](https://img.shields.io/github/license/wissem01chiha/liburdf)
 
-**liburdf** is a modern, cross‑platform C++17 library for reading and writing [urdf](https://industrial-training-master.readthedocs.io/en/melodic/_source/session3/Intro-to-URDF.html) model files, designed to be lightweight, dependency‑free, with multiple language bindings
+liburdf is a modern, cross‑platform C++17 library for reading and writing [urdf](https://industrial-training-master.readthedocs.io/en/melodic/_source/session3/Intro-to-URDF.html) model files, designed to be lightweight, dependency‑free, with multiple language bindings
 
 ## About
 
@@ -131,90 +132,9 @@ Project tests are built by default with bazel, to run them:
 bazel test //...
 ```
 
-## Examples
+## API Documentation Reference
 
-At the moment, the available documentation does not provide extensive examples.
-
-- Additional test scripts, which may be useful, can be found in the [test](test/) folder.
-- Samples of model files can be found in the [urdf](examples/urdf/) directory. These files are mainly sourced from the [urdf_files_dataset](https://github.com/Daniella1/urdf_files_dataset).
-
-The examples assume that all installation instructions have been followed and that the library is successfully installed.
-
-#### Example 1: Parsing an URDF File
-
-```cpp
-#include "urdf/urdf.h"
-
-int main() {
-  // Create the parser
-  URDFParser parser;
-  // Parse the file
-  parser.parse("path/to/urdf/examples/urdf/example.urdf");
-  // Get the model
-  std::shared_ptr<Model> model_ = parser.get();
-  // Print the model info
-  std::cout << model_->toString();
-  return 0;
-}
-```
-This will print all model data to the standard output without any formatting or adjustments.
-
-Alternatively, when -DBUILD_SCRIPTS is enabled, you can parse the files from the command line as shown below:
-
-```bash
-./urdf_parse --file path/to/your/urdf_model.urdf
-```
-
-#### Example 2: Get Multijoint Model Data
-
-```cpp
-#include "tinyurdf/tinyurdf.h"
-
-int main() {
-  // Construct the parser
-  URDFParser parser;
-  // Call the parsing routine
-  parser.parse("path/to/file.urdf");
-  // Get the model
-  std::shared_ptr<Model> model_ = parser.get();
-  // Get the model name
-  std::string name = model_->getName();
-  // Get model joints
-  std::vector<std::shared_ptr<Joint>> joints_ = model_->getJoints();
-  // Get model links
-  std::vector<std::shared_ptr<Link>> links_ = model_->getLinks();
-  // Check whether the model is empty
-  bool status = model_->empty();
-  return 0;
-}
-```
-
-#### Python Interface Example
-
-Here is an example of the Python interface, which is similar to the C++ interface:
-
-```python
-from pytinyurdf import pyurdf_parser
-
-def main():
-    parser = pyurdf_parser.URDFParser()
-    urdf_file = "spot.urdf"
-    parser.parse(urdf_file)
-    model = parser.get()
-    print(model.getName())
-    print(model.__str__())
-
-if __name__ == "__main__":
-    main()
-```
-
-## API Reference
-
-Documentation is not yet published; API references and examples are in progress.
-
-## Pkgconfig
-
-Pkgconfig integration documentation is in progress.
+Check our [Wiki](https://github.com/wissem01chiha/liburdf/wiki) for detailed documentation and examples.
 
 ## FAQ
 
@@ -224,12 +144,11 @@ Have a question? Want some tips? Feel free to join  on  [discussions](https://gi
 
 See [Changelog](CHANGELOG.md) file for project API changes.
 
-
 ## Support
 
 I'm not planning to actively update the project on a regular basis, but if any critical fixes are contributed, I'll certainly try to review and integrate them.
 
-For bugs, please [report an issue](https://github.com/wissem01chiha/liburdf/issues), submit a [pull request](https://github.com/wissem01chiha/liburdf/pulls) or catch me on [email](email:chihawissem08@gmail.com)
+For bugs, please [report an issue](https://github.com/wissem01chiha/liburdf/issues), submit a [pull request](https://github.com/wissem01chiha/liburdf/pulls) or catch me on [email](mailto:chihawissem08@gmail.com)
 
 Any contributions are greatly appreciated, see [Contributing](.github/CONTRIBUTING.md) for some contribution guidelines.
 
@@ -237,9 +156,9 @@ Any contributions are greatly appreciated, see [Contributing](.github/CONTRIBUTI
 
 Many thanks to everyone who has contributed to this project, whether by reporting issues, submitting pull requests, or providing other forms of support. In particular:
 
-- [OmniLink](https://github.com/omnilink-tech) Team
+- [OmniLink Team](https://github.com/omnilink-tech)
 - [Shuyang Liu](https://github.com/kouge0510)
 
 ## License
 
-Distributed under the MIT License, see [LICENSE](LICENSE.txt) file for more information
+Distributed under the [MIT License](), see [LICENSE](LICENSE.txt) file for more information

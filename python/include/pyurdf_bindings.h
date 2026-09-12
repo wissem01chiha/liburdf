@@ -6,6 +6,8 @@
 
 #include "../../include/urdf.h"
 
+// Copyright 2024-2026 Wissem CHIHA
+
 namespace py = pybind11;
 
 inline void init_link(py::module& m) {

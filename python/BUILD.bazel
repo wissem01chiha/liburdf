@@ -5,7 +5,7 @@ load("//bazel:pybind_defs.bzl", "pybind_extension")
 
 pybind_extension(
     name = "pyurdf_parser",
-    srcs = ["src/pyurdf_parser.cc"],
+    srcs = ["src/pyurdf_parser.cc","include/pyurdf_bindings.h"],
     deps = [
         "//:urdf",
         "//:pybind11"
