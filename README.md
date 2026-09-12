@@ -9,8 +9,6 @@ liburdf
 
 **liburdf** is a modern, cross‑platform C++17 library for reading and writing [urdf](https://industrial-training-master.readthedocs.io/en/melodic/_source/session3/Intro-to-URDF.html) model files, designed to be lightweight, dependency‑free, with multiple language bindings
 
-Visit the [project](https://wissem01chiha.github.io/liburdf/) page for distribution tarballs and additional information.
-
 ## About
 
 liburdf is the successor of the tinyurdf project, a lightweight C++17 library for reading and processing urdf model files. I started working on tinyurdf back in 2024 with the goal of providing a replacement for traditional urdf manipulation tools, which rely heavily on the ros runtime, unix dependencies, or small python libraries.
@@ -23,7 +21,7 @@ however, this required a huge amount of work. I re‑uploaded the tinyurdf code 
 
 The project was originally derived from [urdf-api](https://docs.ros.org/en/diamondback/api/urdf/html/) and still follows the listed specifications of the urdf file format.
 
-## Platform/Compiler Support
+## Platform Support
 
 | Platform | Compiler            | CMake Version |
 |----------|---------------------|---------------|
@@ -32,9 +30,11 @@ The project was originally derived from [urdf-api](https://docs.ros.org/en/diamo
 
 Other platforms or compilers have not yet been tested. Please open an issue on [GitHub Issues](https://github.com/wissem01chiha/liburdf/issues) for any suspected bugs.
 
-## Quickstart - CMake
+## Quickstart Guide
 
-### Dependencies
+### CMake
+
+#### Dependencies
 
 liburdf currently depends on the following libraries:
 
@@ -58,10 +58,11 @@ These dependencies are automatically fetched and compiled during the build proce
 
 #### Configuration Options
 
-| Option                  | Description                          | Default |
+| Option                  | Description                           | Default |
 |--------------------------|--------------------------------------|---------|
 | LIBURDF_BUILD_SHARED     | Build shared library                 | OFF     |
 | LIBURDF_BUILD_SCRIPTS    | Enable building C++ scripts          | ON      |
+| LIBURDF_ENABLE_TESTING_COVERAGE | Enable Test Coverage          | OFF     |
 | LIBURDF_BUILD_TESTS      | Enable building C++ tests            | ON      |
 | LIBURDF_BUILD_PYTHON3    | Enable building Python3 binaries     | ON      |
 | LIBURDF_INSTALL          | Enable installation of liburdf       | ON      |
@@ -105,16 +106,16 @@ pip install --user .
 
 Note that Python bindings are not currently tested, many bugs exist. Use them at your own risk, or feel free to contribute.
 
-## Quickstart - Bazel
+### Bazel
 
 The official build system for liburdf is cmake. However, bazel will continue to be maintained for bazel‑based projects, primarily for integration purposes. Issues may still arise; please report them in the [issue tracker](https://github.com/wissem01chiha/liburdf/issues).
 
-### Prerequisites
+#### Prerequisites
 
 1. C++17 compatible compiler (GCC 7.1+, Clang 5.0+, MSVC 2017+)
 2. Bazel (version >=9.0.1)
 
-### Configuration Options
+#### Configuration Options
 
 From the top level of the project folder run
 
@@ -122,7 +123,7 @@ From the top level of the project folder run
 bazel build //...
 ```
 
-### Running Tests
+#### Running Tests
 
 Project tests are built by default with bazel, to run them:
 
@@ -217,12 +218,28 @@ Pkgconfig integration documentation is in progress.
 
 ## FAQ
 
-Have a question? Want some tips? Feel free to open an issue on the [issue tracker](https://github.com/wissem01chiha/liburdf/issues).
+Have a question? Want some tips? Feel free to join  on  [discussions](https://github.com/wissem01chiha/liburdf/discussions) or open an issue on our [issue tracker](https://github.com/wissem01chiha/liburdf/issues).
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for project API changes.
+See [Changelog](CHANGELOG.md) file for project API changes.
 
-## Contributing
 
-See [.github/CONTRIBUTING.md](.github/CONTRIBUTING.md) for contribution guidelines.
+## Support
+
+I'm not planning to actively update the project on a regular basis, but if any critical fixes are contributed, I'll certainly try to review and integrate them.
+
+For bugs, please [report an issue](https://github.com/wissem01chiha/liburdf/issues), submit a [pull request](https://github.com/wissem01chiha/liburdf/pulls) or catch me on [email](email:chihawissem08@gmail.com)
+
+Any contributions are greatly appreciated, see [Contributing](.github/CONTRIBUTING.md) for some contribution guidelines.
+
+## Thanks
+
+Many thanks to everyone who has contributed to this project, whether by reporting issues, submitting pull requests, or providing other forms of support. In particular:
+
+- [OmniLink](https://github.com/omnilink-tech) Team
+- [Shuyang Liu](https://github.com/kouge0510)
+
+## License
+
+Distributed under the MIT License, see [LICENSE](LICENSE.txt) file for more information

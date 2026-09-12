@@ -29,6 +29,10 @@ int ColorParser::parse(const tinyxml2::XMLElement* xml) {
     return -1;
   }
   std::string color_string_vector = std::string(xml->Attribute("rgba"));
+  if(color_string_vector.empty()) {
+    LOG_F(ERROR, "ColorParser::parse() received empty color string");
+    return -1;
+  }
   p_ = std::make_shared<Color>(color_string_vector);
   return 0;
 }

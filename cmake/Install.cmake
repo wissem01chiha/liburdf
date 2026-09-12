@@ -2,14 +2,20 @@
 # SPDX-License-Identifier: MIT
 
 configure_package_config_file(
-    "${CMAKE_SOURCE_DIR}/cmake/urdfConfig.cmake.in"
-    "${CMAKE_BINARY_DIR}/urdfConfig.cmake"
+    "${CMAKE_SOURCE_DIR}/cmake/LiburdfConfig.cmake.in"
+    "${CMAKE_BINARY_DIR}/LiburdfConfig.cmake"
     INSTALL_DESTINATION share/liburdf
 )
 write_basic_package_version_file(
-    "${CMAKE_BINARY_DIR}/urdfConfigVersion.cmake"
+    "${CMAKE_BINARY_DIR}/LiburdfConfigVersion.cmake"
     VERSION ${PROJECT_VERSION}
     COMPATIBILITY SameMajorVersion
+)
+
+configure_file(
+    "${PROJECT_SOURCE_DIR}/liburdf.pc.in"
+    "${CMAKE_BINARY_DIR}/liburdf.pc"
+    @ONLY
 )
 
 install(DIRECTORY 
@@ -28,15 +34,15 @@ install(EXPORT urdfTargets
         DESTINATION share/liburdf
 )
 install(FILES
-    "${CMAKE_BINARY_DIR}/urdfConfig.cmake"
-    "${CMAKE_BINARY_DIR}/urdfConfigVersion.cmake"
+    "${CMAKE_BINARY_DIR}/LiburdfConfig.cmake"
+    "${CMAKE_BINARY_DIR}/LiburdfConfigVersion.cmake"
     DESTINATION share/liburdf)
 install(FILES 
     ${CMAKE_SOURCE_DIR}/LICENSE.txt
     DESTINATION share/license/liburdf
 )
 install(FILES 
-    ${CMAKE_BINARY_DIR}/urdf.pc
+    ${CMAKE_BINARY_DIR}/liburdf.pc
     DESTINATION lib/pkgconfig
 )
 

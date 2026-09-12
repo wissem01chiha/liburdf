@@ -22,6 +22,9 @@ class ModelParser final : public ParserBase<Model> {
   const char* getTypename() const override;
 
  private:
+  int parseLinks(const tinyxml2::XMLElement* xml);
+  int parseJoints(const tinyxml2::XMLElement* xml);
+
   std::shared_ptr<Model> p_;
 };
 #endif  // INCLUDE_URDF_INTERNAL_MODEL_PARSER_H_

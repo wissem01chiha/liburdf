@@ -4,12 +4,12 @@
 
 VersionParser::VersionParser() { p_ = std::make_shared<Version>(); };
 
-int VersionParser::parse(tinyxml2::XMLDocument doc) {
+int VersionParser::parse(const tinyxml2::XMLDocument& doc) {
   if (doc.NoChildren()) {
     LOG_F(ERROR, "VersionParser::parse() received empty XML document");
     return -1;
   }
-  tinyxml2::XMLDeclaration* decl = doc.FirstChild()->ToDeclaration();
+  const tinyxml2::XMLDeclaration* decl = doc.FirstChild()->ToDeclaration();
   if (decl) {
     const char* version_str = decl->Value();
     const char* versionStart = strstr(version_str, "version=\"");

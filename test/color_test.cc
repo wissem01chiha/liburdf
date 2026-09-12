@@ -21,6 +21,15 @@ TEST(ColorTest, SafeConstructor) {
   EXPECT_EQ(color.getA(), 1.0);
 }
 
+TEST(ColorTest, ClampsOutOfRangeValues) {
+  Color color(-0.2, 1.2, 0.5, 2.0);
+
+  EXPECT_EQ(color.getR(), 0.0);
+  EXPECT_EQ(color.getG(), 1.0);
+  EXPECT_EQ(color.getB(), 0.5);
+  EXPECT_EQ(color.getA(), 1.0);
+}
+
 TEST(ColorTest, StringConstructor) {
   std::string color_str = "0.5 0.6 0.7 1.0";
   Color color(color_str);

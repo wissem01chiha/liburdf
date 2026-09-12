@@ -16,7 +16,7 @@
 class VersionParser final {
  public:
   VersionParser();
-  int parse(const tinyxml2::XMLDocument doc);
+  int parse(const tinyxml2::XMLDocument& doc);
   const char* getTypename() const;
   std::shared_ptr<Version> get() const { return p_; }
   ~VersionParser();

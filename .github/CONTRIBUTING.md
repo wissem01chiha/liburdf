@@ -1,9 +1,5 @@
 # Contribution Guide
 
-Due to time constraints, I am unable to maintain this project constantly. However, the work is in progress, and any contributions are greatly appreciated.  
-Please feel free to open an [issue](https://github.com/wissem01chiha/liburdf/issues). I will try to address any concerns as best I can.
-Please refer to the following guidelines for areas where help is needed:
-
 ## General Guidelines
 
 - Use the minimal header includes as possible.
@@ -25,7 +21,6 @@ Please refer to the following guidelines for areas where help is needed:
 
 We generally follow the [Google Style Guide](https://google.github.io/styleguide/). Currently, there is no automated checking pipeline for this, but I will personally review the code. Contributions to add such a pipeline would be highly appreciated.
 
----
 
 ## Current Tasks
 
@@ -48,8 +43,6 @@ Here are some key tasks where contributions are needed:
   - Density, and more
   - Precomputed Forward Kinematics
   - Bounding Volume Hierarchy (BVH) for fast collision detection
-  
----
 
 ## Additional Features
 
@@ -59,14 +52,11 @@ These additional features would improve the library:
 - [ ] Create a pipeline to deploy the library upon each release to **vcpkg** package manager.
 - [ ] Check/test the [docker](./Dockerfile) pipeline build status and create a custom workflow.
 
----
-
 If you have any questions or need clarification, feel free to [email me](mailto:chihawissem08@gmail.com).
 
 Thank you for contributing!
 
-Ressources
-=====
+## Ressources
 
 - [stl_reader-documentation](https://sreiter.github.io/stl_reader/stl__reader_8h.html)
 - [pybind11-documentation](https://pybind11.readthedocs.io/en/stable/)

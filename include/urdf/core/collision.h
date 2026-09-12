@@ -19,6 +19,7 @@ class Collision final : public PropertyBase {
   std::shared_ptr<GeometryBase> getGeometry() const;
   void setOrigin(std::shared_ptr<Pose> o_);
   void getOrigin(double* xyz) const;
+  std::shared_ptr<Pose> getPose() const;
 
  private:
   std::shared_ptr<GeometryBase> geometry;

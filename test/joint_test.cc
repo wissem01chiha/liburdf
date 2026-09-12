@@ -28,3 +28,21 @@ TEST(JointTest, TransformTest) {
   EXPECT_EQ(poses.size(), 1);
   EXPECT_EQ(poses[0]->getPosition()[0], 1.0);
 };
+
+TEST(JointTest, TypedJointTest) {
+  Joint joint;
+  joint.setType("planar");
+  EXPECT_EQ(joint.getType(), Joint::Type::PLANAR);
+
+  joint.setType("floating");
+  EXPECT_EQ(joint.getType(), Joint::Type::FLOATING);
+
+  joint.setType("continuous");
+  EXPECT_EQ(joint.getType(), Joint::Type::CONTINUOUS);
+
+  joint.setType("prismatic");
+  EXPECT_EQ(joint.getType(), Joint::Type::PRISMATIC);
+
+  joint.setType("revolute");
+  EXPECT_EQ(joint.getType(), Joint::Type::REVOLUTE);
+}

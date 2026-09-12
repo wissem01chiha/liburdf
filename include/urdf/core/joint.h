@@ -46,6 +46,7 @@ class Joint final : public ObjectBase {
   void setType(const char* c_);
   void setAxis(double x, double y, double z);
   std::string getName() const;
+  Type getType() const;
   void pushBackChild(const std::string lk);
   void pushBackParent(const std::string lk);
   void pushBackTransform(const std::shared_ptr<Pose> t);

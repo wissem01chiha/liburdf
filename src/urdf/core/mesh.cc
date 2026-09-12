@@ -16,10 +16,6 @@ void Mesh::clear() {
 }
 
 void Mesh::setFilename(const std::string& path) {
-  if (!std::filesystem::exists(path)) {
-    LOG_F(ERROR, "Invalid file path: %s. File does not exist.", path.c_str());
-    return;
-  }
   filename = path;
 }
 

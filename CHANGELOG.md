@@ -1,12 +1,17 @@
 Changelog
 =========
 
+#### CHANGES (06-09-2026)
+
+  - Initial liburdf version release
+  
 #### CHANGES (22-07-2026)
   - Cleanup cmake scripts for modular plugin design 
   - Cleanup documenttaion in /docs folder 
   - Configure documenation with github-pages and just-the-docs jekyll theme
 
 #### CHANGES (05-04-2026)
+
 - Cleanup CMake Scripts 
 - Add CMakeSettings.json file 
 - Added bazel CI support
@@ -22,6 +27,7 @@ Changelog
 - Planned Lua bindings.
 
 #### CHANGES (10-02-2025)
+
 - Removed the 3D visualization engine.
 - Updated Doxygen layout documentation.
 - Refactored the `include/` and `src/` folders for modularity.
@@ -41,4 +47,5 @@ Changelog
 - Removed unnecessary lines from `.gitignore`.
 
 #### CHANGES (01-11-2024)
+
 - First experimental version.

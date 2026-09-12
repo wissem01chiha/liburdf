@@ -36,6 +36,13 @@ class Inertia final : public PropertyBase, public GeometryBase {
   void setIyy(double iyy_);
   void setIyz(double iyz_);
   void setIzz(double izz_);
+  double getMass() const;
+  double getIxx() const;
+  double getIxy() const;
+  double getIxz() const;
+  double getIyy() const;
+  double getIyz() const;
+  double getIzz() const;
 
  private:
   std::shared_ptr<Pose> origin;

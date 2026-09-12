@@ -29,3 +29,11 @@ void JointLimits::clear() {
 void JointLimits::setEffort(double effort_) { effort = effort_; }
 
 void JointLimits::setVelocity(double vel_) { velocity = vel_; }
+
+double JointLimits::getEffort() const { return effort; }
+
+double JointLimits::getVelocity() const { return velocity; }
+
+double JointLimits::getLower() const { return lower; }
+
+double JointLimits::getUpper() const { return upper; }

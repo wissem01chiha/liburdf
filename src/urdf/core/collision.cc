@@ -52,3 +52,7 @@ void Collision::getOrigin(double* xyz) const {
     xyz[i] = vec[i];
   }
 }
+
+std::shared_ptr<Pose> Collision::getPose() const {
+  return origin;
+}

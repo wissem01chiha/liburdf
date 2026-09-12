@@ -15,6 +15,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 option(LIBURDF_BUILD_SHARED  "Build shared library" OFF)
+option(LIBURDF_ENABLE_TESTING_COVERAGE "Enable Test Coverage" OFF)
 option(LIBURDF_BUILD_SCRIPTS "Enable building Cxx scripts" ON)
 option(LIBURDF_BUILD_TESTS   "Enable building Cxx tests" ON)
 option(LIBURDF_BUILD_PYTHON3 "Enable building Python3 binaries" ON)
@@ -45,11 +46,10 @@ set(urdf_script_sources "")
 
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
 
-include(CompilerExtraFlags)
+include(CompilerFlags)
 include(Dependencies)
 include(Version)
 include(Windows)
-include(CMakePackageConfigHelpers)
 include(CTest)
 
 add_subdirectory(src/urdf)
@@ -58,6 +58,7 @@ if (LIBURDF_BUILD_TESTS)
     enable_testing()
     add_subdirectory(test)  
 endif()
+
 if(LIBURDF_BUILD_PYTHON3)
     add_subdirectory(python)
 endif()
@@ -65,12 +66,6 @@ endif()
 if(LIBURDF_BUILD_SCRIPTS)
     add_subdirectory(scripts)
 endif()
-
-configure_file(
-  ${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.pc.in
-  ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.pc
-  @ONLY
-)
 
 include(Install)
 
