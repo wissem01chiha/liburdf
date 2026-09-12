@@ -79,7 +79,7 @@ inline void init_model(py::module& m) {
                &Model::setJoint))
       .def("getJoints", &Model::getJoints)
       .def("getLinks", &Model::getLinks);
-} 
+}
 
 inline void init_pyurdf_parser(py::module& m) {
   py::class_<URDFParser, std::shared_ptr<URDFParser>>(m, "URDFParser")

@@ -3,7 +3,6 @@
 #include <cerrno>
 #include <cmath>
 #include <cstdlib>
-
 #include <loguru/loguru.hpp>
 #include <sstream>
 
@@ -42,12 +41,11 @@ int MaterialParser::parse(const tinyxml2::XMLElement* xml) {
       char* end = nullptr;
       errno = 0;
       const double density = std::strtod(density_value, &end);
-        if (end != density_value && *end == '\0' && errno != ERANGE &&
+      if (end != density_value && *end == '\0' && errno != ERANGE &&
           std::isfinite(density)) {
         p_->setDensity(density);
       } else {
-        LOG_F(WARNING, "Ignoring  material density: %s",
-              density_value);
+        LOG_F(WARNING, "Ignoring  material density: %s", density_value);
       }
     }
   }

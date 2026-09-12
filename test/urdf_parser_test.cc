@@ -2,6 +2,7 @@
 #include "internal/urdf_parser.h"
 
 #include <gtest/gtest.h>
+
 #include <loguru/loguru.hpp>
 
 void InitializeLogging() {
@@ -37,4 +38,3 @@ TEST(URDFParserTest, EmptyValues) {
   EXPECT_TRUE(parser.isA("model"));
   EXPECT_STREQ(parser.getTypename(), "model");
 }
-

@@ -53,6 +53,4 @@ void Collision::getOrigin(double* xyz) const {
   }
 }
 
-std::shared_ptr<Pose> Collision::getPose() const {
-  return origin;
-}
+std::shared_ptr<Pose> Collision::getPose() const { return origin; }

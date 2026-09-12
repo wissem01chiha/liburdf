@@ -8,7 +8,7 @@
 /**
  * @brief base class for building multibody graph model
  */
-class InternalGraph final{
+class InternalGraph final {
  public:
   InternalGraph();
   InternalGraph(Model m);

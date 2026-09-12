@@ -1,7 +1,6 @@
 #include "internal/model_parser.h"
 
 #include <cstring>
-
 #include <loguru/loguru.hpp>
 
 ModelParser::ModelParser() { p_ = std::make_shared<Model>(); }
@@ -14,14 +13,16 @@ int ModelParser::parse(const tinyxml2::XMLElement* xml) {
 
   const tinyxml2::XMLElement* model_name_xml =
       std::strcmp(xml->Name(), "robot") == 0 ? xml
-                                               : xml->FirstChildElement("robot");
+                                             : xml->FirstChildElement("robot");
   if (model_name_xml == nullptr) {
     LOG_F(ERROR, "ModelParser::parse() failed to find 'robot' element");
     return -1;
   }
   const char* model_name = model_name_xml->Attribute("name");
   if (model_name == nullptr) {
-    LOG_F(ERROR, "ModelParser::parse() failed to find 'name' attribute in 'robot' element");
+    LOG_F(ERROR,
+          "ModelParser::parse() failed to find 'name' attribute in 'robot' "
+          "element");
     return -1;
   }
   p_->setName(model_name);

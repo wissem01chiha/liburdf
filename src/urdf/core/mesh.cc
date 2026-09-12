@@ -15,9 +15,7 @@ void Mesh::clear() {
   scale.setOnes();
 }
 
-void Mesh::setFilename(const std::string& path) {
-  filename = path;
-}
+void Mesh::setFilename(const std::string& path) { filename = path; }
 
 std::string Mesh::getFilename() { return filename; }
 
