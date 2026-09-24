@@ -83,10 +83,18 @@ std::string ModelParser::toString() const {
   return os.str();
 }
 
-bool ModelParser::isA(const char* name) const { return p_->isA(name); }
+bool ModelParser::isA(const char* name) const {
+  return p_ ? p_->isA(name) : false;
+}
 
-bool ModelParser::empty() const { return p_->empty(); }
+bool ModelParser::empty() const { return p_ ? p_->empty() : true; }
 
-void ModelParser::clear() { p_->clear(); }
+void ModelParser::clear() {
+  if (p_) {
+    p_->clear();
+  }
+}
 
-const char* ModelParser::getTypename() const { return p_->getTypename(); };
+const char* ModelParser::getTypename() const {
+  return p_ ? p_->getTypename() : "unknown";
+};

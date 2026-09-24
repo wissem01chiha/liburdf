@@ -18,11 +18,17 @@ std::string MaterialParser::toString() const {
 
 bool MaterialParser::empty() const { return false; }
 
-void MaterialParser::clear() { p_->clear(); }
+void MaterialParser::clear() {
+  if (p_) {
+    p_->clear();
+  }
+}
 
 const char* MaterialParser::getTypename() const { return "material"; }
 
-bool MaterialParser::isA(const char* name) const { return p_->isA(name); }
+bool MaterialParser::isA(const char* name) const {
+  return p_ ? p_->isA(name) : false;
+}
 
 int MaterialParser::parse(const tinyxml2::XMLElement* xml) {
   if (xml == nullptr) {

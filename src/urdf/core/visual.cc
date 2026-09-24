@@ -10,7 +10,9 @@ Visual::Visual() {
 Visual::~Visual() { this->clear(); }
 
 void Visual::clear() {
-  origin->clear();
+  if (origin) {
+    origin->clear();
+  }
   geometry.reset();
   material_name.clear();
   material.reset();

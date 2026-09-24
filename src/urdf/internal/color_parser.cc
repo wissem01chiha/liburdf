@@ -15,7 +15,11 @@ std::string ColorParser::toString() const {
 
 bool ColorParser::empty() const { return false; }
 
-void ColorParser::clear() { p_->clear(); }
+void ColorParser::clear() {
+  if (p_) {
+    p_->clear();
+  }
+}
 
 const char* ColorParser::getTypename() const { return "color"; }
 

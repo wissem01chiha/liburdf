@@ -14,9 +14,15 @@ std::string InertiaParser::toString() const {
 
 bool InertiaParser::empty() const { return false; }
 
-void InertiaParser::clear() { p_->clear(); }
+void InertiaParser::clear() {
+  if (p_) {
+    p_->clear();
+  }
+}
 
-const char* InertiaParser::getTypename() const { return p_->getTypename(); }
+const char* InertiaParser::getTypename() const {
+  return p_ ? p_->getTypename() : "unknown";
+}
 
 bool InertiaParser::isA(const char* name) const {
   return std::string(name) == "inertia_parser";

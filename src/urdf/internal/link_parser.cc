@@ -40,11 +40,17 @@ int LinkParser::parse(const tinyxml2::XMLElement* xml) {
   return 0;
 }
 
-bool LinkParser::isA(const char* name) const { return p_->isA(name); }
+bool LinkParser::isA(const char* name) const {
+  return p_ ? p_->isA(name) : false;
+}
 
-bool LinkParser::empty() const { return p_->empty(); }
+bool LinkParser::empty() const { return p_ ? p_->empty() : true; }
 
-void LinkParser::clear() { p_->clear(); }
+void LinkParser::clear() {
+  if (p_) {
+    p_->clear();
+  }
+}
 
 std::string LinkParser::toString() const {
   std::ostringstream os;
@@ -54,6 +60,8 @@ std::string LinkParser::toString() const {
   return os.str();
 }
 
-const char* LinkParser::getTypename() const { return p_->getTypename(); }
+const char* LinkParser::getTypename() const {
+  return p_ ? p_->getTypename() : "unknown";
+}
 
 std::shared_ptr<Link> LinkParser::get() { return p_; }

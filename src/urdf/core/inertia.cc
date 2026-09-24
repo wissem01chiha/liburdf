@@ -39,7 +39,9 @@ bool Inertia::validate() const {
 }
 
 void Inertia::clear() {
-  origin->clear();
+  if (origin) {
+    origin->clear();
+  }
   mass = 0.0;
   ixx = ixy = ixz = iyy = iyz = izz = 0.0;
 }
