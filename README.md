@@ -48,10 +48,10 @@ Any contributions are greatly appreciated, see [Contributing](.github/CONTRIBUTI
 
 ## Acknowledgments
 
-Many thanks to everyone who has contributed to this project, whether by reporting issues, submitting pull requests, or providing other forms of support. In particular:
+Many thanks to everyone who has contributed to this project, whether by reporting issues, submitting pull requests, or providing other forms of support. 
+In particular:
 
 - [OmniLink Team](https://github.com/omnilink-tech)
-- [Shuyang Liu](https://github.com/kouge0510)
 
 ## Security
 
