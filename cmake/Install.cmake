@@ -1,6 +1,8 @@
 # SPDX-FileCopyrightText: 2024-2026 Wissem Chiha
 # SPDX-License-Identifier: MIT
 
+include(CMakePackageConfigHelpers)
+
 configure_package_config_file(
     "${CMAKE_SOURCE_DIR}/cmake/LiburdfConfig.cmake.in"
     "${CMAKE_BINARY_DIR}/LiburdfConfig.cmake"
@@ -18,8 +20,8 @@ configure_file(
     @ONLY
 )
 
-install(DIRECTORY 
-    ${CMAKE_SOURCE_DIR}/include/urdf 
+install(DIRECTORY
+    ${CMAKE_SOURCE_DIR}/include/urdf
     DESTINATION include
 )
 install(TARGETS urdf eigen
@@ -37,23 +39,23 @@ install(FILES
     "${CMAKE_BINARY_DIR}/LiburdfConfig.cmake"
     "${CMAKE_BINARY_DIR}/LiburdfConfigVersion.cmake"
     DESTINATION share/liburdf)
-install(FILES 
+install(FILES
     ${CMAKE_SOURCE_DIR}/LICENSE.txt
     DESTINATION share/license/liburdf
 )
-install(FILES 
+install(FILES
     ${CMAKE_BINARY_DIR}/liburdf.pc
     DESTINATION lib/pkgconfig
 )
 
-# Install project scripts, could we do better ? 
+# Install project scripts, could we do better ?
 if(LIBURDF_BUILD_SCRIPTS)
     install(TARGETS urdf_parse urdf_to_graphiz
         RUNTIME DESTINATION bin
     )
 endif()
 
-set(CPACK_GENERATOR "ZIP")                       
+set(CPACK_GENERATOR "ZIP")
 set(CPACK_PACKAGE_VENDOR "Wissem Chiha")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "URDF file I/O library")
 set(CMAKE_PROJECT_HOMEPAGE_URL "https://github.com/wissem01chiha/liburdf")
