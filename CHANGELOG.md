@@ -1,6 +1,10 @@
 Changelog
 =========
 
+#### CHANGES (13-09-2026)
+
+  - liburdf version 0.1.1 release with some bug fixes
+
 #### CHANGES (06-09-2026)
 
   - Initial liburdf version 0.1.0 release

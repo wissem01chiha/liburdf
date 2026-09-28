@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http:#www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,11 +17,14 @@
 
 set -e
 
-########################################################################
-# Script for updating third-party packages.
-# 
+#=============================================================================
+# Script for updating third-party packages vendored in the source tree.
+#
+# Usage:
+#   ./update-common.sh [--cygwin] [source_dir]
+#
 # Example :
-#   Update all Json-C files vendored 
+#   Update all Json-C files vendored
 #
 #       set -e
 #       name="json-c"
@@ -30,20 +33,18 @@ set -e
 #       version=""
 #       tag="json-c-0.18"
 #       files=($(find ./src -maxdepth 1 -type f -printf "%f\n"))
-# 
-# to get the defulat list of files :
-#  >> find . -type f -printf '    "%P"\n' | sort
-########################################################################
+#
+# Notes:
+#   - Requires Git installed and configured.
+#   - Supports Cygwin paths.
+#   - To get the default sorted list of files in current directory:
+#       >> find . -type f -printf '    "%P"\n' | sort
+#=============================================================================
 
 COLOR_OFF="\033[0m"
-BLACK="\033[0;30m"
 RED="\033[0;31m"
 GREEN="\033[0;32m"
 YELLOW="\033[0;33m"
-BLUE="\033[0;34m"
-MAGENTA="\033[0;35m"
-CYAN="\033[0;36m"
-WHITE="\033[0;37m"
 
 fatal() {
     echo -e >&2 "${RED}[FATAL] : $*${COLOR_OFF}"
@@ -64,6 +65,12 @@ success() {
 
 CYGWIN=0
 SRCDIR=""
+
+_dos2unix() {
+    if [ "$CYGWIN" -eq 1 ]; then
+        dos2unix ./update.sh >/dev/null 2>&1
+    fi
+}
 
 set_source_dir() {
     for arg in "$@"; do
@@ -121,6 +128,12 @@ clean_tmpdir(){
     fi
 }
 
+check_submodule() {
+    [ -n "$name" ] || fatal "'name' is empty in $d/update.sh"
+    [ -n "$subtree" ] || fatal "'subtree' is empty in $d/update.sh"
+    [ -n "$repository" ] || fatal "'repository' is empty in $d/update.sh"
+}
+
 clone_update_submodule() {
     tmpdir=$(mktemp -d)
 
@@ -155,19 +168,10 @@ main() {
     for d in $dirs; do
         info "Processing submodule $d ..."
         cd "$d"
-
-        if [ "$CYGWIN" -eq 1 ]; then
-            dos2unix ./update.sh >/dev/null 2>&1
-        fi
-
+        _dos2unix
         init_submodule
         . ./update.sh
-
-        # Sanity checks
-        [ -n "$name" ] || fatal "'name' is empty in $d/update.sh"
-        [ -n "$subtree" ] || fatal "'subtree' is empty in $d/update.sh"
-        [ -n "$repository" ] || fatal "'repository' is empty in $d/update.sh"
-
+        check_submodule
         clone_update_submodule
         count=$((count + 1))
     done
