@@ -46,3 +46,22 @@ TEST(JointTest, TypedJointTest) {
   joint.setType("revolute");
   EXPECT_EQ(joint.getType(), Joint::Type::REVOLUTE);
 }
+
+TEST(JointTest, ClearJointTest) {
+  Joint joint;
+  joint.setName("new_joint_name");
+  joint.setType("planar");
+  joint.pushBackChild("child_link");
+  joint.pushBackParent("parent_link");
+  Pose pose;
+  pose.setPosition(1.0, 2.0, 3.0);
+  std::shared_ptr<Pose> pose_ptr = std::make_shared<Pose>(pose);
+  joint.pushBackTransform(pose_ptr);
+  joint.clear();
+  EXPECT_STREQ(joint.getTypename(), "joint");
+  EXPECT_TRUE(joint.isA("joint"));
+  EXPECT_EQ(joint.getType(), Joint::Type::UNKNOWN);
+  EXPECT_EQ(joint.getChild().size(), 0);
+  EXPECT_EQ(joint.getParent().size(), 0);
+  EXPECT_EQ(joint.getTransform().size(), 0);
+}

@@ -56,6 +56,11 @@ void Joint::clear() {
   this->limits.reset();
   this->safety.reset();
   this->calibration.reset();
+  this->mimic.reset();
+  this->name.clear();
+  this->child.clear();
+  this->parent.clear();
+  this->transform.clear();
   this->type = Type::UNKNOWN;
 }
 

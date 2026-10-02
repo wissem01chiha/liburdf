@@ -6,6 +6,7 @@ set(urdf_test_sources
     pose_test.cc
     color_test.cc
     joint_test.cc
+    inertia_test.cc
     mesh_test.cc
     link_test.cc
     pose_parser_test.cc

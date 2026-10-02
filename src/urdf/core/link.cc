@@ -17,6 +17,7 @@ void Link::clear() {
   this->inertial.reset();
   this->visual.reset();
   this->collision.reset();
+  this->material.reset();
 }
 
 std::string Link::toString() const {
