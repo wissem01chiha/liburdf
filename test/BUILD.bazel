@@ -50,6 +50,16 @@ cc_test(
 )
 
 cc_test(
+    name = "inertia_test",
+    srcs = ["inertia_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)
+
+cc_test(
     name = "version_test",
     srcs = ["version_test.cc"],
     deps = [
