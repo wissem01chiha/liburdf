@@ -24,7 +24,12 @@ install(DIRECTORY
     ${CMAKE_SOURCE_DIR}/include/urdf
     DESTINATION include
 )
-install(TARGETS urdf eigen
+set(urdf_install_targets urdf)
+if(TARGET eigen)
+    list(APPEND urdf_install_targets eigen)
+endif()
+
+install(TARGETS ${urdf_install_targets}
         EXPORT urdfTargets
         ARCHIVE DESTINATION lib
         LIBRARY DESTINATION lib
