@@ -18,6 +18,7 @@ target_include_directories(urdf
 target_include_directories(urdf PRIVATE ${urdf_include_dirs})
 target_link_libraries(urdf PUBLIC ${urdf_link_libraries})
 target_compile_options(urdf PRIVATE ${urdf_cflags})
+target_link_options(urdf PRIVATE ${urdf_link_cflags})
 
 if (LIBURDF_BUILD_SHARED)
     set_target_properties(urdf PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS ON)

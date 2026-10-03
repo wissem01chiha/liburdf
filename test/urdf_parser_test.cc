@@ -38,3 +38,13 @@ TEST(URDFParserTest, EmptyValues) {
   EXPECT_TRUE(parser.isA("model"));
   EXPECT_STREQ(parser.getTypename(), "model");
 }
+
+TEST(URDFParserTest, RejectInvalidColorTest) {
+  InitializeLogging();
+  URDFParser p;
+  ASSERT_EQ(p.parse("./test/assets/invalid_color.urdf"), -1);
+  auto m = p.get();
+  ASSERT_NE(m, nullptr);
+  auto links = m->getLinks();
+  ASSERT_TRUE(links.empty());
+}

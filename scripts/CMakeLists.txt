@@ -14,6 +14,8 @@ foreach(urdf_script_source_file IN LISTS urdf_script_sources)
                                 ${CMAKE_SOURCE_DIR}/third_party
                             )
     target_link_libraries(${urdf_script_excutable} PRIVATE urdf)
+    target_compile_options(${urdf_script_excutable} PRIVATE ${urdf_cflags})
+    target_link_options(${urdf_script_excutable} PRIVATE ${urdf_link_cflags})
     add_dependencies(${urdf_script_excutable} urdf)
 endforeach() 
 

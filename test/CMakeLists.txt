@@ -21,6 +21,7 @@ set(urdf_test_sources
     material_parser_test.cc
     urdf_parser_test.cc
     internal_graph_test.cc
+    color_parser_test.cc
 )
 
 set(urdf_test_assets
@@ -39,6 +40,7 @@ set(urdf_test_assets
     assets/valid_path.txt
     assets/spot_boston_dynamics.urdf
     assets/onrobot_rg6_model.urdf
+    assets/invalid_color.urdf
 )
 
 list(APPEND urdf_test_libraries urdf)
@@ -49,6 +51,7 @@ foreach(urdf_test_source_file IN LISTS urdf_test_sources)
     target_include_directories(${urdf_test_executable} PRIVATE ${urdf_test_include_dirs})
     target_link_libraries(${urdf_test_executable} PRIVATE ${urdf_test_libraries})
     target_compile_options(${urdf_test_executable} PRIVATE ${urdf_test_cflags})
+    target_link_options(${urdf_test_executable} PRIVATE ${urdf_link_cflags})
     add_dependencies(${urdf_test_executable} urdf)
     gtest_discover_tests(${urdf_test_executable} WORKING_DIRECTORY "${CMAKE_BINARY_DIR}")
 endforeach()

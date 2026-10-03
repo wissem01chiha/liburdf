@@ -1,11 +1,11 @@
 # Contribution Guide
 
-Discussion about liburdf happens on GitHub and on [slack](https:://liburdf.slack.com) channel
+Discussion about liburdf happens on GitHub and on [slack](https:://liburdf.slack.com/) channel
 
 - GitHub [wissem01chiha/liburdf](https://github.com/wissem01chiha/liburdf/discussions)
-- Slack  [slack-liburdf](https:://liburdf.slack.com)
+- Slack  [slack-liburdf](https:://liburdf.slack.com/)
 
-If you have any questions or need clarification,feel free to [email me](mailto:chihawissem08@gmail.com).
+If you have any questions or need clarification, feel free to [email me](mailto:chihawissem08@gmail.com).
 
 Thank you for contributing !
 

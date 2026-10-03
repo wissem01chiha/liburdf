@@ -32,6 +32,10 @@ int ColorParser::parse(const tinyxml2::XMLElement* xml) {
     LOG_F(ERROR, "ColorParser::parse() received null pointer");
     return -1;
   }
+  if(xml->Attribute("rgba") == nullptr) {
+    LOG_F(ERROR, "ColorParser::parse() received null rgba attribute");
+    return -1;
+  }
   std::string color_string_vector = std::string(xml->Attribute("rgba"));
   if (color_string_vector.empty()) {
     LOG_F(ERROR, "ColorParser::parse() received empty color string");
