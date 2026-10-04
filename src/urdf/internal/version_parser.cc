@@ -35,7 +35,7 @@ int VersionParser::parse(const tinyxml2::XMLDocument& doc) {
 
   versionStart += 9;
   char version_[20];
-  sscanf_w(versionStart, "%19[^\"]", version_, (unsigned)_countof(version_));
+  sscanf_w(versionStart, "%19[^\"]", version_, (unsigned)sizeof(version_));
   const char* constVersion = version_;
   LOG_F(INFO, "XML Version detected: %s", constVersion);
   Version version(constVersion);
