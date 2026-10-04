@@ -1,6 +1,12 @@
 Changelog
 =========
 
+#### CHANGES (04-10-2026)
+
+  - Added sscanf_w wrapper function for portable sscanf on unix and windows platforms
+  - Added support for double quoted and single quoted version tags in xml to support
+    what xml.etree.ElementTree python package writes.
+    
 #### CHANGES (13-09-2026)
 
   - liburdf version 0.1.1 release with some bug fixes

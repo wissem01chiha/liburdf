@@ -4,6 +4,7 @@
 [![Bazel](https://github.com/wissem01chiha/liburdf/actions/workflows/bazel.yml/badge.svg)](https://github.com/wissem01chiha/liburdf/actions/workflows/bazel.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/wissem01chiha/liburdf/badge)](https://www.codefactor.io/repository/github/wissem01chiha/liburdf)
 [![codecov](https://codecov.io/github/wissem01chiha/liburdf/branch/develop/graph/badge.svg?token=1Z4HUX83DE)](https://codecov.io/github/wissem01chiha/liburdf)
+[![Sanitizer](https://github.com/wissem01chiha/liburdf/actions/workflows/sanitizer.yml/badge.svg)](https://github.com/wissem01chiha/liburdf/actions/workflows/sanitizer.yml)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/wissem01chiha/liburdf/main.svg)](https://results.pre-commit.ci/latest/github/wissem01chiha/liburdf/main)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/7d15d9ad72f94c8883b5ea6dd9d40177)](https://app.codacy.com/gh/wissem01chiha/liburdf/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 ![GitHub License](https://img.shields.io/github/license/wissem01chiha/liburdf)

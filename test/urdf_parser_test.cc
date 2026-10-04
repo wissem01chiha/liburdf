@@ -48,3 +48,17 @@ TEST(URDFParserTest, RejectInvalidColorTest) {
   auto links = m->getLinks();
   ASSERT_TRUE(links.empty());
 }
+
+TEST(URDFParserTest, SingleQuotedVersionTest) {
+  InitializeLogging();
+  URDFParser p;
+  ASSERT_EQ(p.parse("./test/assets/single_quoted.urdf"), 0);
+  auto m = p.get();
+  ASSERT_NE(m, nullptr);
+  auto links = m->getLinks();
+  ASSERT_FALSE(links.empty());
+  ASSERT_EQ(links.size(), 1);
+  auto joints = m->getJoints();
+  ASSERT_TRUE(joints.empty());
+  ASSERT_EQ(joints.size(), 0);
+}

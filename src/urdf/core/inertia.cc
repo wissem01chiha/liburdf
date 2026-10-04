@@ -11,8 +11,8 @@ Inertia::Inertia() {
 Inertia::Inertia(double mass, double ixx, double ixy, double ixz, double iyy,
                  double iyz, double izz)
     : mass(mass), ixx(ixx), ixy(ixy), ixz(ixz), iyy(iyy), iyz(iyz), izz(izz) {
-      origin = std::make_shared<Pose>();
-    }
+  origin = std::make_shared<Pose>();
+}
 
 bool Inertia::isA(const char* name) const {
   return std::string(name) == "inertia";

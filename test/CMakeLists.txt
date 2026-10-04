@@ -22,6 +22,7 @@ set(urdf_test_sources
     urdf_parser_test.cc
     internal_graph_test.cc
     color_parser_test.cc
+    version_parser_test.cc
 )
 
 set(urdf_test_assets
@@ -41,6 +42,8 @@ set(urdf_test_assets
     assets/spot_boston_dynamics.urdf
     assets/onrobot_rg6_model.urdf
     assets/invalid_color.urdf
+    assets/single_quoted.urdf
+    assets/double_quoted.urdf
 )
 
 list(APPEND urdf_test_libraries urdf)
