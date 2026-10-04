@@ -62,3 +62,17 @@ TEST(URDFParserTest, SingleQuotedVersionTest) {
   ASSERT_TRUE(joints.empty());
   ASSERT_EQ(joints.size(), 0);
 }
+
+TEST(URDFParserTest, NamedOnlyMaterielParseTest) {
+  InitializeLogging();
+  URDFParser p;
+  ASSERT_EQ(p.parse("./test/assets/named_only.urdf"), 0);
+  auto m = p.get();
+  ASSERT_NE(m, nullptr);
+  auto links = m->getLinks();
+  ASSERT_FALSE(links.empty());
+  ASSERT_EQ(links.size(), 1);
+  auto joints = m->getJoints();
+  ASSERT_TRUE(joints.empty());
+  ASSERT_EQ(joints.size(), 0);
+}

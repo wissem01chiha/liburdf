@@ -44,6 +44,8 @@ set(urdf_test_assets
     assets/invalid_color.urdf
     assets/single_quoted.urdf
     assets/double_quoted.urdf
+    assets/named_only.urdf
+    assets/with_color.urdf
 )
 
 list(APPEND urdf_test_libraries urdf)

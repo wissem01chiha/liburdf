@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<robot name="r1_material_name_only">
+  <material name="grey"><color rgba="0.5 0.5 0.5 1"/></material>
+  <link name="a">
+    <visual>
+      <geometry><box size="1 1 1"/></geometry>
+      <material name="grey"><color rgba="0.5 0.5 0.5 1"/></material>
+    </visual>
+  </link>
+</robot>

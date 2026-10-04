@@ -57,16 +57,19 @@ int MaterialParser::parse(const tinyxml2::XMLElement* xml) {
   }
 
   const tinyxml2::XMLElement* color_xml = xml->FirstChildElement("color");
-  ColorParser cp;
-  int cps = cp.parse(color_xml);
-  if (cps) return cps;
-  const auto cd = cp.get();
-  double r, g, b, a;
-  r = cd->getR();
-  g = cd->getG();
-  b = cd->getB();
-  a = cd->getA();
-  p_->setColor(r, g, b, a);
+
+  if (color_xml!= nullptr) {
+    ColorParser cp;
+    int cps = cp.parse(color_xml);
+    if (cps) return cps;
+    const auto cd = cp.get();
+    double r, g, b, a;
+    r = cd->getR();
+    g = cd->getG();
+    b = cd->getB();
+    a = cd->getA();
+    p_->setColor(r, g, b, a);
+  }
 
   const tinyxml2::XMLElement* txt_xml = xml->FirstChildElement("texture");
   if (txt_xml != nullptr) {
