@@ -29,6 +29,10 @@ class Inertia final : public PropertyBase, public GeometryBase {
   bool empty() const override;
   void setOrigin(double x, double y, double z) override;
   void getOrigin(double* xyz) const override;
+  void setRotation(double x, double y, double z, double w);
+  void setRotation(double r, double p, double y);
+  Rot3 getRotation() const;
+  void getRotation(double* rpy) const;
   void setMass(const double m);
   void setIxx(double ixx_);
   void setIxy(double ixy_);

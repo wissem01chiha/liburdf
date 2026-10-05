@@ -40,6 +40,8 @@ int InertiaParser::parse(const tinyxml2::XMLElement* xml) {
   if (ps) return ps;
   const auto pose = pp.get();
   Vec3 v = pose->getPosition();
+  Rot3 r = pose->getRotation();
+  p_->setRotation(r.coeffs()[0], r.coeffs()[1], r.coeffs()[2], r.coeffs()[3]);
   p_->setOrigin(v[0], v[1], v[2]);
 
   const tinyxml2::XMLElement* mass_xml = xml->FirstChildElement("mass");

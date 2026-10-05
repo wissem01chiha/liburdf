@@ -2,7 +2,9 @@
 
 #include <gtest/gtest.h>
 
+#if !defined(__APPLE__) || !defined(__MACH__)
 #define M_PI 3.14159265358979323846
+#endif
 
 class PoseTest : public ::testing::Test {};
 
@@ -39,6 +41,17 @@ TEST_F(PoseTest, SetAndGetRotationQuaternion) {
   EXPECT_EQ(rotation.coeffs()[1], 0.0);
   EXPECT_EQ(rotation.coeffs()[2], 0.0);
   EXPECT_EQ(rotation.coeffs()[3], 1.0);
+}
+
+TEST_F(PoseTest, SetAndGetNontrivialRotationQuaternion) {
+  Pose pose;
+  pose.setRotation(0.1, 0.2, 0.3, 0.9);
+
+  Rot3 rotation = pose.getRotation();
+  EXPECT_DOUBLE_EQ(rotation.coeffs()[0], 0.1);
+  EXPECT_DOUBLE_EQ(rotation.coeffs()[1], 0.2);
+  EXPECT_DOUBLE_EQ(rotation.coeffs()[2], 0.3);
+  EXPECT_DOUBLE_EQ(rotation.coeffs()[3], 0.9);
 }
 
 TEST_F(PoseTest, SetAndGetRotationEuler) {

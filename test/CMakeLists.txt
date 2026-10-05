@@ -46,6 +46,7 @@ set(urdf_test_assets
     assets/double_quoted.urdf
     assets/named_only.urdf
     assets/with_color.urdf
+    assets/r6_inertial_rpy.urdf
 )
 
 list(APPEND urdf_test_libraries urdf)

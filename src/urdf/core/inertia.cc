@@ -71,6 +71,24 @@ void Inertia::getOrigin(double* xyz) const {
   xyz[2] = v[2];
 }
 
+void Inertia::setRotation(double x, double y, double z, double w) {
+  origin->setRotation(x, y, z, w);
+}
+
+void Inertia::setRotation(double r, double p, double y) {
+  origin->setRotation(r, p, y);
+}
+
+Rot3 Inertia::getRotation() const { return origin->getRotation(); }
+
+void Inertia::getRotation(double* rpy) const {
+  Rot3 rotation = origin->getRotation();
+  Eigen::Vector3d euler = rotation.toRotationMatrix().canonicalEulerAngles(2, 1, 0);
+  rpy[0] = euler[2];
+  rpy[1] = euler[1]; 
+  rpy[2] = euler[0];
+}
+
 void Inertia::setMass(const double m) {
   if (m > 0) {
     mass = m;
