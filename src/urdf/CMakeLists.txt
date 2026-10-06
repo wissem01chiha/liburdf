@@ -1,7 +1,11 @@
 # SPDX-FileCopyrightText: 2024-2026 Wissem Chiha
 # SPDX-License-Identifier: MIT
 
-add_library(urdf STATIC)
+if(NOT LIBURDF_BUILD_SHARED)
+    add_library(urdf STATIC)
+else()
+    add_library(urdf SHARED)
+endif()
 
 add_subdirectory(core)
 add_subdirectory(utility)
