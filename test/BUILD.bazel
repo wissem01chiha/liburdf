@@ -248,3 +248,13 @@ cc_test(
     ],
     data = ["//test:assets"],
 )
+
+cc_test(
+    name = "mesh_parser_test",
+    srcs = ["mesh_parser_test.cc"],
+    deps = [
+        "//:urdf",
+        "@gtest//:gtest_main",
+    ],
+    data = ["//test:assets"],
+)

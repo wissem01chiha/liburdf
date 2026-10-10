@@ -23,6 +23,7 @@ set(urdf_test_sources
     internal_graph_test.cc
     color_parser_test.cc
     version_parser_test.cc
+    mesh_parser_test.cc
 )
 
 set(urdf_test_assets
@@ -47,6 +48,7 @@ set(urdf_test_assets
     assets/named_only.urdf
     assets/with_color.urdf
     assets/r6_inertial_rpy.urdf
+    assets/mesh.urdf
 )
 
 list(APPEND urdf_test_libraries urdf)

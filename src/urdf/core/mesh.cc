@@ -20,10 +20,10 @@ void Mesh::setFilename(const std::string& path) { filename = path; }
 std::string Mesh::getFilename() { return filename; }
 
 void Mesh::setScale(double xs, double ys, double zs) {
-  if (xs < 0 || xs > 1 || ys < 0 || ys > 1 || zs < 0 || zs > 1) {
+  if (xs < 0  || ys < 0  || zs < 0) {
     LOG_F(ERROR,
           "Invalid scale values: xs = %f, ys = %f, zs = %f.\
-         Each value must be between 0 and 1.",
+         Each value must be non-negative. Scale not set.",
           xs, ys, zs);
     return;
   }
