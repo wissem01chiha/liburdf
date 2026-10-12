@@ -170,4 +170,4 @@ std::string JointParser::toString() const {
 bool JointParser::isA(const char* name) const {
   return p_ ? p_->isA(name) : false;
 }
-JointParser::~JointParser() {};
+JointParser::~JointParser(){};

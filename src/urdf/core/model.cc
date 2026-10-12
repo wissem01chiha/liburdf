@@ -106,9 +106,7 @@ std::vector<std::shared_ptr<Material>> Model::getMaterials() const {
     }
 
 #pragma omp critical
-    {
-      mts.insert(mts.end(), local_mts.begin(), local_mts.end());
-    }
+    { mts.insert(mts.end(), local_mts.begin(), local_mts.end()); }
   }
 #else
   for (const auto& lk : this->links) {

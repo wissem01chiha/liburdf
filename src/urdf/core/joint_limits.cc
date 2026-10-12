@@ -11,11 +11,8 @@ bool JointLimits::isA(const char* name) const {
 
 std::string JointLimits::toString() const {
   std::ostringstream os;
-  os << "Limits : ["
-     << "lower=" << lower << ", "
-     << "upper=" << upper << ", "
-     << "effort=" << effort << ", "
-     << "velocity=" << velocity << "]";
+  os << "Limits : [" << "lower=" << lower << ", " << "upper=" << upper << ", "
+     << "effort=" << effort << ", " << "velocity=" << velocity << "]";
   return os.str();
 }
 

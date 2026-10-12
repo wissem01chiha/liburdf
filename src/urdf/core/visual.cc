@@ -43,13 +43,11 @@ std::string Visual::toString() const {
   if (material) {
     os << material->toString();
   }
-  os << ", "
-     << "Origin = ";
+  os << ", " << "Origin = ";
   if (origin) {
     os << origin->toString();
   }
-  os << ", "
-     << "Geometry = ";
+  os << ", " << "Geometry = ";
   if (geometry) {
     os << geometry->toString();
   }

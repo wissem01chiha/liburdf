@@ -33,16 +33,18 @@ int InertiaParser::parse(const tinyxml2::XMLElement* xml) {
     LOG_F(ERROR, "InertiaParser::parse() received null pointer");
     return -1;
   }
-
+  // <origin> inside <inertial> is optional and defaults to the identity pose
   const tinyxml2::XMLElement* origin_xml = xml->FirstChildElement("origin");
-  PoseParser pp;
-  int ps = pp.parse(origin_xml);
-  if (ps) return ps;
-  const auto pose = pp.get();
-  Vec3 v = pose->getPosition();
-  Rot3 r = pose->getRotation();
-  p_->setRotation(r.coeffs()[0], r.coeffs()[1], r.coeffs()[2], r.coeffs()[3]);
-  p_->setOrigin(v[0], v[1], v[2]);
+  if (origin_xml != nullptr) {
+    PoseParser pp;
+    int ps = pp.parse(origin_xml);
+    if (ps) return ps;
+    const auto pose = pp.get();
+    Vec3 v = pose->getPosition();
+    Rot3 r = pose->getRotation();
+    p_->setRotation(r.coeffs()[0], r.coeffs()[1], r.coeffs()[2], r.coeffs()[3]);
+    p_->setOrigin(v[0], v[1], v[2]);
+  }
 
   const tinyxml2::XMLElement* mass_xml = xml->FirstChildElement("mass");
   PropertyParser<double> massParser;

@@ -50,9 +50,9 @@ void Inertia::clear() {
 
 std::string Inertia::toString() const {
   std::ostringstream os;
-  os << "Inertia = ["
-     << "mass=" << mass << ", ixx=" << ixx << ", ixy=" << ixy << ", ixz=" << ixz
-     << ", iyy=" << iyy << ", iyz=" << iyz << ", izz=" << izz << "]";
+  os << "Inertia = [" << "mass=" << mass << ", ixx=" << ixx << ", ixy=" << ixy
+     << ", ixz=" << ixz << ", iyy=" << iyy << ", iyz=" << iyz << ", izz=" << izz
+     << "]";
   return os.str();
 }
 
@@ -83,9 +83,10 @@ Rot3 Inertia::getRotation() const { return origin->getRotation(); }
 
 void Inertia::getRotation(double* rpy) const {
   Rot3 rotation = origin->getRotation();
-  Eigen::Vector3d euler = rotation.toRotationMatrix().canonicalEulerAngles(2, 1, 0);
+  Eigen::Vector3d euler =
+      rotation.toRotationMatrix().canonicalEulerAngles(2, 1, 0);
   rpy[0] = euler[2];
-  rpy[1] = euler[1]; 
+  rpy[1] = euler[1];
   rpy[2] = euler[0];
 }
 

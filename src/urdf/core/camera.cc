@@ -136,10 +136,9 @@ void Camera::set(const std::shared_ptr<Image<double, 4>> mat_) {
 
 std::string Camera::toString() const {
   std::ostringstream os;
-  os << "Camera : "
-     << " [Type: " << static_cast<int>(type) << ", " << origin->toString()
-     << ", hfov = " << hfov << ", far = " << far << ", near = " << near
-     << ", update_rate = " << update_rate << "]\n";
+  os << "Camera : " << " [Type: " << static_cast<int>(type) << ", "
+     << origin->toString() << ", hfov = " << hfov << ", far = " << far
+     << ", near = " << near << ", update_rate = " << update_rate << "]\n";
   return os.str();
 }
 

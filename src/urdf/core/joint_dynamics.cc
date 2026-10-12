@@ -10,10 +10,8 @@ bool JointDynamics::isA(const char* name) const {
 
 std::string JointDynamics::toString() const {
   std::ostringstream os;
-  os << "Dynamics : ["
-     << "damping=" << damping << ", "
-     << "friction=" << friction << ", "
-     << "inertia=" << inertia << "]";
+  os << "Dynamics : [" << "damping=" << damping << ", "
+     << "friction=" << friction << ", " << "inertia=" << inertia << "]";
   return os.str();
 }
 

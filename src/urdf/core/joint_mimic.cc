@@ -10,10 +10,8 @@ bool JointMimic::isA(const char* name) const {
 
 std::string JointMimic::toString() const {
   std::ostringstream os;
-  os << "Mimic : ["
-     << "offset=" << offset << ", "
-     << "multiplier=" << multiplier << ", "
-     << "name=" << name.c_str() << "]";
+  os << "Mimic : [" << "offset=" << offset << ", "
+     << "multiplier=" << multiplier << ", " << "name=" << name.c_str() << "]";
   return os.str();
 }
 

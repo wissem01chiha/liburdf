@@ -76,3 +76,12 @@ TEST(URDFParserTest, NamedOnlyMaterielParseTest) {
   ASSERT_TRUE(joints.empty());
   ASSERT_EQ(joints.size(), 0);
 }
+
+TEST(URDFParserTest, InertiaWithNoOriginParseTest) {
+  InitializeLogging();
+  URDFParser p;
+  // assert the inertia tag without <origin> do not fail the full parse engine
+  ASSERT_EQ(p.parse("./test/assets/r4_inertial_no_origin.urdf"), 0);
+  auto m = p.get();
+  ASSERT_NE(m, nullptr);
+}
