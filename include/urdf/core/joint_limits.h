@@ -13,6 +13,8 @@ class JointLimits final : public PropertyBase {
   void clear() override;
   void setEffort(double effort_);
   void setVelocity(double vel_);
+  void setLower(double lower_);
+  void setUpper(double upper_);
   double getEffort() const;
   double getVelocity() const;
   double getLower() const;

@@ -95,6 +95,8 @@ int JointParser::parse(const tinyxml2::XMLElement* xml) {
     std::shared_ptr<JointLimits> jl = std::make_shared<JointLimits>();
     jl->setEffort((*data)["effort"]);
     jl->setVelocity((*data)["velocity"]);
+    jl->setUpper((*data)["upper"]);
+    jl->setLower((*data)["lower"]);
     p_->setLimits(jl);
   }
 

@@ -52,6 +52,7 @@ class Joint final : public ObjectBase {
   void pushBackTransform(const std::shared_ptr<Pose> t);
   bool isChild(const char* name) const;
   bool isParent(const char* name) const;
+  std::shared_ptr<JointLimits> getLimits() const;
   std::vector<std::shared_ptr<Pose>> getTransform() const;
   std::vector<std::string> getChild() const;
   std::vector<std::string> getParent() const;

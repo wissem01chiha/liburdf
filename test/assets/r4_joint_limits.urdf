@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<robot name="r5_joint_limits">
+  <link name="a"/>
+  <link name="b"/>
+  <joint name="j1" type="revolute">
+    <parent link="a"/><child link="b"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.8973" upper="2.8973" effort="87" velocity="2.175"/>
+  </joint>
+</robot>

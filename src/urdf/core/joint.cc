@@ -92,6 +92,8 @@ std::string Joint::toString() const {
   if (safety) os << safety->toString();
   os << ", ";
   if (mimic) os << mimic->toString();
+  os << ", ";
+  if (limits) os << limits->toString();
   os << ", Transformations: [";
   for (size_t i = 0; i < transform.size(); ++i) {
     os << transform[i]->toString();
@@ -200,6 +202,8 @@ bool Joint::isParent(const char* name) const {
       std::find(this->parent.begin(), this->parent.end(), std::string(name));
   return it != this->parent.end();
 }
+std::shared_ptr<JointLimits> Joint::getLimits() const { return this->limits; }
+
 std::vector<std::shared_ptr<Pose>> Joint::getTransform() const {
   return this->transform;
 }

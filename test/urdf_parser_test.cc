@@ -85,3 +85,20 @@ TEST(URDFParserTest, InertiaWithNoOriginParseTest) {
   auto m = p.get();
   ASSERT_NE(m, nullptr);
 }
+
+TEST(URDFParserTest, JointLimitsUpperLowerParseTest) {
+  InitializeLogging();
+  URDFParser p;
+  ASSERT_EQ(p.parse("./test/assets/r4_joint_limits.urdf"), 0);
+  auto m = p.get();
+  ASSERT_NE(m, nullptr);
+  auto joints = m->getJoints();
+  ASSERT_FALSE(joints.empty());
+  ASSERT_TRUE(joints.size() == 1);
+  auto joint = joints[0];
+  auto jl = joint->getLimits();
+  ASSERT_NE(jl, nullptr);
+  ASSERT_EQ(jl->getUpper(), 2.8973);
+  ASSERT_EQ(jl->getLower(), -2.8973);
+  ASSERT_FALSE(jl->toString().empty());
+}

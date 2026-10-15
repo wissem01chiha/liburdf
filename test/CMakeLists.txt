@@ -49,7 +49,7 @@ set(urdf_test_assets
     assets/with_color.urdf
     assets/r6_inertial_rpy.urdf
     assets/mesh.urdf
-    assets/r4_inertial_no_origin.urdf
+    assets/r4_joint_limits.urdf
 )
 
 list(APPEND urdf_test_libraries urdf)
