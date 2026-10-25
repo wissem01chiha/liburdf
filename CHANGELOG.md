@@ -1,6 +1,15 @@
 Changelog
 =========
 
+#### CHANGES (25-10-2026)
+
+  - liburdf version 0.1.2 release
+  - Fixed reported issues #20, #21, #33–#40, and #45, including parsing and build/install bugs.
+  - Preserve multiple visual and collision elements per link and keep omitted optional blocks absent.
+  - Improved URDF version, inertia, joint-limit, mesh, and material parsing with regression tests.
+  - Improved cmake builds and added sanitizer support.
+  - Added sonar-cloud project analysis support 
+
 #### CHANGES (04-10-2026)
 
   - Added sscanf_w wrapper function for portable sscanf on unix and windows platforms
