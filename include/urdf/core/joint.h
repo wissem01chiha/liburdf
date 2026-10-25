@@ -47,6 +47,10 @@ class Joint final : public ObjectBase {
   void setAxis(double x, double y, double z);
   std::string getName() const;
   Type getType() const;
+  std::shared_ptr<JointDynamics> getDynamics() const;
+  std::shared_ptr<JointSafety> getSafety() const;
+  std::shared_ptr<JointCalibration> getCalibration() const;
+  std::shared_ptr<JointMimic> getMimic() const;
   void pushBackChild(const std::string lk);
   void pushBackParent(const std::string lk);
   void pushBackTransform(const std::shared_ptr<Pose> t);

@@ -9,6 +9,7 @@ int LinkParser::parse(const tinyxml2::XMLElement* xml) {
     LOG_F(ERROR, "LinkParser::parse() received null pointer");
     return -1;
   }
+  p_ = std::make_shared<Link>();
   const char* link_name = ParserBase::getNameOf(xml);
   p_->setName(std::string(link_name));
   const tinyxml2::XMLElement* inertia_xml = xml->FirstChildElement("inertial");
@@ -20,7 +21,8 @@ int LinkParser::parse(const tinyxml2::XMLElement* xml) {
     p_->setInertia(id);
   }
 
-  const tinyxml2::XMLElement* collision_xml = xml->FirstChildElement("collision");
+  const tinyxml2::XMLElement* collision_xml =
+      xml->FirstChildElement("collision");
   bool first_collision = true;
   while (collision_xml) {
     CollisionParser coop;

@@ -3,11 +3,6 @@
 #include <loguru/loguru.hpp>
 
 Joint::Joint() {
-  dynamics = std::make_shared<JointDynamics>();
-  limits = std::make_shared<JointLimits>();
-  safety = std::make_shared<JointSafety>();
-  calibration = std::make_shared<JointCalibration>();
-  mimic = std::make_shared<JointMimic>();
   type = Type::UNKNOWN;
   axis.setZero();
 }
@@ -174,6 +169,18 @@ void Joint::setAxis(double x, double y, double z) {
 std::string Joint::getName() const { return this->name; }
 
 Joint::Type Joint::getType() const { return this->type; }
+
+std::shared_ptr<JointDynamics> Joint::getDynamics() const {
+  return this->dynamics;
+}
+
+std::shared_ptr<JointSafety> Joint::getSafety() const { return this->safety; }
+
+std::shared_ptr<JointCalibration> Joint::getCalibration() const {
+  return this->calibration;
+}
+
+std::shared_ptr<JointMimic> Joint::getMimic() const { return this->mimic; }
 
 void Joint::pushBackChild(const std::string lk) {
   if (!lk.empty()) {

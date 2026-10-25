@@ -18,8 +18,9 @@ TEST(LinkTest, TestGlobal) {
 
   EXPECT_EQ(link.getName(), "Link_for_test");
   EXPECT_TRUE(link.getVisual() != nullptr);
-  EXPECT_TRUE(link.getMaterial() != nullptr);
-  EXPECT_TRUE(link.getCollision() != nullptr);
+  EXPECT_EQ(link.getMaterial(), nullptr);
+  EXPECT_EQ(link.getCollision(), nullptr);
+  EXPECT_EQ(link.getInertia(), nullptr);
 
   auto box_ = link.getVisual()->getGeometry();
   EXPECT_TRUE(box_ != nullptr);

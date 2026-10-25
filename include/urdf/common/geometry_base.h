@@ -20,6 +20,6 @@ class GeometryBase : public ObjectBase {
   virtual Vec3 getScale() { return Vec3(0, 0, 0); };
 
  protected:
-  GeometryBase(){};
+  GeometryBase() {};
 };
 #endif  // INCLUDE_URDF_COMMON_GEOMETRY_BASE_H_

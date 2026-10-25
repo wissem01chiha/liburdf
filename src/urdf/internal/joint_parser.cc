@@ -11,6 +11,7 @@ int JointParser::parse(const tinyxml2::XMLElement* xml) {
     LOG_F(ERROR, "JointParser::parse() received null pointer");
     return -1;
   }
+  p_ = std::make_shared<Joint>();
   const char* name_ = ParserBase<Joint>::getNameOf(xml);
   p_->setName(std::string(name_));
   const tinyxml2::XMLElement* axis_xml = xml->FirstChildElement("axis");
@@ -172,4 +173,4 @@ std::string JointParser::toString() const {
 bool JointParser::isA(const char* name) const {
   return p_ ? p_->isA(name) : false;
 }
-JointParser::~JointParser(){};
+JointParser::~JointParser() {};

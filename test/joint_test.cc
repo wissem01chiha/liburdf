@@ -17,6 +17,17 @@ TEST(JointTest, GlobalTest) {
   std::cout << joint.toString();
 };
 
+TEST(JointTest, OptionalBlocksAreAbsentByDefault) {
+  Joint joint;
+
+  EXPECT_EQ(joint.getDynamics(), nullptr);
+  EXPECT_EQ(joint.getLimits(), nullptr);
+  EXPECT_EQ(joint.getSafety(), nullptr);
+  EXPECT_EQ(joint.getCalibration(), nullptr);
+  EXPECT_EQ(joint.getMimic(), nullptr);
+  EXPECT_EQ(joint.toString().find("Mimic"), std::string::npos);
+}
+
 TEST(JointTest, TransformTest) {
   Joint joint;
   Pose pose;

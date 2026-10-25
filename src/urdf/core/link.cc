@@ -2,13 +2,7 @@
 
 #include <loguru/loguru.hpp>
 
-Link::Link() {
-  this->name = std::string("Link");
-  this->inertial = std::make_shared<Inertia>();
-  this->visuals.push_back(std::make_shared<Visual>());
-  this->material = std::make_shared<Material>();
-  this->collisions.push_back(std::make_shared<Collision>());
-}
+Link::Link() { this->name = std::string("Link"); }
 
 bool Link::isA(const char* name) const { return std::string(name) == "Link"; }
 
@@ -22,27 +16,16 @@ void Link::clear() {
 
 std::string Link::toString() const {
   std::ostringstream os;
-  os << "Link : [" << name.c_str() << ", ";
-  bool first = true;
+  os << "Link : [" << name.c_str();
   for (const auto& visual : visuals) {
-    if (!first) {
-      os << ", ";
-    }
-    os << visual->toString();
-    first = false;
+    os << ", " << visual->toString();
   }
-  os << ", ";
   if (inertial) {
+    os << ", ";
     os << inertial->toString();
   }
-  os << ", ";
-  first = true;
   for (const auto& collision : collisions) {
-    if (!first) {
-      os << ", ";
-    }
-    os << collision->toString();
-    first = false;
+    os << ", " << collision->toString();
   }
   os << "]";
   return os.str();
@@ -121,13 +104,19 @@ std::vector<std::shared_ptr<Collision>> Link::getCollisions() const {
 }
 
 void Link::setCollisionGeometry(const std::shared_ptr<GeometryBase> g) {
-  if (g && !collisions.empty()) {
+  if (g) {
+    if (collisions.empty()) {
+      addCollision(std::make_shared<Collision>());
+    }
     collisions.front()->setGeometry(g);
   }
 }
 
 void Link::setVisualGeometry(const std::shared_ptr<GeometryBase> g) {
-  if (g && !visuals.empty()) {
+  if (g) {
+    if (visuals.empty()) {
+      addVisual(std::make_shared<Visual>());
+    }
     visuals.front()->setGeometry(g);
   }
 }
@@ -145,13 +134,19 @@ void Link::getOrigin(double* pos) const {
 }
 
 void Link::setVisualOrigin(std::shared_ptr<Pose> o) {
-  if (!visuals.empty()) {
+  if (o) {
+    if (visuals.empty()) {
+      addVisual(std::make_shared<Visual>());
+    }
     visuals.front()->setOrigin(o);
   }
 }
 
 void Link::setCollisionOrigin(std::shared_ptr<Pose> o) {
-  if (!collisions.empty()) {
+  if (o) {
+    if (collisions.empty()) {
+      addCollision(std::make_shared<Collision>());
+    }
     collisions.front()->setOrigin(o);
   }
 };
