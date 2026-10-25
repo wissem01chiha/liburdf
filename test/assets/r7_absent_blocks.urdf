@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<robot name="r7_absent_blocks">
+  <link name="a"/>
+  <link name="b"/>
+  <joint name="j" type="fixed"><parent link="a"/><child link="b"/></joint>
+</robot>

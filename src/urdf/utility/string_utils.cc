@@ -1,5 +1,7 @@
 #include "utility/string_utils.h"
 
+#include <cstddef>
+#include <cstdio>
 #include <loguru/loguru.hpp>
 #include <sstream>
 
@@ -29,4 +31,13 @@ void split(const std::string& str, std::vector<std::string>& split_result,
     start = end + delimiter.length();
   }
   split_result.push_back(str.substr(start));
+}
+
+int sscanf_w(const char* buffer, const char* format, char* out,
+             size_t outSize) {
+#ifdef _MSC_VER
+  return sscanf_s(buffer, format, out, outSize);
+#else
+  return sscanf(buffer, format, out);
+#endif
 }

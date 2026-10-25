@@ -27,5 +27,13 @@ void str2double(const char* in, double& num_);
  */
 void split(const std::string& str, std::vector<std::string>& split_result,
            const std::string& delimiter);
+/**
+ * @brief A Wrapper for sscanf with redirection to platform-specific
+ * implementations.
+ * @param buffer The input string to parse.
+ * @param format The format string for parsing.
+ * @param ... Additional arguments to store the parsed values.
+ */
+int sscanf_w(const char* buffer, const char* format, char* out, size_t outSize);
 
 #endif  // INCLUDE_URDF_UTILITY_STRING_UTILS_H_

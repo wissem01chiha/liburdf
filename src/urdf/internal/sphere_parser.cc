@@ -22,9 +22,13 @@ int SphereParser::parse(const tinyxml2::XMLElement* xml) {
   return 0;
 }
 
-bool SphereParser::isA(const char* name) const { return p_->isA(name); }
+bool SphereParser::isA(const char* name) const {
+  return p_ ? p_->isA(name) : false;
+}
 
-const char* SphereParser::getTypename() const { return p_->getTypename(); }
+const char* SphereParser::getTypename() const {
+  return p_ ? p_->getTypename() : "unknown";
+}
 
 std::string SphereParser::toString() const {
   std::ostringstream os;
@@ -36,6 +40,10 @@ std::string SphereParser::toString() const {
 
 bool SphereParser::empty() const { return p_ == nullptr; }
 
-void SphereParser::clear() { p_->clear(); }
+void SphereParser::clear() {
+  if (p_) {
+    p_->clear();
+  }
+}
 
 std::shared_ptr<Sphere> SphereParser::get() { return p_; }

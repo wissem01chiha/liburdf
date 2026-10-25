@@ -34,9 +34,13 @@ int MeshParser::parse(const tinyxml2::XMLElement* xml) {
   return 0;
 }
 
-bool MeshParser::isA(const char* name) const { return p_->isA(name); }
+bool MeshParser::isA(const char* name) const {
+  return p_ ? p_->isA(name) : false;
+}
 
-const char* MeshParser::getTypename() const { return p_->getTypename(); }
+const char* MeshParser::getTypename() const {
+  return p_ ? p_->getTypename() : "unknown";
+}
 
 std::string MeshParser::toString() const {
   std::ostringstream os;
@@ -48,7 +52,11 @@ std::string MeshParser::toString() const {
 
 bool MeshParser::empty() const { return p_ == nullptr; }
 
-void MeshParser::clear() { p_->clear(); }
+void MeshParser::clear() {
+  if (p_) {
+    p_->clear();
+  }
+}
 
 std::shared_ptr<Mesh> MeshParser::get() { return p_; }
 

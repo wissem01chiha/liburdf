@@ -16,11 +16,17 @@ std::string PoseParser::toString() const {
 
 bool PoseParser::empty() const { return false; }
 
-void PoseParser::clear() { p_->clear(); }
+void PoseParser::clear() {
+  if (p_) {
+    p_->clear();
+  }
+}
 
 const char* PoseParser::getTypename() const { return "pose"; }
 
-bool PoseParser::isA(const char* name) const { return p_->isA(name); }
+bool PoseParser::isA(const char* name) const {
+  return p_ ? p_->isA(name) : false;
+}
 
 int PoseParser::parse(const tinyxml2::XMLElement* xml) {
   if (xml == nullptr) {

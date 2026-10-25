@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot name="r2_color_no_rgba">
+  <link name="a">
+    <visual>
+      <geometry><box size="1 1 1"/></geometry>
+      <material name="broken"><color/></material>
+    </visual>
+  </link>
+</robot>

@@ -68,11 +68,17 @@ const char* GeometryParser::getTypename() const {
   return p_ ? p_->getTypename() : "unknown";
 }
 
-bool GeometryParser::empty() const { return p_->empty(); }
+bool GeometryParser::empty() const { return p_ ? p_->empty() : true; }
 
-void GeometryParser::clear() { p_->clear(); }
+void GeometryParser::clear() {
+  if (p_) {
+    p_->clear();
+  }
+}
 
-bool GeometryParser::isA(const char* name) const { return p_->isA(name); }
+bool GeometryParser::isA(const char* name) const {
+  return p_ ? p_->isA(name) : false;
+}
 
 std::string GeometryParser::toString() const {
   std::ostringstream os;

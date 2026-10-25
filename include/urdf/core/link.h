@@ -3,6 +3,8 @@
 
 // Copyright 2024-2026 Wissem CHIHA
 
+#include <vector>
+
 #include "common/geometry_base.h"
 #include "common/object_base.h"
 #include "core/collision.h"
@@ -28,9 +30,13 @@ class Link final : public ObjectBase {
   std::shared_ptr<Inertia> getInertia() const;
   void setVisual(const std::shared_ptr<Visual> v);
   std::shared_ptr<Visual> getVisual() const;
+  void addVisual(const std::shared_ptr<Visual> v);
+  std::vector<std::shared_ptr<Visual>> getVisuals() const;
   void setMaterial(const std::shared_ptr<Material> m);
   std::shared_ptr<Material> getMaterial() const;
   void setCollision(const std::shared_ptr<Collision> c);
+  void addCollision(const std::shared_ptr<Collision> c);
+  std::vector<std::shared_ptr<Collision>> getCollisions() const;
   void setCollisionGeometry(const std::shared_ptr<GeometryBase> g);
   void setVisualGeometry(const std::shared_ptr<GeometryBase> g);
   std::shared_ptr<Collision> getCollision() const;
@@ -39,8 +45,8 @@ class Link final : public ObjectBase {
  private:
   std::string name;
   std::shared_ptr<Inertia> inertial;
-  std::shared_ptr<Visual> visual;
-  std::shared_ptr<Collision> collision;
+  std::vector<std::shared_ptr<Visual>> visuals;
+  std::vector<std::shared_ptr<Collision>> collisions;
   std::shared_ptr<Material> material;
 };
 #endif  // TINYURDF_LINK_H

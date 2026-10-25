@@ -17,8 +17,10 @@ bool DataTypeParser::isA(const char* name) const {
 bool DataTypeParser::empty() const { return !p_; }
 
 void DataTypeParser::clear() {
-  p_->clear();
-  p_ = nullptr;
+  if (p_) {
+    p_->clear();
+    p_ = nullptr;
+  }
 }
 
 std::string DataTypeParser::toString() const { return p_->toString(); }

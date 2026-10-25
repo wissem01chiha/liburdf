@@ -48,7 +48,7 @@ void Pose::setPosition(double x, double y, double z) {
 void Pose::setRotation(double x, double y, double z, double w) {
   this->rotation.coeffs()[0] = x;
   this->rotation.coeffs()[1] = y;
-  this->rotation.coeffs()[2] = x;
+  this->rotation.coeffs()[2] = z;
   this->rotation.coeffs()[3] = w;
 }
 

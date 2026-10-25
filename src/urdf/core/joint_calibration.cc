@@ -11,10 +11,8 @@ bool JointCalibration::isA(const char* name) const {
 
 std::string JointCalibration::toString() const {
   std::ostringstream os;
-  os << "Calibration : ["
-     << "reference=" << referencePosition << ", "
-     << "rising=" << rising << ", "
-     << "falling=" << falling << "]";
+  os << "Calibration : [" << "reference=" << referencePosition << ", "
+     << "rising=" << rising << ", " << "falling=" << falling << "]";
   return os.str();
 }
 

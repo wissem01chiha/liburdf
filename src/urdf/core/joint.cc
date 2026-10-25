@@ -3,11 +3,6 @@
 #include <loguru/loguru.hpp>
 
 Joint::Joint() {
-  dynamics = std::make_shared<JointDynamics>();
-  limits = std::make_shared<JointLimits>();
-  safety = std::make_shared<JointSafety>();
-  calibration = std::make_shared<JointCalibration>();
-  mimic = std::make_shared<JointMimic>();
   type = Type::UNKNOWN;
   axis.setZero();
 }
@@ -56,6 +51,11 @@ void Joint::clear() {
   this->limits.reset();
   this->safety.reset();
   this->calibration.reset();
+  this->mimic.reset();
+  this->name.clear();
+  this->child.clear();
+  this->parent.clear();
+  this->transform.clear();
   this->type = Type::UNKNOWN;
 }
 
@@ -87,6 +87,8 @@ std::string Joint::toString() const {
   if (safety) os << safety->toString();
   os << ", ";
   if (mimic) os << mimic->toString();
+  os << ", ";
+  if (limits) os << limits->toString();
   os << ", Transformations: [";
   for (size_t i = 0; i < transform.size(); ++i) {
     os << transform[i]->toString();
@@ -168,6 +170,18 @@ std::string Joint::getName() const { return this->name; }
 
 Joint::Type Joint::getType() const { return this->type; }
 
+std::shared_ptr<JointDynamics> Joint::getDynamics() const {
+  return this->dynamics;
+}
+
+std::shared_ptr<JointSafety> Joint::getSafety() const { return this->safety; }
+
+std::shared_ptr<JointCalibration> Joint::getCalibration() const {
+  return this->calibration;
+}
+
+std::shared_ptr<JointMimic> Joint::getMimic() const { return this->mimic; }
+
 void Joint::pushBackChild(const std::string lk) {
   if (!lk.empty()) {
     this->child.push_back(lk);
@@ -195,6 +209,8 @@ bool Joint::isParent(const char* name) const {
       std::find(this->parent.begin(), this->parent.end(), std::string(name));
   return it != this->parent.end();
 }
+std::shared_ptr<JointLimits> Joint::getLimits() const { return this->limits; }
+
 std::vector<std::shared_ptr<Pose>> Joint::getTransform() const {
   return this->transform;
 }

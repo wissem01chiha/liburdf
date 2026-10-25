@@ -1,0 +1,54 @@
+name: Sanitizer
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  cmake:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 80
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: GCC UBSan
+            os: ubuntu-latest
+            compiler: gcc
+            cxx-compiler: g++
+            cmake-args: -DLIBURDF_ENABLE_SANITIZERS=ON -DLIBURDF_ENABLE_ASAN=OFF -DLIBURDF_ENABLE_UBSAN=ON
+
+          - name: GCC ASan
+            os: ubuntu-latest
+            compiler: gcc
+            cxx-compiler: g++
+            cmake-args: -DLIBURDF_ENABLE_SANITIZERS=ON -DLIBURDF_ENABLE_ASAN=ON -DLIBURDF_ENABLE_UBSAN=OFF
+
+          - name: Clang MSan
+            os: ubuntu-latest
+            compiler: clang
+            cxx-compiler: clang++
+            cmake-args: -DLIBURDF_ENABLE_SANITIZERS=ON -DLIBURDF_ENABLE_ASAN=OFF -DLIBURDF_ENABLE_UBSAN=OFF -DLIBURDF_ENABLE_MSAN=ON
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Install packages
+        if: ${{ matrix.packages }}
+        run: sudo apt-get update && sudo apt-get install -y ${{ join(matrix.packages, ' ') }}
+
+      - name: Configure
+        run: cmake -S . -B build ${{ matrix.cmake-args }}
+        env:
+          CC: ${{ matrix.compiler }}
+          CXX: ${{ matrix.cxx-compiler }}
+          CFLAGS: ${{ matrix.cflags }}
+
+      - name: Build
+        run: cmake --build build
+
+      - name: Test
+        run: ctest --output-on-failure --max-width 150
+        working-directory: build

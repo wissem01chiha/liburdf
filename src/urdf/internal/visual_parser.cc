@@ -14,9 +14,13 @@ std::string VisualParser::toString() const {
   return os.str();
 }
 
-bool VisualParser::empty() const { return this->p_->empty(); }
+bool VisualParser::empty() const { return p_ ? p_->empty() : true; }
 
-void VisualParser::clear() { p_->clear(); }
+void VisualParser::clear() {
+  if (p_) {
+    p_->clear();
+  }
+}
 
 const char* VisualParser::getTypename() const {
   return this->p_->getTypename();
@@ -24,7 +28,9 @@ const char* VisualParser::getTypename() const {
 
 VisualParser::~VisualParser() {}
 
-bool VisualParser::isA(const char* name) const { return p_->isA(name); }
+bool VisualParser::isA(const char* name) const {
+  return p_ ? p_->isA(name) : false;
+}
 
 int VisualParser::parse(const tinyxml2::XMLElement* xml) {
   if (xml == nullptr) {

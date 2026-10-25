@@ -29,12 +29,14 @@ std::string PropertyParser<T>::toString() const {
 
 template <typename T>
 bool PropertyParser<T>::empty() const {
-  return p_->empty();
+  return p_ ? p_->empty() : true;
 }
 
 template <typename T>
 void PropertyParser<T>::clear() {
-  p_->clear();
+  if (p_) {
+    p_->clear();
+  }
 }
 
 template <typename T>

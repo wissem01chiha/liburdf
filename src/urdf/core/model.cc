@@ -102,7 +102,10 @@ std::vector<std::shared_ptr<Material>> Model::getMaterials() const {
 
 #pragma omp for nowait
     for (size_t i = 0; i < this->links.size(); ++i) {
-      local_mts.push_back(this->links[i]->getMaterial());
+      const auto material = this->links[i]->getMaterial();
+      if (material) {
+        local_mts.push_back(material);
+      }
     }
 
 #pragma omp critical
@@ -112,7 +115,10 @@ std::vector<std::shared_ptr<Material>> Model::getMaterials() const {
   }
 #else
   for (const auto& lk : this->links) {
-    mts.push_back(lk->getMaterial());
+    const auto material = lk->getMaterial();
+    if (material) {
+      mts.push_back(material);
+    }
   }
 #endif
   return mts;
@@ -125,7 +131,9 @@ std::vector<std::string> Model::getMaterialsName() const {
 
 #else
   for (const auto& mt : mts) {
-    mts_str.push_back(mt->getName());
+    if (mt) {
+      mts_str.push_back(mt->getName());
+    }
   }
 #endif
   return mts_str;

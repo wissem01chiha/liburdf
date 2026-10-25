@@ -10,7 +10,9 @@ Inertia::Inertia() {
 
 Inertia::Inertia(double mass, double ixx, double ixy, double ixz, double iyy,
                  double iyz, double izz)
-    : mass(mass), ixx(ixx), ixy(ixy), ixz(ixz), iyy(iyy), iyz(iyz), izz(izz) {}
+    : mass(mass), ixx(ixx), ixy(ixy), ixz(ixz), iyy(iyy), iyz(iyz), izz(izz) {
+  origin = std::make_shared<Pose>();
+}
 
 bool Inertia::isA(const char* name) const {
   return std::string(name) == "inertia";
@@ -39,16 +41,18 @@ bool Inertia::validate() const {
 }
 
 void Inertia::clear() {
-  origin->clear();
+  if (origin) {
+    origin->clear();
+  }
   mass = 0.0;
   ixx = ixy = ixz = iyy = iyz = izz = 0.0;
 }
 
 std::string Inertia::toString() const {
   std::ostringstream os;
-  os << "Inertia = ["
-     << "mass=" << mass << ", ixx=" << ixx << ", ixy=" << ixy << ", ixz=" << ixz
-     << ", iyy=" << iyy << ", iyz=" << iyz << ", izz=" << izz << "]";
+  os << "Inertia = [" << "mass=" << mass << ", ixx=" << ixx << ", ixy=" << ixy
+     << ", ixz=" << ixz << ", iyy=" << iyy << ", iyz=" << iyz << ", izz=" << izz
+     << "]";
   return os.str();
 }
 
@@ -65,6 +69,25 @@ void Inertia::getOrigin(double* xyz) const {
   xyz[0] = v[0];
   xyz[1] = v[1];
   xyz[2] = v[2];
+}
+
+void Inertia::setRotation(double x, double y, double z, double w) {
+  origin->setRotation(x, y, z, w);
+}
+
+void Inertia::setRotation(double r, double p, double y) {
+  origin->setRotation(r, p, y);
+}
+
+Rot3 Inertia::getRotation() const { return origin->getRotation(); }
+
+void Inertia::getRotation(double* rpy) const {
+  Rot3 rotation = origin->getRotation();
+  Eigen::Vector3d euler =
+      rotation.toRotationMatrix().canonicalEulerAngles(2, 1, 0);
+  rpy[0] = euler[2];
+  rpy[1] = euler[1];
+  rpy[2] = euler[0];
 }
 
 void Inertia::setMass(const double m) {

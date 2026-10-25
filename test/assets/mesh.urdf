@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<robot name="r8_mesh_scale">
+  <link name="a">
+    <visual><geometry><mesh filename="package://demo/meshes/part.stl" scale="0.001 0.001 0.001"/></geometry></visual>
+  </link>
+  <link name="b">
+    <visual><geometry><mesh filename="package://demo/meshes/part.stl" scale="1000 1000 1000"/></geometry></visual>
+  </link>
+  <joint name="j" type="fixed"><parent link="a"/><child link="b"/></joint>
+</robot>

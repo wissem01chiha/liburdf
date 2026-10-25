@@ -25,9 +25,13 @@ int CylinderParser::parse(const tinyxml2::XMLElement* xml) {
   return 0;
 }
 
-bool CylinderParser::isA(const char* name) const { return p_->isA(name); }
+bool CylinderParser::isA(const char* name) const {
+  return p_ ? p_->isA(name) : false;
+}
 
-const char* CylinderParser::getTypename() const { return p_->getTypename(); }
+const char* CylinderParser::getTypename() const {
+  return p_ ? p_->getTypename() : "unknown";
+}
 
 std::string CylinderParser::toString() const {
   std::ostringstream os;
@@ -39,6 +43,10 @@ std::string CylinderParser::toString() const {
 
 bool CylinderParser::empty() const { return p_ == nullptr; }
 
-void CylinderParser::clear() { p_->clear(); }
+void CylinderParser::clear() {
+  if (p_) {
+    p_->clear();
+  }
+}
 
 std::shared_ptr<Cylinder> CylinderParser::get() { return p_; }

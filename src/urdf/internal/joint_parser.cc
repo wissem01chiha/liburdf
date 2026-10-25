@@ -11,6 +11,7 @@ int JointParser::parse(const tinyxml2::XMLElement* xml) {
     LOG_F(ERROR, "JointParser::parse() received null pointer");
     return -1;
   }
+  p_ = std::make_shared<Joint>();
   const char* name_ = ParserBase<Joint>::getNameOf(xml);
   p_->setName(std::string(name_));
   const tinyxml2::XMLElement* axis_xml = xml->FirstChildElement("axis");
@@ -95,6 +96,8 @@ int JointParser::parse(const tinyxml2::XMLElement* xml) {
     std::shared_ptr<JointLimits> jl = std::make_shared<JointLimits>();
     jl->setEffort((*data)["effort"]);
     jl->setVelocity((*data)["velocity"]);
+    jl->setUpper((*data)["upper"]);
+    jl->setLower((*data)["lower"]);
     p_->setLimits(jl);
   }
 
@@ -145,13 +148,19 @@ int JointParser::parse(const tinyxml2::XMLElement* xml) {
   return 0;
 }
 
-const char* JointParser::getTypename() const { return p_->getTypename(); }
+const char* JointParser::getTypename() const {
+  return p_ ? p_->getTypename() : "unknown";
+}
 
 std::shared_ptr<Joint> JointParser::get() { return p_; }
 
-void JointParser::clear() { p_->clear(); }
+void JointParser::clear() {
+  if (p_) {
+    p_->clear();
+  }
+}
 
-bool JointParser::empty() const { return p_->empty(); }
+bool JointParser::empty() const { return p_ ? p_->empty() : true; }
 
 std::string JointParser::toString() const {
   std::ostringstream os;
@@ -161,5 +170,7 @@ std::string JointParser::toString() const {
   return os.str();
 }
 
-bool JointParser::isA(const char* name) const { return p_->isA(name); }
+bool JointParser::isA(const char* name) const {
+  return p_ ? p_->isA(name) : false;
+}
 JointParser::~JointParser() {};

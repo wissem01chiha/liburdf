@@ -33,6 +33,14 @@ TEST(ModelTest, AddLinksAndRetrieve) {
   EXPECT_EQ(links[1], l2);
 }
 
+TEST(ModelTest, AbsentLinkMaterialsAreSkipped) {
+  Model m;
+  m.setLink(std::make_shared<Link>());
+
+  EXPECT_TRUE(m.getMaterials().empty());
+  EXPECT_TRUE(m.getMaterialsName().empty());
+}
+
 TEST(ModelTest, AddJointsAndRetrieve) {
   Model m;
   auto j1 = std::make_shared<Joint>();

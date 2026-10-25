@@ -4,6 +4,7 @@
 [![Bazel](https://github.com/wissem01chiha/liburdf/actions/workflows/bazel.yml/badge.svg)](https://github.com/wissem01chiha/liburdf/actions/workflows/bazel.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/wissem01chiha/liburdf/badge)](https://www.codefactor.io/repository/github/wissem01chiha/liburdf)
 [![codecov](https://codecov.io/github/wissem01chiha/liburdf/branch/develop/graph/badge.svg?token=1Z4HUX83DE)](https://codecov.io/github/wissem01chiha/liburdf)
+[![Sanitizer](https://github.com/wissem01chiha/liburdf/actions/workflows/sanitizer.yml/badge.svg)](https://github.com/wissem01chiha/liburdf/actions/workflows/sanitizer.yml)
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/wissem01chiha/liburdf/main.svg)](https://results.pre-commit.ci/latest/github/wissem01chiha/liburdf/main)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/7d15d9ad72f94c8883b5ea6dd9d40177)](https://app.codacy.com/gh/wissem01chiha/liburdf/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 ![GitHub License](https://img.shields.io/github/license/wissem01chiha/liburdf)
@@ -12,7 +13,7 @@
 
 liburdf is a modern, opensource, cross‑platform C++17 library for reading and writing [urdf](https://industrial-training-master.readthedocs.io/en/melodic/_source/session3/Intro-to-URDF.html) model files. It is designed to be lightweight, dependency‑free, and available with multiple language bindings.
 
-liburdf is the successor of the tinyurdf project, a lightweight C++17 library for reading and processing URDF model files. I started working on tinyurdf back in 2024 with the goal of providing a replacement for traditional URDF manipulation tools, which rely heavily on the ROS runtime, Unix dependencies, or small Python libraries. During that time, I faced many issues with closed kinematics tree structures, which existing tools did not handle well. Visualization and graphical debugging of such models was very painful, and generating them from mesh or [CAD](https://fileinfo.com/filetypes/cad) files often required licensed software with many limitations.
+liburdf is the successor of the tinyurdf project, a lightweight C++17 library for reading and processing URDF model files. I started working on tinyurdf back in 2024 with the goal of providing a replacement for traditional URDF manipulation tools, which rely heavily on the ros runtime, Unix dependencies, or small Python libraries. During that time, I faced many issues with closed kinematics tree structures, which existing tools did not handle well. Visualization and graphical debugging of such models was very painful, and generating them from mesh or [CAD](https://fileinfo.com/filetypes/cad) files often required licensed software with many limitations.
 
 The main goal of liburdf was to provide a free, cross‑platform, lightweight library with multiple language bindings to read, write, generate, and visualize kinematics trees in a hierarchical xml-based representation and convert them back to mesh files.
 
@@ -48,10 +49,10 @@ Any contributions are greatly appreciated, see [Contributing](.github/CONTRIBUTI
 
 ## Acknowledgments
 
-Many thanks to everyone who has contributed to this project, whether by reporting issues, submitting pull requests, or providing other forms of support. In particular:
+Many thanks to everyone who has contributed to this project, whether by reporting issues, submitting pull requests, or providing other forms of support. 
+In particular:
 
 - [OmniLink Team](https://github.com/omnilink-tech)
-- [Shuyang Liu](https://github.com/kouge0510)
 
 ## Security
 

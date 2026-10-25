@@ -51,7 +51,9 @@ int CameraParser::parse(const tinyxml2::XMLElement* xml) {
 
 std::shared_ptr<Camera> CameraParser::get() { return p_; }
 
-const char* CameraParser::getTypename() const { return p_->getTypename(); }
+const char* CameraParser::getTypename() const {
+  return p_ ? p_->getTypename() : "unknown";
+}
 
 bool CameraParser::isA(const char* name) const {
   return std::string(name) == getTypename();

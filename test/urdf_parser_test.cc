@@ -38,3 +38,67 @@ TEST(URDFParserTest, EmptyValues) {
   EXPECT_TRUE(parser.isA("model"));
   EXPECT_STREQ(parser.getTypename(), "model");
 }
+
+TEST(URDFParserTest, RejectInvalidColorTest) {
+  InitializeLogging();
+  URDFParser p;
+  ASSERT_EQ(p.parse("./test/assets/invalid_color.urdf"), -1);
+  auto m = p.get();
+  ASSERT_NE(m, nullptr);
+  auto links = m->getLinks();
+  ASSERT_TRUE(links.empty());
+}
+
+TEST(URDFParserTest, SingleQuotedVersionTest) {
+  InitializeLogging();
+  URDFParser p;
+  ASSERT_EQ(p.parse("./test/assets/single_quoted.urdf"), 0);
+  auto m = p.get();
+  ASSERT_NE(m, nullptr);
+  auto links = m->getLinks();
+  ASSERT_FALSE(links.empty());
+  ASSERT_EQ(links.size(), 1);
+  auto joints = m->getJoints();
+  ASSERT_TRUE(joints.empty());
+  ASSERT_EQ(joints.size(), 0);
+}
+
+TEST(URDFParserTest, NamedOnlyMaterielParseTest) {
+  InitializeLogging();
+  URDFParser p;
+  ASSERT_EQ(p.parse("./test/assets/named_only.urdf"), 0);
+  auto m = p.get();
+  ASSERT_NE(m, nullptr);
+  auto links = m->getLinks();
+  ASSERT_FALSE(links.empty());
+  ASSERT_EQ(links.size(), 1);
+  auto joints = m->getJoints();
+  ASSERT_TRUE(joints.empty());
+  ASSERT_EQ(joints.size(), 0);
+}
+
+TEST(URDFParserTest, InertiaWithNoOriginParseTest) {
+  InitializeLogging();
+  URDFParser p;
+  // assert the inertia tag without <origin> do not fail the full parse engine
+  ASSERT_EQ(p.parse("./test/assets/r4_inertial_no_origin.urdf"), 0);
+  auto m = p.get();
+  ASSERT_NE(m, nullptr);
+}
+
+TEST(URDFParserTest, JointLimitsUpperLowerParseTest) {
+  InitializeLogging();
+  URDFParser p;
+  ASSERT_EQ(p.parse("./test/assets/r4_joint_limits.urdf"), 0);
+  auto m = p.get();
+  ASSERT_NE(m, nullptr);
+  auto joints = m->getJoints();
+  ASSERT_FALSE(joints.empty());
+  ASSERT_TRUE(joints.size() == 1);
+  auto joint = joints[0];
+  auto jl = joint->getLimits();
+  ASSERT_NE(jl, nullptr);
+  ASSERT_EQ(jl->getUpper(), 2.8973);
+  ASSERT_EQ(jl->getLower(), -2.8973);
+  ASSERT_FALSE(jl->toString().empty());
+}

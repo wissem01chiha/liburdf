@@ -47,11 +47,16 @@ class Joint final : public ObjectBase {
   void setAxis(double x, double y, double z);
   std::string getName() const;
   Type getType() const;
+  std::shared_ptr<JointDynamics> getDynamics() const;
+  std::shared_ptr<JointSafety> getSafety() const;
+  std::shared_ptr<JointCalibration> getCalibration() const;
+  std::shared_ptr<JointMimic> getMimic() const;
   void pushBackChild(const std::string lk);
   void pushBackParent(const std::string lk);
   void pushBackTransform(const std::shared_ptr<Pose> t);
   bool isChild(const char* name) const;
   bool isParent(const char* name) const;
+  std::shared_ptr<JointLimits> getLimits() const;
   std::vector<std::shared_ptr<Pose>> getTransform() const;
   std::vector<std::string> getChild() const;
   std::vector<std::string> getParent() const;

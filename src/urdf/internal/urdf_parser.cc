@@ -58,11 +58,19 @@ std::string URDFParser::toString() const {
   return os.str();
 }
 
-bool URDFParser::isA(const char* name) const { return this->model_->isA(name); }
+bool URDFParser::isA(const char* name) const {
+  return this->model_ ? this->model_->isA(name) : false;
+}
 
-bool URDFParser::empty() const { return this->model_->empty(); }
+bool URDFParser::empty() const {
+  return this->model_ ? this->model_->empty() : true;
+}
 
-void URDFParser::clear() { this->model_->clear(); }
+void URDFParser::clear() {
+  if (this->model_) {
+    this->model_->clear();
+  }
+}
 
 const char* URDFParser::getTypename() const {
   return this->model_->getTypename();

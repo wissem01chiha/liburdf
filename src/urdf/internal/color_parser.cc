@@ -15,7 +15,11 @@ std::string ColorParser::toString() const {
 
 bool ColorParser::empty() const { return false; }
 
-void ColorParser::clear() { p_->clear(); }
+void ColorParser::clear() {
+  if (p_) {
+    p_->clear();
+  }
+}
 
 const char* ColorParser::getTypename() const { return "color"; }
 
@@ -26,6 +30,10 @@ bool ColorParser::isA(const char* name) const {
 int ColorParser::parse(const tinyxml2::XMLElement* xml) {
   if (xml == nullptr) {
     LOG_F(ERROR, "ColorParser::parse() received null pointer");
+    return -1;
+  }
+  if (xml->Attribute("rgba") == nullptr) {
+    LOG_F(ERROR, "ColorParser::parse() received null rgba attribute");
     return -1;
   }
   std::string color_string_vector = std::string(xml->Attribute("rgba"));

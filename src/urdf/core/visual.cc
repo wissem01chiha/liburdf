@@ -10,7 +10,9 @@ Visual::Visual() {
 Visual::~Visual() { this->clear(); }
 
 void Visual::clear() {
-  origin->clear();
+  if (origin) {
+    origin->clear();
+  }
   geometry.reset();
   material_name.clear();
   material.reset();
@@ -41,13 +43,11 @@ std::string Visual::toString() const {
   if (material) {
     os << material->toString();
   }
-  os << ", "
-     << "Origin = ";
+  os << ", " << "Origin = ";
   if (origin) {
     os << origin->toString();
   }
-  os << ", "
-     << "Geometry = ";
+  os << ", " << "Geometry = ";
   if (geometry) {
     os << geometry->toString();
   }
