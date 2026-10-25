@@ -51,6 +51,7 @@ set(urdf_test_assets
     assets/mesh.urdf
     assets/r4_inertial_no_origin.urdf
     assets/r4_joint_limits.urdf
+    assets/r9_multi_geom.urdf
 )
 
 list(APPEND urdf_test_libraries urdf)

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot name="r9_multi_geom">
+  <link name="a">
+    <visual><origin xyz="1 0 0"/><geometry><box size="1 1 1"/></geometry></visual>
+    <visual><origin xyz="2 0 0"/><geometry><sphere radius="0.5"/></geometry></visual>
+    <collision><origin xyz="1 0 0"/><geometry><box size="1 1 1"/></geometry></collision>
+    <collision><origin xyz="2 0 0"/><geometry><sphere radius="0.5"/></geometry></collision>
+  </link>
+</robot>

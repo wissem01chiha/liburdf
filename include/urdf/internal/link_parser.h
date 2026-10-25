@@ -46,6 +46,8 @@
  * refrenace to the parsed object rather it gives a pointer to the specifc
  * parsed instanciated during ruintime , we use the same inhertancce pardigm
  * like geometryParser
+ * @note Multiple visual and collision elements are retained in document
+ * order.
  * @todo find a way to get the parsed obejct in a sperate method or overolding
  * it
  */

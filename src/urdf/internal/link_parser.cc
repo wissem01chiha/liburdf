@@ -20,22 +20,35 @@ int LinkParser::parse(const tinyxml2::XMLElement* xml) {
     p_->setInertia(id);
   }
 
-  const tinyxml2::XMLElement* collision_xml =
-      xml->FirstChildElement("collision");
-  if (collision_xml) {
+  const tinyxml2::XMLElement* collision_xml = xml->FirstChildElement("collision");
+  bool first_collision = true;
+  while (collision_xml) {
     CollisionParser coop;
     int cps = coop.parse(collision_xml);
     if (cps) return cps;
     const auto co_ptr = coop.get();
-    p_->setCollision(co_ptr);
+    if (first_collision) {
+      p_->setCollision(co_ptr);
+      first_collision = false;
+    } else {
+      p_->addCollision(co_ptr);
+    }
+    collision_xml = collision_xml->NextSiblingElement("collision");
   }
-  const tinyxml2::XMLElement* viusal_xml = xml->FirstChildElement("visual");
-  if (viusal_xml) {
+  const tinyxml2::XMLElement* visual_xml = xml->FirstChildElement("visual");
+  bool first_visual = true;
+  while (visual_xml) {
     VisualParser vp;
-    int vps = vp.parse(viusal_xml);
+    int vps = vp.parse(visual_xml);
     if (vps) return vps;
     const auto vi_ptr = vp.get();
-    p_->setVisual(vi_ptr);
+    if (first_visual) {
+      p_->setVisual(vi_ptr);
+      first_visual = false;
+    } else {
+      p_->addVisual(vi_ptr);
+    }
+    visual_xml = visual_xml->NextSiblingElement("visual");
   }
   return 0;
 }
