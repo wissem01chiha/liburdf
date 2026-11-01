@@ -33,7 +33,7 @@ int URDFParser::parse(const char* filename) {
   if (eResult != tinyxml2::XML_SUCCESS) {
     LOG_F(ERROR, "Error loading XML file: %s", doc.ErrorStr());
     return -1;
-  } else {
+  } 
     const tinyxml2::XMLElement* xml = doc.FirstChildElement("robot");
     if (!xml) {
       LOG_F(ERROR, "Error: This is not a valid URDF file format");
@@ -42,8 +42,6 @@ int URDFParser::parse(const char* filename) {
     VersionParser vp;
     vp.parse(doc);
     return this->parse(xml);
-  }
-  return 0;
 }
 
 int URDFParser::parse(const std::string& filename) {

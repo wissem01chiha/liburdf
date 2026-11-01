@@ -25,9 +25,9 @@ int VersionParser::parse(const tinyxml2::XMLDocument& doc) {
 
   // support for both single and double quotes in the version attribute
   const char* versionStart = strstr(version_str, "version=\"");
-  if (versionStart == NULL) {
+  if (versionStart == nullptr) {
     versionStart = strstr(version_str, "version='");
-    if (versionStart == NULL) {
+    if (versionStart == nullptr) {
       LOG_F(ERROR, "No valid version attribute found in XML declaration!");
       return -1;
     }

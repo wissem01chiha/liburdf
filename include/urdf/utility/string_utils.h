@@ -34,6 +34,6 @@ void split(const std::string& str, std::vector<std::string>& split_result,
  * @param format The format string for parsing.
  * @param ... Additional arguments to store the parsed values.
  */
-int sscanf_w(const char* buffer, const char* format, char* out, size_t outSize);
+int sscanf_w(const char* buffer, const char* format, char* out, [[maybe_unused]] size_t outSize);
 
 #endif  // INCLUDE_URDF_UTILITY_STRING_UTILS_H_

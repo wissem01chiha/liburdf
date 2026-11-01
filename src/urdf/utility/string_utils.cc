@@ -34,7 +34,7 @@ void split(const std::string& str, std::vector<std::string>& split_result,
 }
 
 int sscanf_w(const char* buffer, const char* format, char* out,
-             size_t outSize) {
+             [[maybe_unused]] size_t outSize) {
 #ifdef _MSC_VER
   return sscanf_s(buffer, format, out, outSize);
 #else
