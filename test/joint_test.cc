@@ -66,7 +66,7 @@ TEST(JointTest, ClearJointTest) {
   joint.pushBackParent("parent_link");
   Pose pose;
   pose.setPosition(1.0, 2.0, 3.0);
-  std::shared_ptr<Pose> pose_ptr = std::make_shared<Pose>(pose);
+  auto pose_ptr = std::make_shared<Pose>(pose);
   joint.pushBackTransform(pose_ptr);
   joint.clear();
   EXPECT_STREQ(joint.getTypename(), "joint");
