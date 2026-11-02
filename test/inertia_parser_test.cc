@@ -36,7 +36,7 @@ TEST(InertiaParserTest, ParseInertialPoseTest) {
 
   tinyxml2::XMLDocument doc;
   ASSERT_EQ(doc.Parse(xmlString), tinyxml2::XML_SUCCESS);
-  tinyxml2::XMLElement* element = doc.FirstChildElement("robot")
+  const tinyxml2::XMLElement* element = doc.FirstChildElement("robot")
                                       ->FirstChildElement("link")
                                       ->FirstChildElement("inertial");
 
